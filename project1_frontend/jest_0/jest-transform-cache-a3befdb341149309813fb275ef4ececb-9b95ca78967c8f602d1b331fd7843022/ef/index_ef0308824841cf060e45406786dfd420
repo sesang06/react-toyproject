@@ -1,0 +1,97 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/GroupList/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Group = require('../Group');var _Group2 = _interopRequireDefault(_Group);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class GroupList extends _react.Component {
+  constructor() {
+    super();
+    this.onGet = this.onGet.bind(this);
+    this.onPost = this.onPost.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onGet() {
+    this.props.getGroupList(this.props.ubase64);
+  }
+
+  onPost() {
+    this.props.postGroupList(this.props.ubase64, this.group_name.value);
+  }
+
+  onClick(e) {
+    var group_id = e.target.id;
+    var id = group_id.split('_')[0];
+    var content_id = id + "_content";
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tablinks.length; i++)
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+    document.getElementById(group_id).style.display = "block";
+    e.target.className += " active";
+
+    var tabcontent = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabcontent.length; i++)
+    tabcontent[i].style.display = "none";
+    document.getElementById(content_id).style.display = "block";
+
+    this.props.setGroupNotice([]);
+    this.props.setGroupForum([]);
+  }
+
+  render() {
+    if (this.props.loginStatus == 1) {
+      let len = this.props.group_list.length;
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 48 }, __self: this },
+          _react2.default.createElement('div', { className: 'tab', __source: { fileName: _jsxFileName, lineNumber: 49 }, __self: this },
+            _react2.default.createElement('button', { id: 'get_group_list', className: 'tablinks', onClick: this.onGet, __source: { fileName: _jsxFileName, lineNumber: 50 }, __self: this }, 'Get Group List'),
+            Array.apply(null, Array(len)).map(function (item, i) {
+              return (
+                _react2.default.createElement('button', { id: this.props.group_list[i].id + '_group', className: 'tablinks', onClick: this.onClick, __source: { fileName: _jsxFileName, lineNumber: 53 }, __self: this }, this.props.group_list[i].group_name));
+
+            }, this),
+            _react2.default.createElement('textarea', { id: 'group_name_field', className: 'tablinks', ref: ref => this.group_name = ref, placeholder: 'Group Name', __source: { fileName: _jsxFileName, lineNumber: 56 }, __self: this }),
+            _react2.default.createElement('button', { id: 'add_group', className: 'tablinks', onClick: this.onPost, __source: { fileName: _jsxFileName, lineNumber: 57 }, __self: this }, '+ Add Group')),
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 59 }, __self: this },
+            Array.apply(null, Array(len)).map(function (item, i) {
+              return (
+                _react2.default.createElement(_Group2.default, { id: this.props.group_list[i].id + '_content', member_list: this.props.group_list[i].member_list, admin: this.props.group_list[i].admin, member: this.props.group_list[i].member, __source: { fileName: _jsxFileName, lineNumber: 62 }, __self: this }));
+
+            }, this))));
+
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this },
+          _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this }, '\uB85C\uADF8\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.')));
+
+
+    }
+  }}
+
+
+
+let mapStateToProps = state => {
+  return {
+    loginStatus: state.login_reducer.loginStatus,
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    group_list: state.group_list_reducer.group_list };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    setGroupForum: forum_list => dispatch((0, _actions.SetGroupForumRequest)(forum_list)),
+    setGroupNotice: notice_list => dispatch((0, _actions.SetGroupNoticeRequest)(notice_list)),
+    getGroupList: ubase64 => dispatch((0, _actions.GetGroupListRequest)(ubase64)),
+    postGroupList: (ubase64, group_name) => dispatch((0, _actions.PostGroupListRequest)(ubase64, group_name)) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(GroupList);

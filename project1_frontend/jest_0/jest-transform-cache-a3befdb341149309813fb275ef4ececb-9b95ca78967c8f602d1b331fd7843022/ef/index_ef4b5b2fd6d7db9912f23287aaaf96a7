@@ -1,0 +1,115 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/ChatBox/index.js';
+//import './index.css';
+var _react = require('react');var _react2 = _interopRequireDefault(_react);var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _UserList = require('../UserList');var _UserList2 = _interopRequireDefault(_UserList);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var newchat = "";
+var chatlog = [];
+
+class ChatBox extends _react.Component {
+  constructor() {
+    super();
+    this.onText = this.onText.bind(this);
+    this.onChat = this.onChat.bind(this);
+    this.getChatlog = this.getChatlog.bind(this);
+  }
+
+  getChatlog() {
+    if (this.props.loginStatus == 1)
+    this.props.getChat(this.props.ubase64);
+  }
+
+  updateChatlog() {
+    if (this.props.loginStatus == 1) {
+      this.getChatlog();
+      chatlog = this.props.chatlog;
+    }
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+    () => this.updateChatlog(), 1000);
+
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  onText(e) {
+    newchat = e.target.value;
+  }
+
+  onChat() {
+    if (this.props.valid)
+    this.props.postChat(this.props.uname, this.props.ubase64, this.props.receiver, newchat);
+  }
+
+  render() {
+    var chatlist = [];
+    var sender = this.props.uname;
+    var receiver = this.props.valid ? this.props.receiver : "";
+    var len = chatlog.length;
+
+    if (this.props.valid) {
+      for (var i = 0; i < len; i++) {
+        if (chatlog[i].sender === sender && chatlog[i].receiver === receiver ||
+        chatlog[i].sender === receiver && chatlog[i].receiver === sender) {
+          chatlist.push(chatlog[i]);
+        }
+      }
+    }
+
+    if (this.props.loginStatus === 1) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 68 }, __self: this },
+          _react2.default.createElement(_UserList2.default, { __source: { fileName: _jsxFileName, lineNumber: 69 }, __self: this }),
+          Array.apply(null, Array(chatlist.length)).map(function (item, i) {
+            var date = chatlist[i].created.split('T')[0];
+            var time = chatlist[i].created.split('T')[1].split('.')[0];
+            return (
+              _react2.default.createElement('div', { id: "chatlog_" + i, key: "chatlog_" + i, __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this },
+                _react2.default.createElement('label', { id: "date_" + i, key: "date_" + i, __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this }, date), '\xA0\xA0\xA0',
+
+                _react2.default.createElement('label', { id: "time_" + i, key: "time_" + i, __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this }, time), '\xA0\xA0\xA0',
+
+                _react2.default.createElement('label', { id: "chat_" + i, key: "chat_" + i, __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }, chatlist[i].sender, ' : ', chatlist[i].chat)));
+
+
+          }, this),
+          _react2.default.createElement('textarea', { id: 'chat_box', onChange: this.onText, placeholder: 'Send a message to your friend!', __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this }),
+          _react2.default.createElement(_Button2.default, { id: 'chat_send', onClick: this.onChat, text: 'SEND', __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this })));
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 89 }, __self: this },
+          _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 90 }, __self: this }, ' \uB85C\uADF8\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4. ')));
+
+
+    }
+  }}
+
+
+let mapStateToProps = state => {
+  return {
+    chatlog: state.chat_reducer.chatlog,
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    valid: state.chat_reducer.valid, // receiver is valid - True, o.w. - False
+    receiver: state.chat_reducer.receiver,
+    loginStatus: state.login_reducer.loginStatus };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    postChat: (sender, ubase64, receiver, chat) => dispatch((0, _actions.PostChatRequest)(sender, ubase64, receiver, chat)),
+    getChat: ubase64 => dispatch((0, _actions.GetChatRequest)(ubase64)) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ChatBox);

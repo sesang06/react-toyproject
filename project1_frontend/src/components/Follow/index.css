@@ -1,0 +1,12 @@
+.tabcontent {
+  float: right;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 75%;
+  border-left: none;
+  display: none;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+

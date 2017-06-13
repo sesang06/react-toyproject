@@ -1,0 +1,159 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Register/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Input = require('../Input');var _Input2 = _interopRequireDefault(_Input);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Register extends _react.Component {
+  onIdValid() {
+    if (this.newuname.input.value === "") {
+      this.props.onSetIdValid(1);
+    } else {
+      this.props.onId(this.newuname.input.value);
+    }
+  }
+  onPasswordValid() {
+
+    if (this.newpwd.input.value === "") {
+      this.props.onSetPasswordValid(1);
+    } else {
+      if (this.newpwd.input.value === this.newuname.input.value)
+      this.props.onSetPasswordValid(4);else
+      {
+        const regdigits = /^(?=.*?[A-Za-z]).{8,}$/;
+        if (!this.newpwd.input.value.match(regdigits))
+        this.props.onSetPasswordValid(2);else
+        {
+          this.props.onSetPasswordValid(3);
+          if (this.newpwdcheck.input.value !== "")
+          this.onPasswordCheckValid();
+        }
+      }
+    }
+  }
+  onPasswordCheckValid() {
+    if (this.newpwdcheck.input.value === "") {
+      this.props.onSetPasswordCheckValid(1);
+    } else if (this.newpwd.input.value !== this.newpwdcheck.input.value) {
+      this.props.onSetPasswordCheckValid(2);
+    } else {
+      this.props.onSetPasswordCheckValid(3);
+    }
+  }
+  onEmailValid() {
+    console.log("hello email");
+    if (this.newemail.input.value === "") {
+      this.props.onSetEmailValid(1);
+    } else {
+      const regExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!this.newemail.input.value.match(regExp)) {
+        this.props.onSetEmailValid(2);
+      } else {
+        this.props.onSetEmailValid(3);
+      }
+
+    }
+  }
+  onSubmit() {
+    this.onIdValid();
+    this.onPasswordValid();
+    this.onPasswordCheckValid();
+    this.onEmailValid();
+    if (this.props.idValid === 4 && this.props.passwordValid === 3 & this.props.passwordCheckValid === 3 && this.props.emailValid === 3) {
+      this.props.onRegister(this.newuname.input.value, this.newpwd.input.value, this.newemail.input.value);
+    }
+  }
+  onClickReset() {
+    this.props.onReset();
+  }
+  render() {
+    const passwordMessage = { 0: "", 1: "필수 입력 항목입니다.", 2: "영문자가 반드시 하나 이상 포함된 8자 이상의 비밀번호여야 합니다.", 3: "확인되었습니다!", 4: "비밀번호는 아이디와 같을 수 없습니다." };
+
+    if (this.props.registerValid !== 2)
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 76 }, __self: this },
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this }),
+
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this },
+          _react2.default.createElement(_Input2.default, { id: 'register_id', type: 'text', onBlur: this.onIdValid.bind(this), ref: ref => this.newuname = ref, placeholder: '\uC544\uC774\uB514', __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this },
+          _react2.default.createElement('label', { id: 'register_idmessage', __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this }, this.props.idValid === 0 ? "" : this.props.idValid === 1 ? "필수 입력 항목입니다." : this.props.idValid === 2 ? "적절하지 않은 아이디입니다." : this.props.idValid === 3 ? "이미 존재하는 아이디입니다." : "확인되었습니다!")),
+
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this },
+          _react2.default.createElement(_Input2.default, { id: 'register_pwd', type: 'password', onBlur: this.onPasswordValid.bind(this), ref: ref => this.newpwd = ref, placeholder: '\uBE44\uBC00\uBC88\uD638', __source: { fileName: _jsxFileName, lineNumber: 88 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 90 }, __self: this },
+          _react2.default.createElement('label', { id: 'register_pwdmessage', __source: { fileName: _jsxFileName, lineNumber: 91 }, __self: this }, ' ', passwordMessage[this.props.passwordValid])),
+
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 94 }, __self: this },
+          _react2.default.createElement(_Input2.default, { id: 'register_pwdcheck', type: 'password', onBlur: this.onPasswordCheckValid.bind(this), ref: ref => this.newpwdcheck = ref, placeholder: '\uBE44\uBC00\uBC88\uD638 \uD655\uC778', __source: { fileName: _jsxFileName, lineNumber: 95 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 97 }, __self: this },
+          _react2.default.createElement('label', { id: 'register_pwdcheckmessage', __source: { fileName: _jsxFileName, lineNumber: 98 }, __self: this },
+            this.props.passwordCheckValid === 0 ? "" : this.props.passwordCheckValid === 1 ? "필수 입력 항목입니다." : this.props.passwordCheckValid === 2 ? "비밀번호와 일치하지 않습니다." : "확인되었습니다!")),
+
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 102 }, __self: this },
+          _react2.default.createElement(_Input2.default, { id: 'register_email', type: 'text', onBlur: this.onEmailValid.bind(this), ref: ref => this.newemail = ref, placeholder: '\uC774\uBA54\uC77C', __source: { fileName: _jsxFileName, lineNumber: 103 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 105 }, __self: this },
+          _react2.default.createElement('label', { id: 'register_emailmessage', __source: { fileName: _jsxFileName, lineNumber: 106 }, __self: this },
+            this.props.emailValid === 0 ? "" : this.props.emailValid === 1 ? "필수 입력 항목입니다." : this.props.emailValid === 2 ? "적절하지 않은 이메일 형식입니다." : "확인되었습니다!")),
+
+
+        _react2.default.createElement('div', { className: 'Submit', __source: { fileName: _jsxFileName, lineNumber: 110 }, __self: this },
+          _react2.default.createElement(_Button2.default, { id: 'register_submit', onClick: this.onSubmit.bind(this), text: '\uD68C\uC6D0 \uAC00\uC785', __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this })),
+
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 113 }, __self: this },
+          _react2.default.createElement('label', { id: 'register_submitmessage', __source: { fileName: _jsxFileName, lineNumber: 114 }, __self: this },
+            this.props.registerValid === 0 ? "" : this.props.registerValid === 1 ? "회원 가입에 실패했습니다. 다시 시도해 주세요." : "회원이 되신 것을 축하합니다!"))));else
+
+
+
+
+    return (
+      _react2.default.createElement('div', { className: 'Inputblock', __source: { fileName: _jsxFileName, lineNumber: 121 }, __self: this },
+        _react2.default.createElement('p', { id: 'register_welcome', __source: { fileName: _jsxFileName, lineNumber: 122 }, __self: this }, '\uD68C\uC6D0\uC774 \uB418\uC2E0 \uAC83\uC744 \uCD95\uD558\uB4DC\uB9BD\uB2C8\uB2E4!'),
+        _react2.default.createElement('p', { id: 'register_welcome_id', __source: { fileName: _jsxFileName, lineNumber: 123 }, __self: this }, 'ID : ', this.props.uname),
+        _react2.default.createElement('p', { id: 'register_welcome_email', __source: { fileName: _jsxFileName, lineNumber: 124 }, __self: this }, 'Email : ', this.props.uemail),
+        _react2.default.createElement(_Button2.default, { id: 'register_back', onClick: this.onClickReset.bind(this), text: '\uCC98\uC74C \uD654\uBA74\uC73C\uB85C \uB3CC\uC544\uAC00\uAE30', __source: { fileName: _jsxFileName, lineNumber: 125 }, __self: this })));
+
+
+  }}
+
+let mapStateToProps = state => {
+
+  return {
+    register_entered: state.register_reducer.register_entered,
+    register_fail: state.register_reducer.register_fail,
+    id_entered: state.register_reducer.id_entered,
+    id_fail: state.register_reducer.id_fail,
+    uname: state.register_reducer.uname,
+    uemail: state.register_reducer.uemail,
+    idValid: state.register_reducer.idValid,
+    passwordValid: state.register_reducer.passwordValid,
+    passwordCheckValid: state.register_reducer.passwordCheckValid,
+    emailValid: state.register_reducer.emailValid,
+    registerValid: state.register_reducer.registerValid };
+
+
+};
+let mapDispatchToProps = dispatch => {
+  return {
+    onRegister: (uname, upwd, uemail) => dispatch((0, _actions.postRegisterRequest)(uname, upwd, uemail)),
+    onId: uname => dispatch((0, _actions.postIdRequest)(uname)),
+    onSetIdValid: idValid => dispatch((0, _actions.SetIdValid)(idValid)),
+    onSetPasswordValid: passwordValid => dispatch((0, _actions.SetPasswordValid)(passwordValid)),
+    onSetPasswordCheckValid: passwordCheckValid => dispatch((0, _actions.SetPasswordCheckValid)(passwordCheckValid)),
+    onSetEmailValid: emailValid => dispatch((0, _actions.SetEmailValid)(emailValid)),
+    onReset: () => dispatch((0, _actions.ResetRegister)()) };
+
+
+};exports.default =
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Register);

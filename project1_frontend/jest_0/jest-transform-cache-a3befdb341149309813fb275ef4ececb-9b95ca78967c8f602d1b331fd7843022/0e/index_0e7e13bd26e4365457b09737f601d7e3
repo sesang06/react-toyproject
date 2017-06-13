@@ -1,0 +1,283 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Image/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _reactRedux = require('react-redux');
+var _reactFiles = require('react-files');var _reactFiles2 = _interopRequireDefault(_reactFiles);
+var _actions = require('../../actions');
+var _Gallery = require('../Gallery');var _Gallery2 = _interopRequireDefault(_Gallery);
+var _ImageGallery = require('../ImageGallery');var _ImageGallery2 = _interopRequireDefault(_ImageGallery);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+class Image extends _react.Component {
+  constructor() {
+    super();
+
+    //this.onGet = this.onGet.bind(this)
+    this.state = {
+      files: [],
+      deleteimageidlist: [],
+      delete: false };
+
+    this.getInitialState = this.getInitialState.bind(this);
+    this.onFilesChange = this.onFilesChange.bind(this);
+    this.onFilesError = this.onFilesError.bind(this);
+    this.filesRemoveOne = this.filesRemoveOne.bind(this);
+    this.filesRemoveAll = this.filesRemoveAll.bind(this);
+    this.filesUpload = this.filesUpload.bind(this);
+    this.onGet = this.onGet.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.onUpdate = this.onUpdate.bind(this);
+  }
+  componentDidMount() {
+    this.onGet();
+  }
+  componentWillReceiveProps() {
+    this.state = {
+      files: [],
+      deleteimageidlist: [],
+      delete: false };
+
+
+  }
+
+
+  onUpdate() {
+    this.setState({ delete: !this.state.delete });
+    console.log(this.state.delete
+    // this.props.updateArticle(this.props.ubase64, newtext)
+    );}
+
+  onGet() {
+    if (this.props.loginStatus === 1) {
+      this.props.getImage(this.props.ubase64);
+    }
+    console.log(this.props.imagelist.map(item =>
+    {
+      let value = { original: "", thumbnail: "" };
+      value.original = item.image;
+      value.thumbnail = item.image;
+      return value;
+    }));
+
+
+  }
+
+  getInitialState() {
+    return {
+      files: [],
+      deleteimageidlist: [],
+      delete: false };
+
+  }
+
+  onFilesChange(files) {
+    this.setState({
+      files },
+    () => {
+      console.log(this.state.files);
+    });
+  }
+
+  onFilesError(error, file) {
+    console.log('error code ' + error.code + ': ' + error.message);
+  }
+
+  filesRemoveOne(file) {
+    this.refs.files.removeFile(file);
+  }
+
+  filesRemoveAll() {
+    this.refs.files.removeFiles();
+  }
+
+  filesUpload() {
+    //window.alert('Ready to upload ' + this.state.files.length + ' file(s)!')
+    this.props.postImage(this.props.ubase64, this.state.files);
+  }
+
+
+  imageRemoveOne(id) {
+    if (this.state.deleteimageidlist.indexOf(id) === -1) {
+      console.log("hasno");
+      this.setState({
+        deleteimageidlist: this.state.deleteimageidlist.concat(id) });
+
+    } else {
+      console.log("hasyes");
+      this.setState({
+        deleteimageidlist: this.state.deleteimageidlist.slice().filter(item => id !== item) });
+
+    }
+  }
+
+  onDelete() {
+    console.log("dd");
+    console.log(this.state.deleteimageidlist);
+    this.props.deleteImage(this.props.ubase64, this.state.deleteimageidlist);
+  }
+  render() {
+    const imagelist =
+    _react2.default.createElement('div', { className: 'files-list', __source: { fileName: _jsxFileName, lineNumber: 120 }, __self: this },
+      _react2.default.createElement('ul', { __source: { fileName: _jsxFileName, lineNumber: 121 }, __self: this }, this.state.files.map(file =>
+        _react2.default.createElement('li', { className: 'files-list-item', key: file.id, __source: { fileName: _jsxFileName, lineNumber: 122 }, __self: this },
+          _react2.default.createElement('div', { className: 'files-list-item-preview', __source: { fileName: _jsxFileName, lineNumber: 123 }, __self: this },
+            file.preview.type === 'image' ?
+            _react2.default.createElement('img', { className: 'files-list-item-preview-image', src: file.preview.url, __source: { fileName: _jsxFileName, lineNumber: 125 }, __self: this }) :
+            _react2.default.createElement('div', { className: 'files-list-item-preview-extension', __source: { fileName: _jsxFileName, lineNumber: 126 }, __self: this }, file.extension)),
+
+          _react2.default.createElement('div', { className: 'files-list-item-content', __source: { fileName: _jsxFileName, lineNumber: 128 }, __self: this },
+            _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-1', __source: { fileName: _jsxFileName, lineNumber: 129 }, __self: this }, file.name),
+            _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-2', __source: { fileName: _jsxFileName, lineNumber: 130 }, __self: this }, file.sizeReadable)),
+
+          _react2.default.createElement('div', {
+            id: file.id,
+            className: 'files-list-item-remove',
+            onClick: this.filesRemoveOne.bind(this, file) // eslint-disable-line
+            , __source: { fileName: _jsxFileName, lineNumber: 132 }, __self: this })))));
+
+
+
+
+
+    const deleteimagelist =
+    _react2.default.createElement('div', { className: 'files-list', __source: { fileName: _jsxFileName, lineNumber: 143 }, __self: this },
+      _react2.default.createElement('h1', { __source: { fileName: _jsxFileName, lineNumber: 144 }, __self: this }, '\uAC24\uB7EC\uB9AC \uC774\uBBF8\uC9C0 \uC9C0\uC6B0\uAE30'),
+
+      _react2.default.createElement('ul', { __source: { fileName: _jsxFileName, lineNumber: 146 }, __self: this }, this.props.imagelist.map(image =>
+        _react2.default.createElement('li', { className: 'files-list-item', key: image.id, __source: { fileName: _jsxFileName, lineNumber: 147 }, __self: this },
+          _react2.default.createElement('div', { className: 'files-list-item-preview', __source: { fileName: _jsxFileName, lineNumber: 148 }, __self: this },
+            this.state.deleteimageidlist.indexOf(image.id) === -1 ?
+            _react2.default.createElement('img', { className: 'files-list-item-preview-image', src: image.image, __source: { fileName: _jsxFileName, lineNumber: 150 }, __self: this }) :
+            _react2.default.createElement('div', { className: 'files-list-item-preview-extension', __source: { fileName: _jsxFileName, lineNumber: 151 }, __self: this }, 'X')),
+
+          _react2.default.createElement('div', { className: 'files-list-item-content', __source: { fileName: _jsxFileName, lineNumber: 153 }, __self: this },
+            _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-1', __source: { fileName: _jsxFileName, lineNumber: 154 }, __self: this }, image.author),
+            _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-2', __source: { fileName: _jsxFileName, lineNumber: 155 }, __self: this }, image.id)),
+
+          _react2.default.createElement('div', {
+            id: image.id,
+            className: 'files-list-item-remove',
+            onClick: this.imageRemoveOne.bind(this, image.id) // eslint-disable-line
+            , __source: { fileName: _jsxFileName, lineNumber: 157 }, __self: this })))),
+
+
+      _react2.default.createElement('button', { onClick: this.onDelete.bind(), __source: { fileName: _jsxFileName, lineNumber: 164 }, __self: this }, '\uC9C0\uC6B0\uAE30'));
+
+
+
+
+    const FileUpload =
+    _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 170 }, __self: this },
+      _react2.default.createElement('h1', { __source: { fileName: _jsxFileName, lineNumber: 171 }, __self: this }, '\uC774\uBBF8\uC9C0 \uC62C\uB9AC\uAE30'),
+      _react2.default.createElement('div', { className: 'file-body', __source: { fileName: _jsxFileName, lineNumber: 172 }, __self: this },
+        _react2.default.createElement(_reactFiles2.default, {
+            id: 'gallery_upload',
+            ref: 'files',
+            className: 'files-dropzone-list',
+            style: { height: '100px' },
+            onChange: this.onFilesChange,
+            onError: this.onFilesError,
+            multiple: true,
+            maxFiles: 10,
+            maxFileSize: 10000000,
+            minFileSize: 0,
+            clickable: true, __source: { fileName: _jsxFileName, lineNumber: 173 }, __self: this }, '\uC774\uBBF8\uC9C0\uB97C \uC774\uACF3\uC73C\uB85C \uB4DC\uB78D\uD558\uAC70\uB098, \uC774\uACF3\uC744 \uD074\uB9AD\uD574 \uC5C5\uB85C\uB4DC\uD558\uC138\uC694!')),
+
+
+
+
+      imagelist,
+      _react2.default.createElement('button', { onClick: this.filesRemoveAll, __source: { fileName: _jsxFileName, lineNumber: 190 }, __self: this }, '\uC62C\uB9B0 \uBAA8\uB4E0 \uC774\uBBF8\uC9C0 \uC9C0\uC6B0\uAE30'),
+      _react2.default.createElement('button', { id: 'gallery_upload_image', onClick: this.filesUpload, __source: { fileName: _jsxFileName, lineNumber: 191 }, __self: this }, '\uC5C5\uB85C\uB4DC\uD558\uAE30'));
+
+
+
+    if (this.props.loginStatus === 1)
+    return (
+      _react2.default.createElement('div', { className: 'div-body', __source: { fileName: _jsxFileName, lineNumber: 197 }, __self: this },
+        _react2.default.createElement('button', { id: 'gallery_button', onClick: this.onGet, __source: { fileName: _jsxFileName, lineNumber: 198 }, __self: this }, '\uAC24\uB7EC\uB9AC \uBD88\uB7EC\uC624\uAE30 '),
+
+        this.props.imagelist.length !== 0 ? _react2.default.createElement(_ImageGallery2.default, { imagelist: this.props.imagelist.map(({ image, created }) => ({
+            original: image,
+            thumbnail: image,
+            originalClass: 'featured-slide',
+            thumbnailClass: 'featured-thumb',
+            description: created.toString() })), __source: { fileName: _jsxFileName, lineNumber: 200 }, __self: this }) :
+        null,
+        _react2.default.createElement('button', { id: 'gallery_modify_button', onClick: this.onUpdate.bind(this), __source: { fileName: _jsxFileName, lineNumber: 207 }, __self: this }, this.state.delete ? "갤러리 수정 취소" : "갤러리 수정"),
+
+        this.state.delete ? deleteimagelist : null,
+
+        this.state.delete ? FileUpload : null));else
+
+
+
+
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 217 }, __self: this },
+        _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 218 }, __self: this }, '\uB85C\uADF8\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.')));
+
+
+
+  }}
+
+/*
+     
+             <Gallery images={this.props.imagelist.map(({image, orientation ='landscape'}) => ({
+               src: image,
+               thumbnail: image,
+               orientation
+             }))}/>
+     
+     
+     
+     <Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation }) => ({
+       src: makeUnsplashSrc(id),
+       thumbnail: makeUnsplashThumbnail(id, orientation),
+       orientation
+     }))}/>
+     
+     */
+/*
+        function makeUnsplashSrc (id) {
+          return 'http://localhost:8000/media/uploads/2017/05/25/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2017-04-06_03-48-02.png'
+          //return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=1024&h=1024`;
+        }
+        function makeUnsplashThumbnail (id, orientation = 'landscape') {
+        	const dimensions = orientation === 'square'
+        		? 'w=300&h=300'
+        		: 'w=240&h=159';
+        
+              return 'http://localhost:8000/media/uploads/2017/05/25/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2017-04-06_03-48-02.png'
+        //	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&crop=faces&fit=crop&${dimensions}`;
+        }
+        const DEFAULT_IMAGES = [
+        	{ id: '1470619549108-b85c56fe5be8', caption: 'Photo by Alan Emery', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
+        	{ id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
+        	{ id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
+        	{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
+        	{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
+        ];
+        */
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus,
+    imagelist: state.image_reducer.imagelist };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    postImage: (ubase64, files) => dispatch((0, _actions.PostImageRequest)(ubase64, files)),
+    getImage: ubase64 => dispatch((0, _actions.GetImageRequest)(ubase64)),
+    deleteImage: (ubase64, idlist) => dispatch((0, _actions.DeleteImageRequest)(ubase64, idlist)) };
+
+};
+
+//  getArticle: (ubase64)=>dispatch(GetArticleRequest(ubase64))
+
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Image);

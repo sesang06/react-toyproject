@@ -1,0 +1,34 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Comment/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _reactRedux = require('react-redux');
+var _LikeList = require('../LikeList');var _LikeList2 = _interopRequireDefault(_LikeList);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Comment extends _react.Component {
+  render() {
+    //todo: add like and commentlist
+    return (
+      _react2.default.createElement('div', { className: 'Comment', __source: { fileName: _jsxFileName, lineNumber: 10 }, __self: this },
+        _react2.default.createElement('div', { className: 'Comment-author', __source: { fileName: _jsxFileName, lineNumber: 11 }, __self: this }, '\uB313\uAE00 \uAE00\uC4F4\uC774: ',
+          _react2.default.createElement('label', { id: this.props.author_id, __source: { fileName: _jsxFileName, lineNumber: 12 }, __self: this }, this.props.author)),
+
+        _react2.default.createElement('div', { className: 'Comment-date', __source: { fileName: _jsxFileName, lineNumber: 14 }, __self: this }, '\uC791\uC131\uC77C: ',
+          _react2.default.createElement('label', { id: this.props.created_time_id, __source: { fileName: _jsxFileName, lineNumber: 15 }, __self: this }, this.props.created_time.getMonth(), '-', this.props.created_time.getDate()), '\xA0 \uC218\uC815\uC77C: ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 16 }, __self: this }, this.props.updated_time.getMonth(), '-', this.props.updated_time.getDate())),
+
+        _react2.default.createElement('div', { className: 'Comment-content', __source: { fileName: _jsxFileName, lineNumber: 18 }, __self: this },
+          _react2.default.createElement('p', { id: this.props.text_id, __source: { fileName: _jsxFileName, lineNumber: 19 }, __self: this }, this.props.content)),
+
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 21 }, __self: this }, '\uB313\uAE00 \uBC31\uC5D4\uB4DC id: ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 22 }, __self: this }, this.props.id), '\xA0 \uAC8C\uC2DC\uAE00 \uBC31\uC5D4\uB4DC id: ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 23 }, __self: this }, this.props.article_id), '\xA0 \uB313\uAE00 \uC88B\uC544\uC694 \uC218 : ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 24 }, __self: this }, this.props.likes_count)),
+
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 26 }, __self: this },
+          _react2.default.createElement(_LikeList2.default, { article_id: this.props.article_id, comment_id: this.props.id, like_list: this.props.like_list, __source: { fileName: _jsxFileName, lineNumber: 27 }, __self: this }))));
+
+
+
+  }}exports.default =
+
+
+Comment;

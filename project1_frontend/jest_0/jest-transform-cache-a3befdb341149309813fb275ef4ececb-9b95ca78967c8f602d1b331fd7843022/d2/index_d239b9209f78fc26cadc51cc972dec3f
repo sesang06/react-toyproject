@@ -1,0 +1,117 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/LikeList/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Like = require('../Like');var _Like2 = _interopRequireDefault(_Like);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class LikeList extends _react.Component {
+  constructor() {
+    super();
+  }
+  onGet(e) {
+    //console.log(e.target.id)
+    var tmp = e.target.id;
+    this.props.getComment(tmp.split('-')[1], this.props.ubase64);
+  }
+
+  onSubmit(e) {
+    var tmp = e.target.id;
+    this.props.postComment(tmp.split('-')[1], this.props.ubase64, this.props.uname);
+    //this.props.onGet();
+  }
+
+  onDelete(e) {
+    var tmp = e.target.id;
+    this.props.deleteLike(tmp.split('-')[1], this.props.ubase64);
+  }
+
+  render() {
+    var comment_id = this.props.comment_id ? this.props.comment_id : 0;
+    var like_list = [];
+    var target = this.props.article_id;
+
+    if (this.props.loginStatus === 1) {
+      let like = false;
+      for (var i = 0; i < this.props.like_list.length; i++) {
+        like_list.push(like_list[i]);
+        if (this.props.like_list[i].author === this.props.uname)
+        like = true;
+
+      }
+      //console.log(target + '_' + comment_id)
+      //console.log(like_list)
+
+      if (like_list.length === 0) {
+        return (
+          _react2.default.createElement('div', { className: 'Like', __source: { fileName: _jsxFileName, lineNumber: 48 }, __self: this },
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 49 }, __self: this }, '\uC544\uC9C1 \uC544\uBB34\uB3C4 \uC88B\uC544\uC694\uD55C \uC0AC\uB78C\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.'),
+
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 52 }, __self: this },
+              _react2.default.createElement('button', { className: 'Like-button', id: "like-" + this.props.article_id + '_' + comment_id, onClick: this.onSubmit.bind(this), __source: { fileName: _jsxFileName, lineNumber: 53 }, __self: this }, '\uC88B\uC544\uC694'),
+              _react2.default.createElement('button', { className: 'Like-button', id: "update_like-" + this.props.article_id + '_' + comment_id, onClick: this.onGet.bind(this), __source: { fileName: _jsxFileName, lineNumber: 54 }, __self: this }, '\uC88B\uC544\uC694 \uBD88\uB7EC\uC624\uAE30'))));
+
+
+
+      } else if (!like) {
+        return (
+          _react2.default.createElement('div', { className: 'Like', __source: { fileName: _jsxFileName, lineNumber: 60 }, __self: this },
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 61 }, __self: this },
+              this.props.like_list.map(function (item, i) {
+                return (
+                  _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 64 }, __self: this },
+                    _react2.default.createElement(_Like2.default, { author: item.author, __source: { fileName: _jsxFileName, lineNumber: 65 }, __self: this })));
+
+
+              }), '\uB2D8\uC774 \uC88B\uC544\uD569\uB2C8\uB2E4.'),
+
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this },
+              _react2.default.createElement('button', { className: 'Like-button', id: "like-" + this.props.article_id + '_' + comment_id, onClick: this.onSubmit.bind(this), __source: { fileName: _jsxFileName, lineNumber: 72 }, __self: this }, '\uC88B\uC544\uC694'),
+              _react2.default.createElement('button', { className: 'Like-button', id: "update_like-" + this.props.article_id + '_' + comment_id, onClick: this.onGet.bind(this), __source: { fileName: _jsxFileName, lineNumber: 73 }, __self: this }, '\uC88B\uC544\uC694 \uBD88\uB7EC\uC624\uAE30'))));
+
+
+
+      } else if (like) {
+        return (
+          _react2.default.createElement('div', { className: 'Like', __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this },
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this },
+              this.props.uname, '\uB2D8 \uC678 ', like_list.length - 1, '\uBA85\uC774 \uC88B\uC544\uD569\uB2C8\uB2E4.'),
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this },
+              _react2.default.createElement('button', { className: 'Like-button', id: "like-" + this.props.article_id + '_' + comment_id, onClick: this.onDelete.bind(this), __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this }, '\uC88B\uC544\uC694 \uCDE8\uC18C'),
+              _react2.default.createElement('button', { className: 'Like-button', id: "update_like-" + this.props.article_id + '_' + comment_id, onClick: this.onGet.bind(this), __source: { fileName: _jsxFileName, lineNumber: 85 }, __self: this }, '\uC88B\uC544\uC694 \uBD88\uB7EC\uC624\uAE30'))));
+
+
+
+      }
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 93 }, __self: this }));
+
+
+    }
+  }}
+
+
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    deleteLike: (id, ubase64) => dispatch((0, _actions.DeleteLikeRequest)(id, ubase64)),
+    postComment: (id, ubase64, author) => dispatch((0, _actions.PostLikeRequest)(id, ubase64, author)),
+    getComment: (id, ubase64) => dispatch((0, _actions.GetLikeRequest)(id, ubase64)) };
+
+};
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LikeList);

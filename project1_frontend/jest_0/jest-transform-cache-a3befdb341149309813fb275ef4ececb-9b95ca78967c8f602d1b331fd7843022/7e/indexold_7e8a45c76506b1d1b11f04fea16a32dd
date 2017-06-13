@@ -1,0 +1,317 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Gallery/indexold.js';var _propTypes = require('prop-types');var _propTypes2 = _interopRequireDefault(_propTypes);
+var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _noImportant = require('aphrodite/no-important');
+var _reactImages = require('react-images');var _reactImages2 = _interopRequireDefault(_reactImages);
+var _reactDom = require('react-dom');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+function makeUnsplashSrc(id) {
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=1024&h=1024`;
+}
+function makeUnsplashSrcSet(id, size) {
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=${size} ${size}w`;
+}
+function makeUnsplashThumbnail(id, orientation = 'landscape') {
+	const dimensions = orientation === 'square' ?
+	'w=300&h=300' :
+	'w=240&h=159';
+
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&crop=faces&fit=crop&${dimensions}`;
+}
+
+// Unsplash images from the "Spirit Animals" collection
+// https://unsplash.com/collections/158825/spirit-animals
+
+const DEFAULT_IMAGES = [
+{ id: '1470619549108-b85c56fe5be8', caption: 'Photo by Alan Emery', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
+{ id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
+{ id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
+{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
+{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }];
+
+const THEMED_IMAGES = [
+{ id: '1471101173712-b9884175254e', caption: 'Photo by Pedro Lastra', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/5oRzZU5uwSM (Dragonfly)
+{ id: '1471127432458-65206be149c9', caption: 'Photo by Ernesto Velázquez', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/Kpgt4pl03O0 (Deer)
+{ id: '1470777639313-60af88918203', caption: 'Photo by Cris Saur', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GNUcUx-iObg (Koala)
+{ id: '1453550486481-aa4175b013ea', caption: 'Photo by Benjamin Pley', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/WiSeaZ4E6ZI (Elephant)
+{ id: '1415904663467-dfdc16cae794', caption: 'Photo by Levi Saunders', orientation: 'landscape', useForDemo: true }];
+
+const THUMBNAIL_IMAGES = [
+{ id: '1454991727061-be514eae86f7', caption: 'Photo by Thomas Kelley', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/t20pc32VbrU (Hump Back Whale)
+{ id: '1455717974081-0436a066bb96', caption: 'Photo by Teddy Kelley', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/cmKPOUgdmWc (Deer)
+{ id: '1460899960812-f6ee1ecaf117', caption: 'Photo by Jay Ruzesky', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/h13Y8vyIXNU (Walrus)
+{ id: '1456926631375-92c8ce872def', caption: 'Photo by Gwen Weustink', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/I3C1sSXj1i8 (Leopard)
+{ id: '1452274381522-521513015433', caption: 'Photo by Adam Willoughby-Knox', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/_snqARKTgoc (Mother and Cubs)
+{ id: '1471145653077-54c6f0aae511', caption: 'Photo by Boris Smokrovic', orientation: 'landscape' }, // https://unsplash.com/photos/n0feC_PWFdk (Dragonfly)
+{ id: '1471005197911-88e9d4a7834d', caption: 'Photo by Gaetano Cessati', orientation: 'landscape' }, // https://unsplash.com/photos/YOX8ZMTo7hk (Baby Crocodile)
+{ id: '1470583190240-bd6bbde8a569', caption: 'Photo by Alan Emery', orientation: 'landscape' }, // https://unsplash.com/photos/emTCWiq2txk (Beetle)
+{ id: '1470688090067-6d429c0b2600', caption: 'Photo by Ján Jakub Naništa', orientation: 'landscape' }, // https://unsplash.com/photos/xqjO-lx39B4 (Scottish Highland Cow)
+{ id: '1470742292565-de43c4b02b57', caption: 'Photo by Eric Knoll', orientation: 'landscape' }];
+
+
+
+const theme = {
+	// container
+	container: { background: 'rgba(255, 255, 255, 0.9)' },
+
+	// arrows
+	arrow: {
+		backgroundColor: 'rgba(255, 255, 255, 0.8)',
+		fill: '#222',
+		opacity: 0.6,
+		transition: 'opacity 200ms',
+
+		':hover': {
+			opacity: 1 } },
+
+
+	arrow__size__medium: {
+		borderRadius: 40,
+		height: 40,
+		marginTop: -20,
+
+		'@media (min-width: 768px)': {
+			height: 70,
+			padding: 15 } },
+
+
+	arrow__direction__left: { marginLeft: 10 },
+	arrow__direction__right: { marginRight: 10 },
+
+	// header
+	close: {
+		fill: '#D40000',
+		opacity: 0.6,
+		transition: 'all 200ms',
+
+		':hover': {
+			opacity: 1 } },
+
+
+
+	// footer
+	footer: {
+		color: 'black' },
+
+	footerCount: {
+		color: 'rgba(0, 0, 0, 0.6)' },
+
+
+	// thumbnails
+	thumbnail: {},
+
+	thumbnail__active: {
+		boxShadow: '0 0 0 2px #00D8FF' } };
+
+
+
+class Apps extends _react.Component {
+
+	render() {
+		_react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 109 }, __self: this },
+			_react2.default.createElement('div', { style: { marginBottom: 40 }, __source: { fileName: _jsxFileName, lineNumber: 110 }, __self: this },
+				_react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this }, 'Photos courtesy of ', _react2.default.createElement('a', { href: 'https://unsplash.com/', target: '_blank', __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this }, 'Unsplash'), '. Use your keyboard to navigate ', _react2.default.createElement('kbd', { __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this }, 'left'), ' ', _react2.default.createElement('kbd', { __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this }, 'right'), ' ', _react2.default.createElement('kbd', { __source: { fileName: _jsxFileName, lineNumber: 111 }, __self: this }, 'esc'), ' \u2014 Also, try resizing your browser window.')),
+
+			_react2.default.createElement('h3', { __source: { fileName: _jsxFileName, lineNumber: 113 }, __self: this }, 'Default Options'),
+			_react2.default.createElement(Gallery, { images: DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
+					src: makeUnsplashSrc(id),
+					thumbnail: makeUnsplashThumbnail(id, orientation),
+					srcset: [
+					makeUnsplashSrcSet(id, 1024),
+					makeUnsplashSrcSet(id, 800),
+					makeUnsplashSrcSet(id, 500),
+					makeUnsplashSrcSet(id, 320)],
+
+					caption,
+					orientation,
+					useForDemo })), __source: { fileName: _jsxFileName, lineNumber: 114 }, __self: this }),
+
+
+			_react2.default.createElement('h3', { __source: { fileName: _jsxFileName, lineNumber: 128 }, __self: this }, 'With Thumbnails'),
+			_react2.default.createElement(Gallery, { images: THUMBNAIL_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
+					src: makeUnsplashSrc(id),
+					thumbnail: makeUnsplashThumbnail(id, orientation),
+					srcset: [
+					makeUnsplashSrcSet(id, 1024),
+					makeUnsplashSrcSet(id, 800),
+					makeUnsplashSrcSet(id, 500),
+					makeUnsplashSrcSet(id, 320)],
+
+					caption,
+					orientation,
+					useForDemo })),
+				showThumbnails: true, __source: { fileName: _jsxFileName, lineNumber: 129 }, __self: this }),
+
+			_react2.default.createElement('h3', { __source: { fileName: _jsxFileName, lineNumber: 143 }, __self: this }, 'Themed Lightbox'),
+			_react2.default.createElement(Gallery, { images: THEMED_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
+					src: makeUnsplashSrc(id),
+					thumbnail: makeUnsplashThumbnail(id, orientation),
+					srcset: [
+					makeUnsplashSrcSet(id, 1024),
+					makeUnsplashSrcSet(id, 800),
+					makeUnsplashSrcSet(id, 500),
+					makeUnsplashSrcSet(id, 320)],
+
+					caption,
+					orientation,
+					useForDemo })),
+				theme: theme, showThumbnails: true, __source: { fileName: _jsxFileName, lineNumber: 144 }, __self: this }));
+
+	}}
+
+class Gallery extends _react.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			lightboxIsOpen: false,
+			currentImage: 0 };
+
+
+		this.closeLightbox = this.closeLightbox.bind(this);
+		this.gotoNext = this.gotoNext.bind(this);
+		this.gotoPrevious = this.gotoPrevious.bind(this);
+		this.gotoImage = this.gotoImage.bind(this);
+		this.handleClickImage = this.handleClickImage.bind(this);
+		this.openLightbox = this.openLightbox.bind(this);
+	}
+	openLightbox(index, event) {
+		event.preventDefault();
+		this.setState({
+			currentImage: index,
+			lightboxIsOpen: true });
+
+	}
+	closeLightbox() {
+		this.setState({
+			currentImage: 0,
+			lightboxIsOpen: false });
+
+	}
+	gotoPrevious() {
+		this.setState({
+			currentImage: this.state.currentImage - 1 });
+
+	}
+	gotoNext() {
+		this.setState({
+			currentImage: this.state.currentImage + 1 });
+
+	}
+	gotoImage(index) {
+		this.setState({
+			currentImage: index });
+
+	}
+	handleClickImage() {
+		if (this.state.currentImage === this.props.images.length - 1) return;
+
+		this.gotoNext();
+	}
+	renderGallery() {
+		const { images } = this.props;
+
+		if (!images) return;
+
+		const gallery = images.filter(i => i.useForDemo).map((obj, i) => {
+			return (
+				_react2.default.createElement('a', {
+						href: obj.src,
+						className: (0, _noImportant.css)(classes.thumbnail, classes[obj.orientation]),
+						key: i,
+						onClick: e => this.openLightbox(i, e), __source: { fileName: _jsxFileName, lineNumber: 216 }, __self: this },
+
+					_react2.default.createElement('img', { src: obj.thumbnail, className: (0, _noImportant.css)(classes.source), __source: { fileName: _jsxFileName, lineNumber: 222 }, __self: this })));
+
+
+		});
+
+		return (
+			_react2.default.createElement('div', { className: (0, _noImportant.css)(classes.gallery), __source: { fileName: _jsxFileName, lineNumber: 228 }, __self: this },
+				gallery));
+
+
+	}
+	render() {
+		return (
+			_react2.default.createElement('div', { className: 'section', __source: { fileName: _jsxFileName, lineNumber: 235 }, __self: this },
+				this.props.heading && _react2.default.createElement('h2', { __source: { fileName: _jsxFileName, lineNumber: 236 }, __self: this }, this.props.heading),
+				this.props.subheading && _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 237 }, __self: this }, this.props.subheading),
+				this.renderGallery(),
+				_react2.default.createElement(_reactImages2.default, {
+					currentImage: this.state.currentImage,
+					images: this.props.images,
+					isOpen: this.state.lightboxIsOpen,
+					onClickImage: this.handleClickImage,
+					onClickNext: this.gotoNext,
+					onClickPrev: this.gotoPrevious,
+					onClickThumbnail: this.gotoImage,
+					onClose: this.closeLightbox,
+					showThumbnails: this.props.showThumbnails,
+					theme: this.props.theme, __source: { fileName: _jsxFileName, lineNumber: 239 }, __self: this })));
+
+
+
+	}}
+
+
+Gallery.displayName = 'Gallery';
+Gallery.propTypes = {
+	heading: _propTypes2.default.string,
+	images: _propTypes2.default.array,
+	showThumbnails: _propTypes2.default.bool,
+	subheading: _propTypes2.default.string };
+
+
+const gutter = {
+	small: 2,
+	large: 4 };
+
+const classes = _noImportant.StyleSheet.create({
+	gallery: {
+		marginRight: -gutter.small,
+		overflow: 'hidden',
+
+		'@media (min-width: 500px)': {
+			marginRight: -gutter.large } },
+
+
+
+	// anchor
+	thumbnail: {
+		boxSizing: 'border-box',
+		display: 'block',
+		float: 'left',
+		lineHeight: 0,
+		paddingRight: gutter.small,
+		paddingBottom: gutter.small,
+		overflow: 'hidden',
+
+		'@media (min-width: 500px)': {
+			paddingRight: gutter.large,
+			paddingBottom: gutter.large } },
+
+
+
+	// orientation
+	landscape: {
+		width: '30%' },
+
+	square: {
+		paddingBottom: 0,
+		width: '40%',
+
+		'@media (min-width: 500px)': {
+			paddingBottom: 0 } },
+
+
+
+	// actual <img />
+	source: {
+		border: 0,
+		display: 'block',
+		height: 'auto',
+		maxWidth: '100%',
+		width: 'auto' } });exports.default =
+
+
+
+Apps;

@@ -1,0 +1,104 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/ArticleList/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Article = require('../Article');var _Article2 = _interopRequireDefault(_Article);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class ArticleList extends _react.Component {
+  constructor() {
+    super();
+
+    //this.onGet = this.onGet.bind(this)
+  }
+  /*
+      componentDidMount() {
+        this.timerID = setInterval(
+          () => this.onDebug(), 1000
+        //  () => this.onGet(), 1000
+        );
+      }
+      onDebug(){
+        if (this.props.loginStatus === 1) {
+          console.log("article_list")
+          console.log(this.props.article_list)
+          console.log(this.props.article_list[0])
+          this.props.article_list.map(function(item,i){
+            console.log("item list")
+            console.log(item)
+            console.log(item.author)
+          })
+    
+        }
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID)
+      }
+    */
+  onGet() {
+    if (this.props.loginStatus === 1) {
+      this.props.getArticle(this.props.ubase64);
+    }
+  }
+
+  onSubmit() {
+    if (this.newtext.value !== "") {
+      console.log(this.newtext.value);
+      this.props.postArticle(this.props.ubase64, this.props.author, this.newtext.value);
+      //this.onGet();
+    }
+  }
+
+  render() {
+    if (this.props.loginStatus === 1) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 56 }, __self: this },
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 57 }, __self: this },
+            _react2.default.createElement(_Button2.default, { id: 'updata_timeline', onClick: this.onGet.bind(this), text: '\uD0C0\uC784\uB77C\uC778 \uBD88\uB7EC\uC624\uAE30', __source: { fileName: _jsxFileName, lineNumber: 58 }, __self: this })),
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 60 }, __self: this },
+            _react2.default.createElement('textarea', { className: 'Article-post', cols: '120', rows: '4', id: 'text_timeline', ref: ref => this.newtext = ref, placeholder: 'Post your status!', __source: { fileName: _jsxFileName, lineNumber: 61 }, __self: this }),
+            _react2.default.createElement(_Button2.default, { id: 'post_timeline', onClick: this.onSubmit.bind(this), text: '\uD3EC\uC2A4\uD2B8\uD558\uAE30', __source: { fileName: _jsxFileName, lineNumber: 62 }, __self: this })),
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 64 }, __self: this },
+            this.props.article_list.slice(0).reverse().map(function (item, i) {
+              return (
+                _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 67 }, __self: this },
+                  _react2.default.createElement(_Article2.default, { id: item.id, author: item.author, content: item.content, created_time: item.created_time, updated_time: item.updated_time, comment_list: item.comment_list, like_list: item.like_list, likes_count: item.likes_count, comments_count: item.comments_count, nickname: item.nickname, avatar: item.avatar, __source: { fileName: _jsxFileName, lineNumber: 68 }, __self: this })));
+
+
+
+            }))));
+
+
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this },
+          _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }, '\uB85C\uADF8\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.')));
+
+
+    }
+  }}
+
+
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus,
+    article_list: state.article_list_reducer.article_list };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    postArticle: (ubase64, author, text) => dispatch((0, _actions.PostArticleRequest)(ubase64, author, text)),
+    getArticle: ubase64 => dispatch((0, _actions.GetArticleRequest)(ubase64)) };
+
+};
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleList);

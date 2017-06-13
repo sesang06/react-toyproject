@@ -1,0 +1,17 @@
+.Comment-button{
+    background-color : #4caf50;
+    border:none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size:8px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.Comment-post{
+  resize: none;
+  overflow-y: scroll;
+  font-size: 15px;
+}

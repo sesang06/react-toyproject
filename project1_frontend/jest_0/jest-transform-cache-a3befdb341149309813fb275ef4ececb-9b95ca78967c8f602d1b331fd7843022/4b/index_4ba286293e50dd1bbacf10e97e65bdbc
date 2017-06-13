@@ -1,0 +1,93 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/CommentList/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Comment = require('../Comment');var _Comment2 = _interopRequireDefault(_Comment);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+class CommentList extends _react.Component {
+  constructor() {
+    super();
+  }
+  onGet(e) {
+    //console.log(e.target.id)
+    var tmp = e.target.id;
+    this.props.getComment(tmp.split('-')[1], this.props.ubase64
+    // console.log(this.props.comment_list)
+    );}
+
+  onSubmit(e) {
+    if (this.newtext.value !== "") {
+      //console.log(e.target.id)
+      var tmp = e.target.id;
+      this.props.postComment(tmp.split('-')[1], this.props.ubase64, this.props.uname, this.newtext.value);
+      //this.props.getComment(e.target.id, this.props.ubase64)
+    }
+  }
+
+  onUpdate() {
+    console.log('update'
+    // this.props.updateComment(this.props.ubase64, newtext)
+    );}
+
+  onDelete() {
+    console.log('delete'
+    // this.props.deleteComment(this.props.ubase64)
+    );}
+
+  render() {
+    if (this.props.loginStatus === 1) {
+      var target = this.props.article_id;
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 44 }, __self: this },
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 45 }, __self: this },
+            this.props.comment_list.map(function (item, i) {
+
+              return (
+                _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 49 }, __self: this },
+                  _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 50 }, __self: this },
+                    _react2.default.createElement(_Comment2.default, { author: item.author, article_id: item.article_id, id: item.id, content: item.content, created_time: item.created, updated_time: item.updated, like_list: item.like_list, likes_count: item.likes_count, __source: { fileName: _jsxFileName, lineNumber: 51 }, __self: this }))));
+
+
+            })),
+
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 57 }, __self: this },
+            _react2.default.createElement('textarea', { cols: '100', rows: '3', className: 'Comment-post', id: "text_comment-" + this.props.article_id, ref: ref => this.newtext = ref, placeholder: '\uB313\uAE00\uC744 \uC785\uB825\uD558\uC138\uC694.', __source: { fileName: _jsxFileName, lineNumber: 58 }, __self: this })),
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 60 }, __self: this },
+            _react2.default.createElement('button', { className: 'Comment-button', id: 'post_comment-' + this.props.article_id, onClick: this.onSubmit.bind(this), __source: { fileName: _jsxFileName, lineNumber: 61 }, __self: this }, '\uB313\uAE00 \uB2EC\uAE30'),
+            _react2.default.createElement('button', { className: 'Comment-button', id: 'update_comment-' + this.props.article_id, onClick: this.onGet.bind(this), __source: { fileName: _jsxFileName, lineNumber: 62 }, __self: this }, '\uB313\uAE00 \uBD88\uB7EC\uC624\uAE30'))));
+
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 68 }, __self: this }));
+
+
+    }
+  }}
+
+
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    updateComment: (ubase64, text) => dispatch((0, _actions.UpdateCommentRequest)(ubase64, text)),
+    deleteComment: ubase64 => dispatch((0, _actions.DeleteCommentRequest)(ubase64)),
+    postComment: (id, ubase64, author, text) => dispatch((0, _actions.PostCommentRequest)(id, ubase64, author, text)),
+    getComment: (id, ubase64) => dispatch((0, _actions.GetCommentRequest)(id, ubase64)) };
+
+};
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CommentList);

@@ -1,0 +1,144 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Article/index.js';
+
+
+
+
+
+//import defaultprofile from '../../../img/defaultprofile.png'
+var _react = require('react');var _react2 = _interopRequireDefault(_react);require('./index.css');var _reactRedux = require('react-redux');var _CommentList = require('../CommentList');var _CommentList2 = _interopRequireDefault(_CommentList);var _LikeList = require('../LikeList');var _LikeList2 = _interopRequireDefault(_LikeList);var _defaultprofile = require('../../img/defaultprofile.png');var _defaultprofile2 = _interopRequireDefault(_defaultprofile);var _actions = require('../../actions/');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Article extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      update: false,
+      content: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.state = {
+      update: false,
+      content: "" };
+
+
+  }
+  onDelete() {
+    console.log("DeleteArticle");
+    this.props.deleteArticle(this.props.ubase64, this.props.id);
+  }
+
+  onUpdate() {
+    this.setState({ update: !this.state.update, content: this.props.content });
+    console.log(this.state.update
+    // this.props.updateArticle(this.props.ubase64, newtext)
+    );}
+  onGet() {
+    console.log(this.props.id);
+    this.props.getArticle(this.props.ubase64, this.props.id);
+  }
+  /*  <button onClick={this.onDelete.bind(this)} className="Article-button">수정</button>
+      <button onClick={this.onUpdate.bind(this)} className="Article-button">삭제</button>
+    */
+  onPostUpdate() {
+    if (this.state.content !== "")
+    this.props.updateArticle(this.props.ubase64, this.props.id, this.state.content);
+  }
+  handleChange(e) {
+    let nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
+
+  }
+  render() {
+    const updateform =
+    _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 56 }, __self: this },
+      _react2.default.createElement('textarea', { className: 'Article-post', cols: '120', rows: '4', id: 'text_timeline', name: 'content', onChange: this.handleChange, value: this.state.content, __source: { fileName: _jsxFileName, lineNumber: 57 }, __self: this }),
+      _react2.default.createElement('button', { className: 'Article-button', id: 'post_timeline', onClick: this.onPostUpdate.bind(this), __source: { fileName: _jsxFileName, lineNumber: 58 }, __self: this }, '\uC218\uC815\uD558\uAE30'));
+
+
+    const deletebutton = _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 61 }, __self: this },
+      _react2.default.createElement('button', { onClick: this.onDelete.bind(this), className: 'Article-button', __source: { fileName: _jsxFileName, lineNumber: 62 }, __self: this }, '\uC0AD\uC81C'),
+      _react2.default.createElement('button', { onClick: this.onUpdate.bind(this), className: 'Article-button', __source: { fileName: _jsxFileName, lineNumber: 63 }, __self: this }, '\uC218\uC815'));
+
+
+
+    const contentform =
+    _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 68 }, __self: this },
+      _react2.default.createElement('div', { className: 'Article-author', __source: { fileName: _jsxFileName, lineNumber: 69 }, __self: this },
+        _react2.default.createElement(ProfileLabel, { src: this.props.avatar, __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this }),
+        this.props.nickname !== null ? "닉네임: " : "글쓴이: ", _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this }, this.props.nickname !== null ? this.props.nickname : this.props.author)),
+
+      _react2.default.createElement('div', { className: 'Article-date', __source: { fileName: _jsxFileName, lineNumber: 73 }, __self: this }, '\uC791\uC131\uC77C: ',
+        _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this }, this.props.created_time.getMonth() + 1, '-', this.props.created_time.getDate()), '\xA0 \uC218\uC815\uC77C: ',
+        _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this }, this.props.updated_time.getMonth() + 1, '-', this.props.updated_time.getDate())),
+
+
+      _react2.default.createElement('div', { className: 'Article-content', __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this },
+        _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }, this.props.content)));
+
+
+
+
+    return (
+      _react2.default.createElement('div', { className: 'Article', __source: { fileName: _jsxFileName, lineNumber: 85 }, __self: this },
+        this.state.update ? updateform : contentform,
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this },
+          _react2.default.createElement('button', { id: "update_article-" + this.props.id, onClick: this.onGet.bind(this), className: 'Article-button', __source: { fileName: _jsxFileName, lineNumber: 88 }, __self: this }, '\uAE00 \uB2E4\uC2DC \uBD88\uB7EC\uC624\uAE30')),
+
+        _react2.default.createElement('div', { className: 'Article-like', __source: { fileName: _jsxFileName, lineNumber: 90 }, __self: this },
+          _react2.default.createElement(_LikeList2.default, { article_id: this.props.id, like_list: this.props.like_list, __source: { fileName: _jsxFileName, lineNumber: 91 }, __self: this })),
+
+
+        this.props.author === this.props.uname ? deletebutton : "",
+        this.state.update,
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 96 }, __self: this }, '\uC88B\uC544\uC694 \uC218: ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 97 }, __self: this }, this.props.likes_count), '\xA0 \uB313\uAE00 \uC218 : ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 98 }, __self: this }, this.props.comments_count), '\xA0 \uAC8C\uC2DC\uAE00 id: ',
+          _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 99 }, __self: this }, this.props.id)),
+
+
+        _react2.default.createElement('div', { className: 'Article-comment', __source: { fileName: _jsxFileName, lineNumber: 102 }, __self: this },
+          _react2.default.createElement(_CommentList2.default, { article_id: this.props.id, comment_list: this.props.comment_list, __source: { fileName: _jsxFileName, lineNumber: 103 }, __self: this }))));
+
+
+
+  }}
+
+
+class ProfileLabel extends _react.Component {
+  render() {
+    if (this.props.src === null) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 114 }, __self: this },
+          _react2.default.createElement('img', { src: _defaultprofile2.default, width: '100', height: '100', __source: { fileName: _jsxFileName, lineNumber: 115 }, __self: this })));
+
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 121 }, __self: this },
+          _react2.default.createElement('img', { src: this.props.src, width: '100', height: '100', __source: { fileName: _jsxFileName, lineNumber: 122 }, __self: this })));
+
+
+    }
+  }}
+
+let mapStateToProps = state => {
+  return {
+    ubase64: state.login_reducer.ubase64,
+    uname: state.login_reducer.uname };
+
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    deleteArticle: (ubase64, id) => dispatch((0, _actions.DeleteArticleRequest)(ubase64, id)),
+    updateArticle: (ubase64, id, content) => dispatch((0, _actions.UpdateArticleRequest)(ubase64, id, content)),
+    getArticle: (ubase64, id) => dispatch((0, _actions.GetArticleRequest_WITH_ID)(ubase64, id)) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Article);

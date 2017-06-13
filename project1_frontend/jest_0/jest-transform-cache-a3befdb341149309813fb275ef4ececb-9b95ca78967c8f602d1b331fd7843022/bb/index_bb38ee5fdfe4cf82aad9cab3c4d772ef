@@ -1,0 +1,27 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Header/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactRouterDom = require('react-router-dom');
+require('./index.css');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+const Header = () => {
+  return (
+    _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 7 }, __self: undefined },
+      _react2.default.createElement('div', { className: 'logo', __source: { fileName: _jsxFileName, lineNumber: 8 }, __self: undefined }, 'Menu'),
+
+
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 11 }, __self: undefined },
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'login_menu', className: 'menu', to: '/login', __source: { fileName: _jsxFileName, lineNumber: 12 }, __self: undefined }, 'Login'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'register_menu', className: 'menu', to: '/register', __source: { fileName: _jsxFileName, lineNumber: 13 }, __self: undefined }, 'Register'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'timeline_menu', className: 'menu', to: '/timeline', __source: { fileName: _jsxFileName, lineNumber: 14 }, __self: undefined }, 'Timeline'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'chat_menu', className: 'menu', to: '/chat', __source: { fileName: _jsxFileName, lineNumber: 15 }, __self: undefined }, 'Chat'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'group_menu', className: 'menu', to: '/group', __source: { fileName: _jsxFileName, lineNumber: 16 }, __self: undefined }, 'Group'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'image_menu', className: 'menu', to: '/image', __source: { fileName: _jsxFileName, lineNumber: 17 }, __self: undefined }, 'Image'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'profile_menu', className: 'menu', to: '/profile', __source: { fileName: _jsxFileName, lineNumber: 18 }, __self: undefined }, 'Profile'),
+        _react2.default.createElement(_reactRouterDom.Link, { id: 'follow_menu', className: 'menu', to: '/follow', __source: { fileName: _jsxFileName, lineNumber: 19 }, __self: undefined }, 'Follow'))));
+
+
+
+};exports.default =
+
+
+
+Header;

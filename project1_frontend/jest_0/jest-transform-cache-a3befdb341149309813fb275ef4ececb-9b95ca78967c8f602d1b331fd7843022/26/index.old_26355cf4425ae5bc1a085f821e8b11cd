@@ -1,0 +1,115 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Image/index.old.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _reactRedux = require('react-redux');
+var _reactFiles = require('react-files');var _reactFiles2 = _interopRequireDefault(_reactFiles);
+var _actions = require('../../actions');
+
+
+
+
+
+
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}class Image extends _react.Component {render() {return _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 10 }, __self: this }, ' ', _react2.default.createElement(FilesDemo1, { __source: { fileName: _jsxFileName, lineNumber: 10 }, __self: this }), ' ');}}
+
+
+var FilesDemo1 = _react2.default.createClass({ displayName: 'FilesDemo1',
+  getInitialState() {
+    return {
+      files: [] };
+
+  },
+
+  onFilesChange: function (files) {
+    this.setState({
+      files },
+    () => {
+      console.log(this.state.files);
+    });
+  },
+
+  onFilesError: function (error, file) {
+    console.log('error code ' + error.code + ': ' + error.message);
+  },
+
+  filesRemoveOne: function (file) {
+    this.refs.files.removeFile(file);
+  },
+
+  filesRemoveAll: function () {
+    this.refs.files.removeFiles();
+  },
+
+  filesUpload: function () {
+    window.alert('Ready to upload ' + this.state.files.length + ' file(s)!');
+  },
+
+  render: function () {
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 49 }, __self: this },
+        _react2.default.createElement('h1', { __source: { fileName: _jsxFileName, lineNumber: 50 }, __self: this }, 'Example 1 - List'),
+        _react2.default.createElement(_reactFiles2.default, {
+            ref: 'files',
+            className: 'files-dropzone-list',
+            style: { height: '100px' },
+            onChange: this.onFilesChange,
+            onError: this.onFilesError,
+            multiple: true,
+            maxFiles: 10,
+            maxFileSize: 10000000,
+            minFileSize: 0,
+            clickable: true, __source: { fileName: _jsxFileName, lineNumber: 51 }, __self: this }, 'Drop files here or click to upload'),
+
+
+
+        _react2.default.createElement('button', { onClick: this.filesRemoveAll, __source: { fileName: _jsxFileName, lineNumber: 65 }, __self: this }, 'Remove All Files'),
+        _react2.default.createElement('button', { onClick: this.filesUpload, __source: { fileName: _jsxFileName, lineNumber: 66 }, __self: this }, 'Upload'),
+
+        this.state.files.length > 0 ?
+        _react2.default.createElement('div', { className: 'files-list', __source: { fileName: _jsxFileName, lineNumber: 69 }, __self: this },
+          _react2.default.createElement('ul', { __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this }, this.state.files.map(file =>
+            _react2.default.createElement('li', { className: 'files-list-item', key: file.id, __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this },
+              _react2.default.createElement('div', { className: 'files-list-item-preview', __source: { fileName: _jsxFileName, lineNumber: 72 }, __self: this },
+                file.preview.type === 'image' ?
+                _react2.default.createElement('img', { className: 'files-list-item-preview-image', src: file.preview.url, __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this }) :
+                _react2.default.createElement('div', { className: 'files-list-item-preview-extension', __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this }, file.extension)),
+
+              _react2.default.createElement('div', { className: 'files-list-item-content', __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this },
+                _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-1', __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this }, file.name),
+                _react2.default.createElement('div', { className: 'files-list-item-content-item files-list-item-content-item-2', __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }, file.sizeReadable)),
+
+              _react2.default.createElement('div', {
+                id: file.id,
+                className: 'files-list-item-remove',
+                onClick: this.filesRemoveOne.bind(this, file) // eslint-disable-line
+                , __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this }))))) :
+
+
+
+        null));
+
+
+
+  } });
+
+
+
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus };
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    postImage: (ubase64, files) => dispatch((0, _actions.PostImageRequest)(ubase64, files)) };
+
+
+};
+
+//  getArticle: (ubase64)=>dispatch(GetArticleRequest(ubase64))
+
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Image);

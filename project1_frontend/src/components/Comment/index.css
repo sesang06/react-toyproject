@@ -1,0 +1,39 @@
+.Comment{
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 30px;
+  padding: 10px;
+}
+.Comment-author{
+  float:left;
+  margin: 5px;
+}
+.Comment-date{
+  float:right;
+  margin:10px;
+}
+.Comment-content{
+  clear:both;
+  text-align: left;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 30px;
+  padding: 30px;
+}
+
+
+.Comment-like{
+  clear:both
+}
+.Comment-button{
+  background-color : #4caf50;
+  border:none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  font-size:16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

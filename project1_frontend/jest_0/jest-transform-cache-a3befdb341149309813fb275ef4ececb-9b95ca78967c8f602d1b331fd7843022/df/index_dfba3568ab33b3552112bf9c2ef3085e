@@ -1,0 +1,593 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.app_reducer = exports.register_reducer = exports.login_reducer = exports.initialRegisterState = exports.createNewRegisterState = exports.initialLoginState = exports.createNewLoginState = exports.userlist_reducer = exports.initialUserListState = exports.createNewUserListState = exports.chat_reducer = exports.initialChatState = exports.createNewChatState = exports.like_reducer = exports.initialLikeState = exports.createNewLikeState = exports.comment_reducer = exports.initialCommentState = exports.createNewCommentState = exports.article_reducer = exports.article_list_reducer = exports.getArticlelistToArticle = exports.addLikelistToComment_with_article = exports.addLikelistToComment = exports.addLikelistToArticle = exports.addCommentlistToArticle = exports.initialArticleListState = exports.createNewArticleListState = exports.initialArticleState = exports.createNewArticleState = exports.group_list_reducer = exports.initialGroupListState = exports.createNewGroupListState = exports.group_notice_reducer = exports.initialGroupNoticeState = exports.createNewGroupNoticeState = exports.group_forum_reducer = exports.initialGroupForumState = exports.createNewGroupForumState = exports.profile_reducer = exports.initialProfileState = exports.createNewProfileState = exports.follow_reducer = exports.initialFollowState = exports.createNewFollowState = exports.image_reducer = exports.initialImageState = exports.createNewImageState = undefined;var cov_2395hb4swh = function () {var path = '/home/ubuntu/project1_frontend_submit/src/reducers/index.js',hash = '2e81c6c7866a238f35b4000fb081361e24d87cac',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/ubuntu/project1_frontend_submit/src/reducers/index.js', statementMap: { '0': { start: { line: 19, column: 33 }, end: { line: 23, column: 1 } }, '1': { start: { line: 20, column: 2 }, end: { line: 22, column: 3 } }, '2': { start: { line: 24, column: 31 }, end: { line: 24, column: 52 } }, '3': { start: { line: 25, column: 27 }, end: { line: 37, column: 1 } }, '4': { start: { line: 26, column: 2 }, end: { line: 35, column: 3 } }, '5': { start: { line: 28, column: 4 }, end: { line: 28, column: 33 } }, '6': { start: { line: 29, column: 6 }, end: { line: 32, column: 8 } }, '7': { start: { line: 34, column: 6 }, end: { line: 34, column: 18 } }, '8': { start: { line: 39, column: 34 }, end: { line: 44, column: 1 } }, '9': { start: { line: 40, column: 2 }, end: { line: 43, column: 3 } }, '10': { start: { line: 46, column: 34 }, end: { line: 46, column: 56 } }, '11': { start: { line: 48, column: 28 }, end: { line: 63, column: 1 } }, '12': { start: { line: 49, column: 2 }, end: { line: 62, column: 3 } }, '13': { start: { line: 51, column: 6 }, end: { line: 54, column: 8 } }, '14': { start: { line: 56, column: 6 }, end: { line: 59, column: 8 } }, '15': { start: { line: 61, column: 6 }, end: { line: 61, column: 18 } }, '16': { start: { line: 66, column: 35 }, end: { line: 77, column: 1 } }, '17': { start: { line: 67, column: 2 }, end: { line: 76, column: 3 } }, '18': { start: { line: 78, column: 33 }, end: { line: 78, column: 56 } }, '19': { start: { line: 80, column: 29 }, end: { line: 97, column: 1 } }, '20': { start: { line: 81, column: 2 }, end: { line: 96, column: 3 } }, '21': { start: { line: 83, column: 6 }, end: { line: 93, column: 10 } }, '22': { start: { line: 95, column: 6 }, end: { line: 95, column: 18 } }, '23': { start: { line: 118, column: 38 }, end: { line: 122, column: 1 } }, '24': { start: { line: 119, column: 2 }, end: { line: 121, column: 3 } }, '25': { start: { line: 124, column: 38 }, end: { line: 124, column: 64 } }, '26': { start: { line: 126, column: 33 }, end: { line: 136, column: 1 } }, '27': { start: { line: 127, column: 2 }, end: { line: 135, column: 3 } }, '28': { start: { line: 129, column: 6 }, end: { line: 132, column: 8 } }, '29': { start: { line: 134, column: 6 }, end: { line: 134, column: 18 } }, '30': { start: { line: 140, column: 39 }, end: { line: 144, column: 1 } }, '31': { start: { line: 141, column: 2 }, end: { line: 143, column: 3 } }, '32': { start: { line: 146, column: 39 }, end: { line: 146, column: 66 } }, '33': { start: { line: 148, column: 34 }, end: { line: 158, column: 1 } }, '34': { start: { line: 149, column: 2 }, end: { line: 157, column: 3 } }, '35': { start: { line: 151, column: 6 }, end: { line: 154, column: 8 } }, '36': { start: { line: 156, column: 6 }, end: { line: 156, column: 18 } }, '37': { start: { line: 162, column: 37 }, end: { line: 166, column: 1 } }, '38': { start: { line: 163, column: 2 }, end: { line: 165, column: 3 } }, '39': { start: { line: 168, column: 35 }, end: { line: 168, column: 60 } }, '40': { start: { line: 170, column: 32 }, end: { line: 180, column: 1 } }, '41': { start: { line: 171, column: 2 }, end: { line: 179, column: 3 } }, '42': { start: { line: 173, column: 6 }, end: { line: 176, column: 8 } }, '43': { start: { line: 178, column: 6 }, end: { line: 178, column: 18 } }, '44': { start: { line: 183, column: 35 }, end: { line: 195, column: 1 } }, '45': { start: { line: 184, column: 14 }, end: { line: 194, column: 3 } }, '46': { start: { line: 196, column: 33 }, end: { line: 196, column: 56 } }, '47': { start: { line: 198, column: 39 }, end: { line: 219, column: 1 } }, '48': { start: { line: 199, column: 2 }, end: { line: 218, column: 3 } }, '49': { start: { line: 221, column: 37 }, end: { line: 221, column: 64 } }, '50': { start: { line: 225, column: 38 }, end: { line: 236, column: 1 } }, '51': { start: { line: 228, column: 2 }, end: { line: 230, column: 3 } }, '52': { start: { line: 229, column: 4 }, end: { line: 229, column: 18 } }, '53': { start: { line: 231, column: 2 }, end: { line: 234, column: 3 } }, '54': { start: { line: 238, column: 35 }, end: { line: 248, column: 1 } }, '55': { start: { line: 240, column: 4 }, end: { line: 242, column: 5 } }, '56': { start: { line: 241, column: 6 }, end: { line: 241, column: 20 } }, '57': { start: { line: 243, column: 4 }, end: { line: 246, column: 5 } }, '58': { start: { line: 249, column: 36 }, end: { line: 257, column: 1 } }, '59': { start: { line: 250, column: 2 }, end: { line: 252, column: 3 } }, '60': { start: { line: 251, column: 4 }, end: { line: 251, column: 18 } }, '61': { start: { line: 253, column: 2 }, end: { line: 256, column: 3 } }, '62': { start: { line: 258, column: 49 }, end: { line: 267, column: 1 } }, '63': { start: { line: 259, column: 2 }, end: { line: 261, column: 3 } }, '64': { start: { line: 260, column: 4 }, end: { line: 260, column: 18 } }, '65': { start: { line: 262, column: 2 }, end: { line: 266, column: 4 } }, '66': { start: { line: 265, column: 6 }, end: { line: 265, column: 37 } }, '67': { start: { line: 268, column: 37 }, end: { line: 273, column: 1 } }, '68': { start: { line: 269, column: 2 }, end: { line: 271, column: 3 } }, '69': { start: { line: 270, column: 4 }, end: { line: 270, column: 18 } }, '70': { start: { line: 272, column: 2 }, end: { line: 272, column: 23 } }, '71': { start: { line: 274, column: 34 }, end: { line: 320, column: 1 } }, '72': { start: { line: 275, column: 2 }, end: { line: 319, column: 3 } }, '73': { start: { line: 277, column: 6 }, end: { line: 280, column: 7 } }, '74': { start: { line: 282, column: 6 }, end: { line: 285, column: 8 } }, '75': { start: { line: 287, column: 6 }, end: { line: 287, column: 38 } }, '76': { start: { line: 288, column: 6 }, end: { line: 291, column: 8 } }, '77': { start: { line: 293, column: 6 }, end: { line: 297, column: 8 } }, '78': { start: { line: 296, column: 8 }, end: { line: 296, column: 41 } }, '79': { start: { line: 299, column: 6 }, end: { line: 304, column: 9 } }, '80': { start: { line: 300, column: 6 }, end: { line: 304, column: 9 } }, '81': { start: { line: 303, column: 9 }, end: { line: 303, column: 39 } }, '82': { start: { line: 305, column: 6 }, end: { line: 309, column: 9 } }, '83': { start: { line: 308, column: 9 }, end: { line: 308, column: 52 } }, '84': { start: { line: 311, column: 7 }, end: { line: 316, column: 8 } }, '85': { start: { line: 314, column: 11 }, end: { line: 314, column: 44 } }, '86': { start: { line: 318, column: 6 }, end: { line: 318, column: 18 } }, '87': { start: { line: 322, column: 29 }, end: { line: 327, column: 1 } }, '88': { start: { line: 323, column: 2 }, end: { line: 326, column: 3 } }, '89': { start: { line: 325, column: 6 }, end: { line: 325, column: 18 } }, '90': { start: { line: 333, column: 35 }, end: { line: 343, column: 1 } }, '91': { start: { line: 334, column: 2 }, end: { line: 342, column: 3 } }, '92': { start: { line: 346, column: 33 }, end: { line: 346, column: 56 } }, '93': { start: { line: 348, column: 29 }, end: { line: 368, column: 1 } }, '94': { start: { line: 349, column: 2 }, end: { line: 367, column: 3 } }, '95': { start: { line: 351, column: 6 }, end: { line: 354, column: 7 } }, '96': { start: { line: 356, column: 6 }, end: { line: 359, column: 7 } }, '97': { start: { line: 361, column: 6 }, end: { line: 364, column: 7 } }, '98': { start: { line: 366, column: 6 }, end: { line: 366, column: 18 } }, '99': { start: { line: 370, column: 32 }, end: { line: 375, column: 1 } }, '100': { start: { line: 371, column: 2 }, end: { line: 374, column: 3 } }, '101': { start: { line: 377, column: 30 }, end: { line: 377, column: 50 } }, '102': { start: { line: 379, column: 26 }, end: { line: 393, column: 1 } }, '103': { start: { line: 380, column: 2 }, end: { line: 392, column: 3 } }, '104': { start: { line: 382, column: 6 }, end: { line: 384, column: 7 } }, '105': { start: { line: 386, column: 6 }, end: { line: 389, column: 7 } }, '106': { start: { line: 391, column: 6 }, end: { line: 391, column: 18 } }, '107': { start: { line: 400, column: 32 }, end: { line: 408, column: 1 } }, '108': { start: { line: 401, column: 2 }, end: { line: 407, column: 4 } }, '109': { start: { line: 410, column: 30 }, end: { line: 410, column: 50 } }, '110': { start: { line: 412, column: 26 }, end: { line: 434, column: 1 } }, '111': { start: { line: 413, column: 2 }, end: { line: 433, column: 3 } }, '112': { start: { line: 415, column: 6 }, end: { line: 419, column: 8 } }, '113': { start: { line: 421, column: 6 }, end: { line: 425, column: 8 } }, '114': { start: { line: 427, column: 6 }, end: { line: 430, column: 8 } }, '115': { start: { line: 432, column: 6 }, end: { line: 432, column: 18 } }, '116': { start: { line: 436, column: 36 }, end: { line: 442, column: 1 } }, '117': { start: { line: 437, column: 2 }, end: { line: 441, column: 4 } }, '118': { start: { line: 444, column: 34 }, end: { line: 444, column: 58 } }, '119': { start: { line: 446, column: 30 }, end: { line: 462, column: 1 } }, '120': { start: { line: 447, column: 2 }, end: { line: 461, column: 3 } }, '121': { start: { line: 449, column: 6 }, end: { line: 453, column: 7 } }, '122': { start: { line: 455, column: 6 }, end: { line: 458, column: 7 } }, '123': { start: { line: 460, column: 6 }, end: { line: 460, column: 18 } }, '124': { start: { line: 465, column: 33 }, end: { line: 473, column: 1 } }, '125': { start: { line: 466, column: 2 }, end: { line: 472, column: 4 } }, '126': { start: { line: 475, column: 31 }, end: { line: 475, column: 52 } }, '127': { start: { line: 477, column: 36 }, end: { line: 491, column: 1 } }, '128': { start: { line: 478, column: 2 }, end: { line: 490, column: 2 } }, '129': { start: { line: 492, column: 34 }, end: { line: 492, column: 58 } }, '130': { start: { line: 493, column: 27 }, end: { line: 516, column: 1 } }, '131': { start: { line: 494, column: 2 }, end: { line: 515, column: 3 } }, '132': { start: { line: 496, column: 4 }, end: { line: 503, column: 5 } }, '133': { start: { line: 505, column: 4 }, end: { line: 510, column: 5 } }, '134': { start: { line: 512, column: 4 }, end: { line: 512, column: 29 } }, '135': { start: { line: 514, column: 6 }, end: { line: 514, column: 18 } }, '136': { start: { line: 517, column: 30 }, end: { line: 576, column: 1 } }, '137': { start: { line: 518, column: 2 }, end: { line: 575, column: 3 } }, '138': { start: { line: 520, column: 4 }, end: { line: 520, column: 32 } }, '139': { start: { line: 523, column: 4 }, end: { line: 530, column: 5 } }, '140': { start: { line: 532, column: 4 }, end: { line: 537, column: 5 } }, '141': { start: { line: 539, column: 4 }, end: { line: 544, column: 5 } }, '142': { start: { line: 546, column: 4 }, end: { line: 551, column: 5 } }, '143': { start: { line: 553, column: 4 }, end: { line: 556, column: 5 } }, '144': { start: { line: 558, column: 4 }, end: { line: 561, column: 5 } }, '145': { start: { line: 563, column: 4 }, end: { line: 566, column: 5 } }, '146': { start: { line: 568, column: 4 }, end: { line: 571, column: 5 } }, '147': { start: { line: 573, column: 4 }, end: { line: 573, column: 16 } }, '148': { start: { line: 578, column: 25 }, end: { line: 592, column: 2 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 19, column: 33 }, end: { line: 19, column: 34 } }, loc: { start: { line: 19, column: 37 }, end: { line: 23, column: 1 } }, line: 19 }, '1': { name: '(anonymous_1)', decl: { start: { line: 25, column: 27 }, end: { line: 25, column: 28 } }, loc: { start: { line: 25, column: 62 }, end: { line: 37, column: 1 } }, line: 25 }, '2': { name: '(anonymous_2)', decl: { start: { line: 39, column: 34 }, end: { line: 39, column: 35 } }, loc: { start: { line: 39, column: 38 }, end: { line: 44, column: 1 } }, line: 39 }, '3': { name: '(anonymous_3)', decl: { start: { line: 48, column: 28 }, end: { line: 48, column: 29 } }, loc: { start: { line: 48, column: 64 }, end: { line: 63, column: 1 } }, line: 48 }, '4': { name: '(anonymous_4)', decl: { start: { line: 66, column: 35 }, end: { line: 66, column: 36 } }, loc: { start: { line: 66, column: 39 }, end: { line: 77, column: 1 } }, line: 66 }, '5': { name: '(anonymous_5)', decl: { start: { line: 80, column: 29 }, end: { line: 80, column: 30 } }, loc: { start: { line: 80, column: 66 }, end: { line: 97, column: 1 } }, line: 80 }, '6': { name: '(anonymous_6)', decl: { start: { line: 118, column: 38 }, end: { line: 118, column: 39 } }, loc: { start: { line: 118, column: 42 }, end: { line: 122, column: 1 } }, line: 118 }, '7': { name: '(anonymous_7)', decl: { start: { line: 126, column: 33 }, end: { line: 126, column: 34 } }, loc: { start: { line: 126, column: 73 }, end: { line: 136, column: 1 } }, line: 126 }, '8': { name: '(anonymous_8)', decl: { start: { line: 140, column: 39 }, end: { line: 140, column: 40 } }, loc: { start: { line: 140, column: 43 }, end: { line: 144, column: 1 } }, line: 140 }, '9': { name: '(anonymous_9)', decl: { start: { line: 148, column: 34 }, end: { line: 148, column: 35 } }, loc: { start: { line: 148, column: 75 }, end: { line: 158, column: 1 } }, line: 148 }, '10': { name: '(anonymous_10)', decl: { start: { line: 162, column: 37 }, end: { line: 162, column: 38 } }, loc: { start: { line: 162, column: 41 }, end: { line: 166, column: 1 } }, line: 162 }, '11': { name: '(anonymous_11)', decl: { start: { line: 170, column: 32 }, end: { line: 170, column: 33 } }, loc: { start: { line: 170, column: 71 }, end: { line: 180, column: 1 } }, line: 170 }, '12': { name: '(anonymous_12)', decl: { start: { line: 183, column: 35 }, end: { line: 183, column: 36 } }, loc: { start: { line: 183, column: 39 }, end: { line: 195, column: 1 } }, line: 183 }, '13': { name: '(anonymous_13)', decl: { start: { line: 198, column: 39 }, end: { line: 198, column: 40 } }, loc: { start: { line: 198, column: 43 }, end: { line: 219, column: 1 } }, line: 198 }, '14': { name: '(anonymous_14)', decl: { start: { line: 225, column: 38 }, end: { line: 225, column: 39 } }, loc: { start: { line: 225, column: 57 }, end: { line: 236, column: 1 } }, line: 225 }, '15': { name: '(anonymous_15)', decl: { start: { line: 238, column: 35 }, end: { line: 238, column: 36 } }, loc: { start: { line: 238, column: 55 }, end: { line: 248, column: 1 } }, line: 238 }, '16': { name: '(anonymous_16)', decl: { start: { line: 249, column: 36 }, end: { line: 249, column: 37 } }, loc: { start: { line: 249, column: 56 }, end: { line: 257, column: 1 } }, line: 249 }, '17': { name: '(anonymous_17)', decl: { start: { line: 258, column: 49 }, end: { line: 258, column: 50 } }, loc: { start: { line: 258, column: 69 }, end: { line: 267, column: 1 } }, line: 258 }, '18': { name: '(anonymous_18)', decl: { start: { line: 264, column: 44 }, end: { line: 264, column: 45 } }, loc: { start: { line: 265, column: 6 }, end: { line: 265, column: 37 } }, line: 265 }, '19': { name: '(anonymous_19)', decl: { start: { line: 268, column: 37 }, end: { line: 268, column: 38 } }, loc: { start: { line: 268, column: 56 }, end: { line: 273, column: 1 } }, line: 268 }, '20': { name: '(anonymous_20)', decl: { start: { line: 274, column: 34 }, end: { line: 274, column: 35 } }, loc: { start: { line: 274, column: 75 }, end: { line: 320, column: 1 } }, line: 274 }, '21': { name: '(anonymous_21)', decl: { start: { line: 295, column: 45 }, end: { line: 295, column: 46 } }, loc: { start: { line: 296, column: 8 }, end: { line: 296, column: 41 } }, line: 296 }, '22': { name: '(anonymous_22)', decl: { start: { line: 302, column: 46 }, end: { line: 302, column: 47 } }, loc: { start: { line: 303, column: 9 }, end: { line: 303, column: 39 } }, line: 303 }, '23': { name: '(anonymous_23)', decl: { start: { line: 307, column: 46 }, end: { line: 307, column: 47 } }, loc: { start: { line: 308, column: 9 }, end: { line: 308, column: 52 } }, line: 308 }, '24': { name: '(anonymous_24)', decl: { start: { line: 313, column: 46 }, end: { line: 313, column: 47 } }, loc: { start: { line: 314, column: 11 }, end: { line: 314, column: 44 } }, line: 314 }, '25': { name: '(anonymous_25)', decl: { start: { line: 322, column: 29 }, end: { line: 322, column: 30 } }, loc: { start: { line: 322, column: 66 }, end: { line: 327, column: 1 } }, line: 322 }, '26': { name: '(anonymous_26)', decl: { start: { line: 333, column: 35 }, end: { line: 333, column: 36 } }, loc: { start: { line: 333, column: 39 }, end: { line: 343, column: 1 } }, line: 333 }, '27': { name: '(anonymous_27)', decl: { start: { line: 348, column: 29 }, end: { line: 348, column: 30 } }, loc: { start: { line: 348, column: 66 }, end: { line: 368, column: 1 } }, line: 348 }, '28': { name: '(anonymous_28)', decl: { start: { line: 370, column: 32 }, end: { line: 370, column: 33 } }, loc: { start: { line: 370, column: 36 }, end: { line: 375, column: 1 } }, line: 370 }, '29': { name: '(anonymous_29)', decl: { start: { line: 379, column: 26 }, end: { line: 379, column: 27 } }, loc: { start: { line: 379, column: 59 }, end: { line: 393, column: 1 } }, line: 379 }, '30': { name: '(anonymous_30)', decl: { start: { line: 400, column: 32 }, end: { line: 400, column: 33 } }, loc: { start: { line: 400, column: 36 }, end: { line: 408, column: 1 } }, line: 400 }, '31': { name: '(anonymous_31)', decl: { start: { line: 412, column: 26 }, end: { line: 412, column: 27 } }, loc: { start: { line: 412, column: 60 }, end: { line: 434, column: 1 } }, line: 412 }, '32': { name: '(anonymous_32)', decl: { start: { line: 436, column: 36 }, end: { line: 436, column: 37 } }, loc: { start: { line: 436, column: 40 }, end: { line: 442, column: 1 } }, line: 436 }, '33': { name: '(anonymous_33)', decl: { start: { line: 446, column: 30 }, end: { line: 446, column: 31 } }, loc: { start: { line: 446, column: 68 }, end: { line: 462, column: 1 } }, line: 446 }, '34': { name: '(anonymous_34)', decl: { start: { line: 465, column: 33 }, end: { line: 465, column: 34 } }, loc: { start: { line: 465, column: 37 }, end: { line: 473, column: 1 } }, line: 465 }, '35': { name: '(anonymous_35)', decl: { start: { line: 477, column: 36 }, end: { line: 477, column: 37 } }, loc: { start: { line: 477, column: 40 }, end: { line: 491, column: 1 } }, line: 477 }, '36': { name: '(anonymous_36)', decl: { start: { line: 493, column: 27 }, end: { line: 493, column: 28 } }, loc: { start: { line: 493, column: 62 }, end: { line: 516, column: 1 } }, line: 493 }, '37': { name: '(anonymous_37)', decl: { start: { line: 517, column: 30 }, end: { line: 517, column: 31 } }, loc: { start: { line: 517, column: 68 }, end: { line: 576, column: 1 } }, line: 517 } }, branchMap: { '0': { loc: { start: { line: 25, column: 28 }, end: { line: 25, column: 51 } }, type: 'default-arg', locations: [{ start: { line: 25, column: 34 }, end: { line: 25, column: 51 } }], line: 25 }, '1': { loc: { start: { line: 26, column: 2 }, end: { line: 35, column: 3 } }, type: 'switch', locations: [{ start: { line: 27, column: 4 }, end: { line: 32, column: 8 } }, { start: { line: 33, column: 4 }, end: { line: 34, column: 18 } }], line: 26 }, '2': { loc: { start: { line: 48, column: 29 }, end: { line: 48, column: 53 } }, type: 'default-arg', locations: [{ start: { line: 48, column: 35 }, end: { line: 48, column: 53 } }], line: 48 }, '3': { loc: { start: { line: 49, column: 2 }, end: { line: 62, column: 3 } }, type: 'switch', locations: [{ start: { line: 50, column: 4 }, end: { line: 54, column: 8 } }, { start: { line: 55, column: 4 }, end: { line: 59, column: 8 } }, { start: { line: 60, column: 4 }, end: { line: 61, column: 18 } }], line: 49 }, '4': { loc: { start: { line: 80, column: 30 }, end: { line: 80, column: 55 } }, type: 'default-arg', locations: [{ start: { line: 80, column: 36 }, end: { line: 80, column: 55 } }], line: 80 }, '5': { loc: { start: { line: 81, column: 2 }, end: { line: 96, column: 3 } }, type: 'switch', locations: [{ start: { line: 82, column: 4 }, end: { line: 93, column: 10 } }, { start: { line: 94, column: 4 }, end: { line: 95, column: 18 } }], line: 81 }, '6': { loc: { start: { line: 126, column: 34 }, end: { line: 126, column: 62 } }, type: 'default-arg', locations: [{ start: { line: 126, column: 40 }, end: { line: 126, column: 62 } }], line: 126 }, '7': { loc: { start: { line: 127, column: 2 }, end: { line: 135, column: 3 } }, type: 'switch', locations: [{ start: { line: 128, column: 4 }, end: { line: 132, column: 8 } }, { start: { line: 133, column: 4 }, end: { line: 134, column: 18 } }], line: 127 }, '8': { loc: { start: { line: 148, column: 35 }, end: { line: 148, column: 64 } }, type: 'default-arg', locations: [{ start: { line: 148, column: 41 }, end: { line: 148, column: 64 } }], line: 148 }, '9': { loc: { start: { line: 149, column: 2 }, end: { line: 157, column: 3 } }, type: 'switch', locations: [{ start: { line: 150, column: 4 }, end: { line: 154, column: 8 } }, { start: { line: 155, column: 4 }, end: { line: 156, column: 18 } }], line: 149 }, '10': { loc: { start: { line: 170, column: 33 }, end: { line: 170, column: 60 } }, type: 'default-arg', locations: [{ start: { line: 170, column: 39 }, end: { line: 170, column: 60 } }], line: 170 }, '11': { loc: { start: { line: 171, column: 2 }, end: { line: 179, column: 3 } }, type: 'switch', locations: [{ start: { line: 172, column: 4 }, end: { line: 176, column: 8 } }, { start: { line: 177, column: 4 }, end: { line: 178, column: 18 } }], line: 171 }, '12': { loc: { start: { line: 228, column: 2 }, end: { line: 230, column: 3 } }, type: 'if', locations: [{ start: { line: 228, column: 2 }, end: { line: 230, column: 3 } }, { start: { line: 228, column: 2 }, end: { line: 230, column: 3 } }], line: 228 }, '13': { loc: { start: { line: 240, column: 4 }, end: { line: 242, column: 5 } }, type: 'if', locations: [{ start: { line: 240, column: 4 }, end: { line: 242, column: 5 } }, { start: { line: 240, column: 4 }, end: { line: 242, column: 5 } }], line: 240 }, '14': { loc: { start: { line: 250, column: 2 }, end: { line: 252, column: 3 } }, type: 'if', locations: [{ start: { line: 250, column: 2 }, end: { line: 252, column: 3 } }, { start: { line: 250, column: 2 }, end: { line: 252, column: 3 } }], line: 250 }, '15': { loc: { start: { line: 259, column: 2 }, end: { line: 261, column: 3 } }, type: 'if', locations: [{ start: { line: 259, column: 2 }, end: { line: 261, column: 3 } }, { start: { line: 259, column: 2 }, end: { line: 261, column: 3 } }], line: 259 }, '16': { loc: { start: { line: 269, column: 2 }, end: { line: 271, column: 3 } }, type: 'if', locations: [{ start: { line: 269, column: 2 }, end: { line: 271, column: 3 } }, { start: { line: 269, column: 2 }, end: { line: 271, column: 3 } }], line: 269 }, '17': { loc: { start: { line: 274, column: 35 }, end: { line: 274, column: 64 } }, type: 'default-arg', locations: [{ start: { line: 274, column: 41 }, end: { line: 274, column: 64 } }], line: 274 }, '18': { loc: { start: { line: 275, column: 2 }, end: { line: 319, column: 3 } }, type: 'switch', locations: [{ start: { line: 276, column: 4 }, end: { line: 280, column: 7 } }, { start: { line: 281, column: 4 }, end: { line: 285, column: 8 } }, { start: { line: 286, column: 4 }, end: { line: 291, column: 8 } }, { start: { line: 292, column: 4 }, end: { line: 297, column: 8 } }, { start: { line: 298, column: 4 }, end: { line: 309, column: 9 } }, { start: { line: 310, column: 4 }, end: { line: 316, column: 8 } }, { start: { line: 317, column: 4 }, end: { line: 318, column: 18 } }], line: 275 }, '19': { loc: { start: { line: 299, column: 6 }, end: { line: 304, column: 9 } }, type: 'if', locations: [{ start: { line: 299, column: 6 }, end: { line: 304, column: 9 } }, { start: { line: 299, column: 6 }, end: { line: 304, column: 9 } }], line: 299 }, '20': { loc: { start: { line: 322, column: 30 }, end: { line: 322, column: 55 } }, type: 'default-arg', locations: [{ start: { line: 322, column: 36 }, end: { line: 322, column: 55 } }], line: 322 }, '21': { loc: { start: { line: 323, column: 2 }, end: { line: 326, column: 3 } }, type: 'switch', locations: [{ start: { line: 324, column: 4 }, end: { line: 325, column: 18 } }], line: 323 }, '22': { loc: { start: { line: 348, column: 30 }, end: { line: 348, column: 55 } }, type: 'default-arg', locations: [{ start: { line: 348, column: 36 }, end: { line: 348, column: 55 } }], line: 348 }, '23': { loc: { start: { line: 349, column: 2 }, end: { line: 367, column: 3 } }, type: 'switch', locations: [{ start: { line: 350, column: 4 }, end: { line: 354, column: 7 } }, { start: { line: 355, column: 4 }, end: { line: 359, column: 7 } }, { start: { line: 360, column: 4 }, end: { line: 364, column: 7 } }, { start: { line: 365, column: 4 }, end: { line: 366, column: 18 } }], line: 349 }, '24': { loc: { start: { line: 379, column: 27 }, end: { line: 379, column: 49 } }, type: 'default-arg', locations: [{ start: { line: 379, column: 33 }, end: { line: 379, column: 49 } }], line: 379 }, '25': { loc: { start: { line: 380, column: 2 }, end: { line: 392, column: 3 } }, type: 'switch', locations: [{ start: { line: 381, column: 4 }, end: { line: 384, column: 7 } }, { start: { line: 385, column: 4 }, end: { line: 389, column: 7 } }, { start: { line: 390, column: 4 }, end: { line: 391, column: 18 } }], line: 380 }, '26': { loc: { start: { line: 412, column: 27 }, end: { line: 412, column: 49 } }, type: 'default-arg', locations: [{ start: { line: 412, column: 33 }, end: { line: 412, column: 49 } }], line: 412 }, '27': { loc: { start: { line: 413, column: 2 }, end: { line: 433, column: 3 } }, type: 'switch', locations: [{ start: { line: 414, column: 4 }, end: { line: 419, column: 8 } }, { start: { line: 420, column: 4 }, end: { line: 425, column: 8 } }, { start: { line: 426, column: 4 }, end: { line: 430, column: 8 } }, { start: { line: 431, column: 4 }, end: { line: 432, column: 18 } }], line: 413 }, '28': { loc: { start: { line: 446, column: 31 }, end: { line: 446, column: 57 } }, type: 'default-arg', locations: [{ start: { line: 446, column: 37 }, end: { line: 446, column: 57 } }], line: 446 }, '29': { loc: { start: { line: 447, column: 2 }, end: { line: 461, column: 3 } }, type: 'switch', locations: [{ start: { line: 448, column: 4 }, end: { line: 453, column: 7 } }, { start: { line: 454, column: 4 }, end: { line: 458, column: 7 } }, { start: { line: 459, column: 4 }, end: { line: 460, column: 18 } }], line: 447 }, '30': { loc: { start: { line: 493, column: 28 }, end: { line: 493, column: 51 } }, type: 'default-arg', locations: [{ start: { line: 493, column: 34 }, end: { line: 493, column: 51 } }], line: 493 }, '31': { loc: { start: { line: 494, column: 2 }, end: { line: 515, column: 3 } }, type: 'switch', locations: [{ start: { line: 495, column: 4 }, end: { line: 503, column: 5 } }, { start: { line: 504, column: 4 }, end: { line: 510, column: 5 } }, { start: { line: 511, column: 4 }, end: { line: 512, column: 29 } }, { start: { line: 513, column: 4 }, end: { line: 514, column: 18 } }], line: 494 }, '32': { loc: { start: { line: 517, column: 31 }, end: { line: 517, column: 57 } }, type: 'default-arg', locations: [{ start: { line: 517, column: 37 }, end: { line: 517, column: 57 } }], line: 517 }, '33': { loc: { start: { line: 518, column: 2 }, end: { line: 575, column: 3 } }, type: 'switch', locations: [{ start: { line: 519, column: 4 }, end: { line: 520, column: 32 } }, { start: { line: 522, column: 4 }, end: { line: 530, column: 5 } }, { start: { line: 531, column: 4 }, end: { line: 537, column: 5 } }, { start: { line: 538, column: 4 }, end: { line: 544, column: 5 } }, { start: { line: 545, column: 4 }, end: { line: 551, column: 5 } }, { start: { line: 552, column: 4 }, end: { line: 556, column: 5 } }, { start: { line: 557, column: 4 }, end: { line: 561, column: 5 } }, { start: { line: 562, column: 4 }, end: { line: 566, column: 5 } }, { start: { line: 567, column: 4 }, end: { line: 571, column: 5 } }, { start: { line: 572, column: 4 }, end: { line: 573, column: 16 } }], line: 518 } }, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0, '37': 0, '38': 0, '39': 0, '40': 0, '41': 0, '42': 0, '43': 0, '44': 0, '45': 0, '46': 0, '47': 0, '48': 0, '49': 0, '50': 0, '51': 0, '52': 0, '53': 0, '54': 0, '55': 0, '56': 0, '57': 0, '58': 0, '59': 0, '60': 0, '61': 0, '62': 0, '63': 0, '64': 0, '65': 0, '66': 0, '67': 0, '68': 0, '69': 0, '70': 0, '71': 0, '72': 0, '73': 0, '74': 0, '75': 0, '76': 0, '77': 0, '78': 0, '79': 0, '80': 0, '81': 0, '82': 0, '83': 0, '84': 0, '85': 0, '86': 0, '87': 0, '88': 0, '89': 0, '90': 0, '91': 0, '92': 0, '93': 0, '94': 0, '95': 0, '96': 0, '97': 0, '98': 0, '99': 0, '100': 0, '101': 0, '102': 0, '103': 0, '104': 0, '105': 0, '106': 0, '107': 0, '108': 0, '109': 0, '110': 0, '111': 0, '112': 0, '113': 0, '114': 0, '115': 0, '116': 0, '117': 0, '118': 0, '119': 0, '120': 0, '121': 0, '122': 0, '123': 0, '124': 0, '125': 0, '126': 0, '127': 0, '128': 0, '129': 0, '130': 0, '131': 0, '132': 0, '133': 0, '134': 0, '135': 0, '136': 0, '137': 0, '138': 0, '139': 0, '140': 0, '141': 0, '142': 0, '143': 0, '144': 0, '145': 0, '146': 0, '147': 0, '148': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0, '37': 0 }, b: { '0': [0], '1': [0, 0], '2': [0], '3': [0, 0, 0], '4': [0], '5': [0, 0], '6': [0], '7': [0, 0], '8': [0], '9': [0, 0], '10': [0], '11': [0, 0], '12': [0, 0], '13': [0, 0], '14': [0, 0], '15': [0, 0], '16': [0, 0], '17': [0], '18': [0, 0, 0, 0, 0, 0, 0], '19': [0, 0], '20': [0], '21': [0], '22': [0], '23': [0, 0, 0, 0], '24': [0], '25': [0, 0, 0], '26': [0], '27': [0, 0, 0, 0], '28': [0], '29': [0, 0, 0], '30': [0], '31': [0, 0, 0, 0], '32': [0], '33': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();
+
+
+
+
+
+
+
+
+
+
+
+////////////////
+
+/////////////////////////////////////////
+var /* istanbul ignore next */_actions = require('../actions');var /* istanbul ignore next */_redux = require('redux');
+//////////////////////////////////////
+
+const createNewImageState = /* istanbul ignore next */exports.createNewImageState = (++cov_2395hb4swh.s[0], () => {/* istanbul ignore next */++cov_2395hb4swh.f[0];++cov_2395hb4swh.s[1];
+  return {
+    imagelist: [] };
+
+});
+const initialImageState = /* istanbul ignore next */exports.initialImageState = (++cov_2395hb4swh.s[2], createNewImageState());
+const image_reducer = /* istanbul ignore next */exports.image_reducer = (++cov_2395hb4swh.s[3], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[0][0], initialImageState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[1];++cov_2395hb4swh.s[4];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_IMAGE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[1][0];++cov_2395hb4swh.s[5];
+      console.log(action.imagelist); /* istanbul ignore next */++cov_2395hb4swh.s[6];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          imagelist: action.imagelist }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[1][1];++cov_2395hb4swh.s[7];
+      return state;}
+
+
+});
+
+const createNewFollowState = /* istanbul ignore next */exports.createNewFollowState = (++cov_2395hb4swh.s[8], () => {/* istanbul ignore next */++cov_2395hb4swh.f[2];++cov_2395hb4swh.s[9];
+  return {
+    follow_list: [],
+    follow_article_list: [] };
+
+});
+
+const initialFollowState = /* istanbul ignore next */exports.initialFollowState = (++cov_2395hb4swh.s[10], createNewFollowState());
+
+const follow_reducer = /* istanbul ignore next */exports.follow_reducer = (++cov_2395hb4swh.s[11], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[2][0], initialFollowState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[3];++cov_2395hb4swh.s[12];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_FOLLOW_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[3][0];++cov_2395hb4swh.s[13];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          follow_list: action.follow_list }));
+
+    case /* istanbul ignore next */_actions.SET_FOLLOW_ARTICLE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[3][1];++cov_2395hb4swh.s[14];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          follow_article_list: action.follow_article_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[3][2];++cov_2395hb4swh.s[15];
+      return state;}
+
+});
+
+//////////////////////////////////////
+const createNewProfileState = /* istanbul ignore next */exports.createNewProfileState = (++cov_2395hb4swh.s[16], () => {/* istanbul ignore next */++cov_2395hb4swh.f[4];++cov_2395hb4swh.s[17];
+  return {
+    email: null,
+    nickname: null,
+    avatar: null,
+    first_name: null,
+    last_name: null,
+    last_login: null,
+    date_joined: null };
+
+
+});
+const initialProfileState = /* istanbul ignore next */exports.initialProfileState = (++cov_2395hb4swh.s[18], createNewProfileState());
+
+const profile_reducer = /* istanbul ignore next */exports.profile_reducer = (++cov_2395hb4swh.s[19], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[4][0], initialProfileState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[5];++cov_2395hb4swh.s[20];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_PROFILE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[5][0];++cov_2395hb4swh.s[21];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          email: action.email,
+          nickname: action.nickname,
+          avatar: action.avatar,
+          first_name: action.first_name,
+          last_name: action.last_name,
+          last_login: action.last_login,
+          date_joined: action.date_joined }));
+
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[5][1];++cov_2395hb4swh.s[22];
+      return state;}
+
+});
+/*"id": 26,
+       "username": "sesang08",
+       "email": "sssqasss@naver.com",
+       "userprofile": {
+           "nickname": "11",
+           "avatar": null
+       },
+       "first_name": "dd",
+       "last_name": "",
+       "groups": [],
+       "is_staff": true,
+       "is_active": true,
+       "last_login": "2017-05-27T15:01:49.517841Z",
+       "date_joined": "2017-05-27T09:07:06.884121Z",
+       "is_superuser": true,
+       "user_permissions": []
+    */
+
+//////////////////////////
+
+const createNewGroupForumState = /* istanbul ignore next */exports.createNewGroupForumState = (++cov_2395hb4swh.s[23], () => {/* istanbul ignore next */++cov_2395hb4swh.f[6];++cov_2395hb4swh.s[24];
+  return {
+    forum_list: [] };
+
+});
+
+const initialGroupForumState = /* istanbul ignore next */exports.initialGroupForumState = (++cov_2395hb4swh.s[25], createNewGroupForumState());
+
+const group_forum_reducer = /* istanbul ignore next */exports.group_forum_reducer = (++cov_2395hb4swh.s[26], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[6][0], initialGroupForumState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[7];++cov_2395hb4swh.s[27];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_GROUP_FORUM_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[7][0];++cov_2395hb4swh.s[28];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          forum_list: action.forum_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[7][1];++cov_2395hb4swh.s[29];
+      return state;}
+
+});
+
+//////////////////////////////////////
+
+const createNewGroupNoticeState = /* istanbul ignore next */exports.createNewGroupNoticeState = (++cov_2395hb4swh.s[30], () => {/* istanbul ignore next */++cov_2395hb4swh.f[8];++cov_2395hb4swh.s[31];
+  return {
+    notice_list: [] };
+
+});
+
+const initialGroupNoticeState = /* istanbul ignore next */exports.initialGroupNoticeState = (++cov_2395hb4swh.s[32], createNewGroupNoticeState());
+
+const group_notice_reducer = /* istanbul ignore next */exports.group_notice_reducer = (++cov_2395hb4swh.s[33], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[8][0], initialGroupNoticeState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[9];++cov_2395hb4swh.s[34];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_GROUP_NOTICE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[9][0];++cov_2395hb4swh.s[35];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          notice_list: action.notice_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[9][1];++cov_2395hb4swh.s[36];
+      return state;}
+
+});
+
+//////////////////////////////////////
+
+const createNewGroupListState = /* istanbul ignore next */exports.createNewGroupListState = (++cov_2395hb4swh.s[37], () => {/* istanbul ignore next */++cov_2395hb4swh.f[10];++cov_2395hb4swh.s[38];
+  return {
+    group_list: [] };
+
+});
+
+const initialGroupListState = /* istanbul ignore next */exports.initialGroupListState = (++cov_2395hb4swh.s[39], createNewGroupListState());
+
+const group_list_reducer = /* istanbul ignore next */exports.group_list_reducer = (++cov_2395hb4swh.s[40], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[10][0], initialGroupListState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[11];++cov_2395hb4swh.s[41];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_GROUP_LIST_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[11][0];++cov_2395hb4swh.s[42];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          group_list: action.group_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[11][1];++cov_2395hb4swh.s[43];
+      return state;}
+
+});
+
+///////////////////////////////////////////
+const createNewArticleState = /* istanbul ignore next */exports.createNewArticleState = (++cov_2395hb4swh.s[44], () => {/* istanbul ignore next */++cov_2395hb4swh.f[12];
+  let article = /* istanbul ignore next */(++cov_2395hb4swh.s[45], {
+    id: 0,
+    author: "",
+    content: "",
+    created_time: new Date(),
+    updated_time: new Date(),
+    like_list: [],
+    comment_list: [],
+    likes_count: 0,
+    comments_count: 0 });
+
+});
+const initialArticleState = /* istanbul ignore next */exports.initialArticleState = (++cov_2395hb4swh.s[46], createNewArticleState());
+
+const createNewArticleListState = /* istanbul ignore next */exports.createNewArticleListState = (++cov_2395hb4swh.s[47], () => {/* istanbul ignore next */++cov_2395hb4swh.f[13];++cov_2395hb4swh.s[48];
+  return {
+    /*
+               article_list:[{ubase64:"",
+               author:"d",
+               text:"ss",
+               created_time:"aa",
+               comment_list:[{author:"댓글1",text:"댓글내용",    created_time:"모월모일", like_list:[{author:"좋아요댓글"}] }],
+               like_list:[{author:"좋아요포스트"}]
+             },
+             {ubase64:"",
+             author:"d꾸앙",
+             text:"ssㄴㄴ",
+             created_time:"aa",
+             like_list:[],
+             comment_list:[{author:"댓글2",text:"댓글내용", created_time:"모월모일", like_list:[]}],
+             },
+           ],
+           */
+    article_list: [] };
+
+});
+
+const initialArticleListState = /* istanbul ignore next */exports.initialArticleListState = (++cov_2395hb4swh.s[49], createNewArticleListState
+
+/////////////////////////////////////
+());
+const addCommentlistToArticle = /* istanbul ignore next */exports.addCommentlistToArticle = (++cov_2395hb4swh.s[50], (article, action) => {/* istanbul ignore next */++cov_2395hb4swh.f[14];++cov_2395hb4swh.s[51];
+
+
+  if (article.id !== action.article_id) {/* istanbul ignore next */++cov_2395hb4swh.b[12][0];++cov_2395hb4swh.s[52];
+    return article;
+  } else /* istanbul ignore next */{++cov_2395hb4swh.b[12][1];}++cov_2395hb4swh.s[53];
+  return (/* istanbul ignore next */Object.assign({},
+    article, {
+      comment_list: action.comment_list }));
+
+
+});
+
+const addLikelistToArticle = /* istanbul ignore next */exports.addLikelistToArticle = (++cov_2395hb4swh.s[54], (article, action) => {/* istanbul ignore next */++cov_2395hb4swh.f[15];++cov_2395hb4swh.s[55];
+
+  if (article.id !== action.id1) {/* istanbul ignore next */++cov_2395hb4swh.b[13][0];++cov_2395hb4swh.s[56];
+    return article;
+  } else /* istanbul ignore next */{++cov_2395hb4swh.b[13][1];}++cov_2395hb4swh.s[57];
+  return (/* istanbul ignore next */Object.assign({},
+    article, {
+      like_list: action.like_list }));
+
+
+});
+const addLikelistToComment = /* istanbul ignore next */exports.addLikelistToComment = (++cov_2395hb4swh.s[58], (comment, action) => {/* istanbul ignore next */++cov_2395hb4swh.f[16];++cov_2395hb4swh.s[59];
+  if (comment.id !== action.id2) {/* istanbul ignore next */++cov_2395hb4swh.b[14][0];++cov_2395hb4swh.s[60];
+    return comment;
+  } else /* istanbul ignore next */{++cov_2395hb4swh.b[14][1];}++cov_2395hb4swh.s[61];
+  return (/* istanbul ignore next */Object.assign({},
+    comment, {
+      like_list: action.like_list }));
+
+});
+const addLikelistToComment_with_article = /* istanbul ignore next */exports.addLikelistToComment_with_article = (++cov_2395hb4swh.s[62], (article, action) => {/* istanbul ignore next */++cov_2395hb4swh.f[17];++cov_2395hb4swh.s[63];
+  if (article.id !== action.id1) {/* istanbul ignore next */++cov_2395hb4swh.b[15][0];++cov_2395hb4swh.s[64];
+    return article;
+  } else /* istanbul ignore next */{++cov_2395hb4swh.b[15][1];}++cov_2395hb4swh.s[65];
+  return (/* istanbul ignore next */Object.assign({},
+    article, {
+      comment_list: article.comment_list.map(t =>
+      {/* istanbul ignore next */++cov_2395hb4swh.f[18];++cov_2395hb4swh.s[66];return addLikelistToComment(t, action);}) }));
+
+});
+const getArticlelistToArticle = /* istanbul ignore next */exports.getArticlelistToArticle = (++cov_2395hb4swh.s[67], (article, action) => {/* istanbul ignore next */++cov_2395hb4swh.f[19];++cov_2395hb4swh.s[68];
+  if (article.id !== action.id) {/* istanbul ignore next */++cov_2395hb4swh.b[16][0];++cov_2395hb4swh.s[69];
+    return article;
+  } else /* istanbul ignore next */{++cov_2395hb4swh.b[16][1];}++cov_2395hb4swh.s[70];
+  return action.article;
+});
+const article_list_reducer = /* istanbul ignore next */exports.article_list_reducer = (++cov_2395hb4swh.s[71], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[17][0], initialArticleListState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[20];++cov_2395hb4swh.s[72];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.LOGOUT: /* istanbul ignore next */++cov_2395hb4swh.b[18][0];++cov_2395hb4swh.s[73];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_list: [] }));
+
+    case /* istanbul ignore next */_actions.GET_ARTICLE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[18][1];++cov_2395hb4swh.s[74];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          ubase64: action.ubase64 }));
+
+    case /* istanbul ignore next */_actions.SET_ARTICLE_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[18][2];++cov_2395hb4swh.s[75];
+      console.log(action.article_list); /* istanbul ignore next */++cov_2395hb4swh.s[76];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_list: action.article_list }));
+
+    case /* istanbul ignore next */_actions.SET_COMMENT_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[18][3];++cov_2395hb4swh.s[77];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_list: state.article_list.map(t =>
+          {/* istanbul ignore next */++cov_2395hb4swh.f[21];++cov_2395hb4swh.s[78];return addCommentlistToArticle(t, action);}) }));
+
+    case /* istanbul ignore next */_actions.SET_LIKE_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[18][4];++cov_2395hb4swh.s[79];
+      if (action.id2 === 0)
+        {/* istanbul ignore next */++cov_2395hb4swh.b[19][0];++cov_2395hb4swh.s[80];return (/* istanbul ignore next */Object.assign({},
+            state, {
+              article_list: state.article_list.map(t =>
+              {/* istanbul ignore next */++cov_2395hb4swh.f[22];++cov_2395hb4swh.s[81];return addLikelistToArticle(t, action);}) }));
+        } else /* istanbul ignore next */{++cov_2395hb4swh.b[19][1];}++cov_2395hb4swh.s[82];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_list: state.article_list.map(t =>
+          {/* istanbul ignore next */++cov_2395hb4swh.f[23];++cov_2395hb4swh.s[83];return addLikelistToComment_with_article(t, action);}) }));
+
+    case /* istanbul ignore next */_actions.SET_ARTICLE_LIST_WITH_ID: /* istanbul ignore next */++cov_2395hb4swh.b[18][5];++cov_2395hb4swh.s[84];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_list: state.article_list.map(t =>
+          {/* istanbul ignore next */++cov_2395hb4swh.f[24];++cov_2395hb4swh.s[85];return getArticlelistToArticle(t, action);}) }));
+
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[18][6];++cov_2395hb4swh.s[86];
+      return state;}
+
+});
+
+const article_reducer = /* istanbul ignore next */exports.article_reducer = (++cov_2395hb4swh.s[87], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[20][0], initialArticleState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[25];++cov_2395hb4swh.s[88];
+  switch (action.type) {
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[21][0];++cov_2395hb4swh.s[89];
+      return state;}
+
+});
+
+///////////////////////
+
+
+////////////////////////////
+const createNewCommentState = /* istanbul ignore next */exports.createNewCommentState = (++cov_2395hb4swh.s[90], () => {/* istanbul ignore next */++cov_2395hb4swh.f[26];++cov_2395hb4swh.s[91];
+  return {
+    article_id: "",
+    ubase64: "",
+    author: "",
+    text: "",
+    created_time: "",
+    comment_list: [],
+    like_list: [] };
+
+});
+
+
+const initialCommentState = /* istanbul ignore next */exports.initialCommentState = (++cov_2395hb4swh.s[92], createNewCommentState());
+
+const comment_reducer = /* istanbul ignore next */exports.comment_reducer = (++cov_2395hb4swh.s[93], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[22][0], initialCommentState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[27];++cov_2395hb4swh.s[94];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.GET_COMMENT_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[23][0];++cov_2395hb4swh.s[95];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          ubase64: action.ubase64 }));
+
+    case /* istanbul ignore next */_actions.SET_COMMENT_ID: /* istanbul ignore next */++cov_2395hb4swh.b[23][1];++cov_2395hb4swh.s[96];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          article_id: action.article_id }));
+
+    case /* istanbul ignore next */_actions.SET_COMMENT_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[23][2];++cov_2395hb4swh.s[97];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          comment_list: action.comment_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[23][3];++cov_2395hb4swh.s[98];
+      return state;}
+
+});
+/////////////////////////////////
+const createNewLikeState = /* istanbul ignore next */exports.createNewLikeState = (++cov_2395hb4swh.s[99], () => {/* istanbul ignore next */++cov_2395hb4swh.f[28];++cov_2395hb4swh.s[100];
+  return {
+    author: "",
+    like_list: [] };
+
+});
+
+const initialLikeState = /* istanbul ignore next */exports.initialLikeState = (++cov_2395hb4swh.s[101], createNewLikeState());
+
+const like_reducer = /* istanbul ignore next */exports.like_reducer = (++cov_2395hb4swh.s[102], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[24][0], initialLikeState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[29];++cov_2395hb4swh.s[103];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.GET_LIKE_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[25][0];++cov_2395hb4swh.s[104];
+      return (/* istanbul ignore next */Object.assign({},
+        state));
+
+    case /* istanbul ignore next */_actions.SET_LIKE_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[25][1];++cov_2395hb4swh.s[105];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          like_list: action.like_list }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[25][2];++cov_2395hb4swh.s[106];
+      return state;}
+
+});
+
+/////////////////////////////
+
+
+
+///////////////////////////////////////////////
+const createNewChatState = /* istanbul ignore next */exports.createNewChatState = (++cov_2395hb4swh.s[107], () => {/* istanbul ignore next */++cov_2395hb4swh.f[30];++cov_2395hb4swh.s[108];
+  return {
+    uname: "",
+    ubase64: "",
+    valid: false,
+    receiver: "",
+    chatlog: [] };
+
+});
+
+const initialChatState = /* istanbul ignore next */exports.initialChatState = (++cov_2395hb4swh.s[109], createNewChatState());
+
+const chat_reducer = /* istanbul ignore next */exports.chat_reducer = (++cov_2395hb4swh.s[110], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[26][0], initialChatState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[31];++cov_2395hb4swh.s[111];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.SET_SENDER: /* istanbul ignore next */++cov_2395hb4swh.b[27][0];++cov_2395hb4swh.s[112];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          uname: action.uname,
+          ubase64: action.ubase64 }));
+
+    case /* istanbul ignore next */_actions.SET_RECEIVER: /* istanbul ignore next */++cov_2395hb4swh.b[27][1];++cov_2395hb4swh.s[113];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          valid: true,
+          receiver: action.receiver }));
+
+    case /* istanbul ignore next */_actions.SET_CHAT_LOG: /* istanbul ignore next */++cov_2395hb4swh.b[27][2];++cov_2395hb4swh.s[114];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          chatlog: action.chatlog }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[27][3];++cov_2395hb4swh.s[115];
+      return state;}
+
+});
+
+const createNewUserListState = /* istanbul ignore next */exports.createNewUserListState = (++cov_2395hb4swh.s[116], () => {/* istanbul ignore next */++cov_2395hb4swh.f[32];++cov_2395hb4swh.s[117];
+  return {
+    uname: "",
+    ubase64: "",
+    usernames: [] };
+
+});
+
+const initialUserListState = /* istanbul ignore next */exports.initialUserListState = (++cov_2395hb4swh.s[118], createNewUserListState());
+
+const userlist_reducer = /* istanbul ignore next */exports.userlist_reducer = (++cov_2395hb4swh.s[119], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[28][0], initialUserListState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[33];++cov_2395hb4swh.s[120];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.GET_USER_REQUEST: /* istanbul ignore next */++cov_2395hb4swh.b[29][0];++cov_2395hb4swh.s[121];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          uname: action.uname,
+          ubase64: action.ubase64 }));
+
+    case /* istanbul ignore next */_actions.SET_USER_LIST: /* istanbul ignore next */++cov_2395hb4swh.b[29][1];++cov_2395hb4swh.s[122];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          usernames: action.usernames }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[29][2];++cov_2395hb4swh.s[123];
+      return state;}
+
+});
+
+
+const createNewLoginState = /* istanbul ignore next */exports.createNewLoginState = (++cov_2395hb4swh.s[124], () => {/* istanbul ignore next */++cov_2395hb4swh.f[34];++cov_2395hb4swh.s[125];
+  return {
+    login_entered: false,
+    login_fail: false,
+    uname: "",
+    ubase64: "",
+    loginStatus: 0 };
+
+});
+
+const initialLoginState = /* istanbul ignore next */exports.initialLoginState = (++cov_2395hb4swh.s[126], createNewLoginState());
+
+const createNewRegisterState = /* istanbul ignore next */exports.createNewRegisterState = (++cov_2395hb4swh.s[127], () => {/* istanbul ignore next */++cov_2395hb4swh.f[35];++cov_2395hb4swh.s[128];
+  return {
+    register_entered: false,
+    register_fail: false,
+    id_entered: false,
+    id_fail: false,
+    uname: "",
+    uemail: "",
+    idValid: 0, //0: default, 1: id is empty 2: id is not valid 3: id is valid, but it already exists in database 4: id is valid and it doesn't exist in database
+    passwordValid: 0, //0: default, 1: password is empty 2: password is not valid 3: password is valid
+    passwordCheckValid: 0, //0: default, 1:passwordValid is empty 2: passwordcheck is not same as password  3: passwordcheck is valid
+    emailValid: 0, //0 : default, 1: email is empty 2: email is not valid 3: email is valid
+    registerValid: 0 //0 : default, 1: fail register 2: succeed register
+  };
+});
+const initialRegisterState = /* istanbul ignore next */exports.initialRegisterState = (++cov_2395hb4swh.s[129], createNewRegisterState());
+const login_reducer = /* istanbul ignore next */exports.login_reducer = (++cov_2395hb4swh.s[130], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[30][0], initialLoginState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[36];++cov_2395hb4swh.s[131];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.LOGIN_SUCCESS: /* istanbul ignore next */++cov_2395hb4swh.b[31][0];++cov_2395hb4swh.s[132];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          login_entered: true,
+          login_fail: false,
+          uname: action.uname,
+          ubase64: action.ubase64,
+          loginStatus: 1 }));
+
+    case /* istanbul ignore next */_actions.LOGIN_FAIL: /* istanbul ignore next */++cov_2395hb4swh.b[31][1];++cov_2395hb4swh.s[133];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          login_entered: false,
+          login_fail: true,
+          loginStatus: -1 }));
+
+    case /* istanbul ignore next */_actions.LOGOUT: /* istanbul ignore next */++cov_2395hb4swh.b[31][2];++cov_2395hb4swh.s[134];
+      return initialLoginState;
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[31][3];++cov_2395hb4swh.s[135];
+      return state;}
+
+});
+const register_reducer = /* istanbul ignore next */exports.register_reducer = (++cov_2395hb4swh.s[136], (state = /* istanbul ignore next */(++cov_2395hb4swh.b[32][0], initialRegisterState), action) => {/* istanbul ignore next */++cov_2395hb4swh.f[37];++cov_2395hb4swh.s[137];
+  switch (action.type) {
+    case /* istanbul ignore next */_actions.RESET_REGISTER: /* istanbul ignore next */++cov_2395hb4swh.b[33][0];++cov_2395hb4swh.s[138];
+      return initialRegisterState;
+
+    case /* istanbul ignore next */_actions.REGISTER_SUCCESS: /* istanbul ignore next */++cov_2395hb4swh.b[33][1];++cov_2395hb4swh.s[139];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          register_entered: true,
+          register_fail: false,
+          registerValid: 2,
+          uname: action.uname,
+          uemail: action.uemail }));
+
+    case /* istanbul ignore next */_actions.REGISTER_FAIL: /* istanbul ignore next */++cov_2395hb4swh.b[33][2];++cov_2395hb4swh.s[140];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          register_entered: false,
+          register_fail: true,
+          registerValid: 1 }));
+
+    case /* istanbul ignore next */_actions.ID_SUCCESS: /* istanbul ignore next */++cov_2395hb4swh.b[33][3];++cov_2395hb4swh.s[141];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          id_entered: true,
+          id_fail: false,
+          idValid: 4 }));
+
+    case /* istanbul ignore next */_actions.ID_FAIL: /* istanbul ignore next */++cov_2395hb4swh.b[33][4];++cov_2395hb4swh.s[142];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          id_entered: false,
+          id_fail: true,
+          idValid: 3 }));
+
+    case /* istanbul ignore next */_actions.SET_ID_VALID: /* istanbul ignore next */++cov_2395hb4swh.b[33][5];++cov_2395hb4swh.s[143];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          idValid: action.idValid }));
+
+    case /* istanbul ignore next */_actions.SET_PASSWORD_VALID: /* istanbul ignore next */++cov_2395hb4swh.b[33][6];++cov_2395hb4swh.s[144];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          passwordValid: action.passwordValid }));
+
+    case /* istanbul ignore next */_actions.SET_PASSWORD_CHECK_VALID: /* istanbul ignore next */++cov_2395hb4swh.b[33][7];++cov_2395hb4swh.s[145];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          passwordCheckValid: action.passwordCheckValid }));
+
+    case /* istanbul ignore next */_actions.SET_EMAIL_VALID: /* istanbul ignore next */++cov_2395hb4swh.b[33][8];++cov_2395hb4swh.s[146];
+      return (/* istanbul ignore next */Object.assign({},
+        state, {
+          emailValid: action.emailValid }));
+
+    default: /* istanbul ignore next */++cov_2395hb4swh.b[33][9];++cov_2395hb4swh.s[147];
+      return state;}
+
+
+});
+
+const app_reducer = /* istanbul ignore next */exports.app_reducer = (++cov_2395hb4swh.s[148], /* istanbul ignore next */(0, _redux.combineReducers)({
+  login_reducer,
+  register_reducer,
+  userlist_reducer,
+  chat_reducer,
+  article_list_reducer,
+  comment_reducer,
+  like_reducer,
+  group_list_reducer,
+  group_notice_reducer,
+  group_forum_reducer,
+  profile_reducer,
+  follow_reducer,
+  image_reducer })); /* istanbul ignore next */exports.default =
+
+app_reducer;

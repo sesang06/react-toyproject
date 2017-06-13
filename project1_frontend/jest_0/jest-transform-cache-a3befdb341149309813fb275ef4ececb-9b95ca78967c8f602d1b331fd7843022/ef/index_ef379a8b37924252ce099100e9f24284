@@ -1,0 +1,171 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Profile/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Article = require('../Article');var _Article2 = _interopRequireDefault(_Article);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+
+
+class Profile extends _react.Component {
+
+  onGet() {
+    if (this.props.loginStatus === 1) {
+      this.props.getProfile(this.props.ubase64);
+    }
+  }
+
+  onSubmit() {
+    console.log(this.newfile);
+    console.log(this.newnickname);
+    console.log(this.newfile.files);
+    console.log(this.newnickname.value);
+    let nickname;
+    let first_name;
+    let last_name;
+    let avatar;
+    if (this.newnickname.value === "")
+    nickname = null;else
+
+    nickname = this.newnickname.value;
+
+    if (this.newfirst_name.value === "")
+    first_name = null;else
+
+    first_name = this.newfirst_name.value;
+    if (this.newlast_name.value === "")
+    last_name = null;else
+
+    last_name = this.newlast_name.value;
+    if (this.newfile.files.length === 0)
+    avatar = null;else
+    {
+      avatar = this.newfile.files[0];
+    }
+    this.props.updateProfile(this.props.ubase64, nickname, avatar, first_name, last_name);
+
+    /*
+                                                                                               const file= this.newfile.files[0]
+                                                                                              console.log(file)
+                                                                                           //    this.props.updateProfile(this.props.ubase64, this.props.author, this.newtext.value, file);
+                                                                                              //this.onGet();
+                                                                                           }*/
+  }
+  render() {
+    if (this.props.loginStatus === 1) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 59 }, __self: this },
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 61 }, __self: this },
+            _react2.default.createElement(_Button2.default, { onClick: this.onGet.bind(this), text: '\uD504\uB85C\uD544 \uBD88\uB7EC\uC624\uAE30', __source: { fileName: _jsxFileName, lineNumber: 62 }, __self: this })),
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 64 }, __self: this },
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 65 }, __self: this }, '\uC774\uBA54\uC77C : ', this.props.email === null ? "없거나 아직 불러오지 못함" : this.props.email),
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 66 }, __self: this }, '\uBCC4\uBA85 : ', this.props.nickname === null ? "없거나 아직 불러오지 못함" : this.props.nickname),
+            _react2.default.createElement(ImageLabel, { text: '\uD504\uB85C\uD544 \uC0AC\uC9C4', src: this.props.avatar, __source: { fileName: _jsxFileName, lineNumber: 67 }, __self: this }),
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 68 }, __self: this }, '\uC774\uB984 : ', this.props.first_name === null ? "없거나 아직 불러오지 못함" : this.props.first_name),
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 69 }, __self: this }, '\uC131 : ', this.props.last_name === null ? "없거나 아직 불러오지 못함" : this.props.last_name),
+            _react2.default.createElement(DateLabel, { text: '\uB9C8\uC9C0\uB9C9\uC73C\uB85C \uB85C\uADF8\uC778\uD55C \uB0A0\uC9DC', date: this.props.last_login, __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this }),
+            _react2.default.createElement(DateLabel, { text: '\uAC00\uC785 \uB0A0\uC9DC', date: this.props.date_joined, __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this })),
+
+
+
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this },
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this }, '\uBCC4\uBA85 \uC218\uC815: ',
+              _react2.default.createElement('input', { type: 'text', ref: ref => this.newnickname = ref, __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this })),
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }, '\uC774\uB984 \uC218\uC815 : ',
+              _react2.default.createElement('input', { type: 'text', ref: ref => this.newfirst_name = ref, __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this })),
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this }, '\uC131 \uC218\uC815 : ',
+              _react2.default.createElement('input', { type: 'text', ref: ref => this.newlast_name = ref, __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this })),
+
+            _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 86 }, __self: this }, '\uD504\uB85C\uD544 \uC0AC\uC9C4 \uC218\uC815 : ',
+              _react2.default.createElement('input', { type: 'file', ref: ref => this.newfile = ref, __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this })),
+
+            _react2.default.createElement(_Button2.default, { onClick: this.onSubmit.bind(this), text: '\uD504\uB85C\uD544 \uC218\uC815\uD558\uAE30', __source: { fileName: _jsxFileName, lineNumber: 89 }, __self: this }))));
+
+
+
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 97 }, __self: this },
+          _react2.default.createElement('p', { __source: { fileName: _jsxFileName, lineNumber: 98 }, __self: this }, '\uB85C\uADF8\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.')));
+
+
+    }
+  }}
+
+
+
+class ImageLabel extends _react.Component {
+  render() {
+    if (this.props.src === null) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 110 }, __self: this },
+          this.props.text, ': \uC5C6\uAC70\uB098 \uC544\uC9C1 \uBD88\uB7EC\uC624\uC9C0 \uBABB\uD568'));
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 116 }, __self: this },
+          this.props.text, ': ', _react2.default.createElement('img', { src: this.props.src, width: '100', height: '100', __source: { fileName: _jsxFileName, lineNumber: 117 }, __self: this })));
+
+
+    }
+  }}
+
+
+class DateLabel extends _react.Component {
+
+  render() {
+    if (this.props.date === null) {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 129 }, __self: this },
+          this.props.text, ': \uC5C6\uAC70\uB098 \uC544\uC9C1 \uBD88\uB7EC\uC624\uC9C0 \uBABB\uD568'));
+
+
+    } else {
+      return (
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 135 }, __self: this },
+          this.props.text, ': ', this.props.date.getFullYear(), '\uB144 ', this.props.date.getMonth(), '\uC6D4 ', this.props.date.getDate(), '\uC77C'));
+
+
+    }
+  }}
+
+
+let mapStateToProps = state => {
+  return {
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    loginStatus: state.login_reducer.loginStatus,
+
+    email: state.profile_reducer.email,
+    nickname: state.profile_reducer.nickname,
+    avatar: state.profile_reducer.avatar,
+    first_name: state.profile_reducer.first_name,
+    last_name: state.profile_reducer.last_name,
+    last_login: state.profile_reducer.last_login,
+    date_joined: state.profile_reducer.date_joined };
+
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    updateProfile: (ubase64, nickname, avatar, first_name, last_name) => dispatch((0, _actions.UpdateProfileReqeust)(ubase64, nickname, avatar, first_name, last_name)),
+    getProfile: ubase64 => dispatch((0, _actions.GetProfileRequest)(ubase64)) };
+
+
+};
+
+//  getArticle: (ubase64)=>dispatch(GetArticleRequest(ubase64))
+
+//export default ArticleList
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Profile);

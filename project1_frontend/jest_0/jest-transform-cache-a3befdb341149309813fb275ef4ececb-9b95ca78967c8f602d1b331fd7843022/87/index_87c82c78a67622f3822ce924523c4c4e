@@ -1,0 +1,15 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Like/index.js';
+//import './index.css';
+var _react = require('react');var _react2 = _interopRequireDefault(_react);var _reactRedux = require('react-redux');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Like extends _react.Component {
+  render() {
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 8 }, __self: this },
+        _react2.default.createElement('label', { __source: { fileName: _jsxFileName, lineNumber: 9 }, __self: this }, this.props.author)));
+
+
+  }}exports.default =
+
+
+Like;

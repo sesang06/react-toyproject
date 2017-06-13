@@ -1,0 +1,115 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Group/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _reactRedux = require('react-redux');
+
+var _GroupNotice = require('../GroupNotice');var _GroupNotice2 = _interopRequireDefault(_GroupNotice);
+var _GroupForum = require('../GroupForum');var _GroupForum2 = _interopRequireDefault(_GroupForum);
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Group extends _react.Component {
+  constructor() {
+    super();
+    this.notice = "";
+    this.forum = "";
+    this.join = false;
+    this.admin = false;
+    this.member_list = "";
+    this.check = this.check.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.onPost = this.onPost.bind(this);
+    this.getNotice = this.getNotice.bind(this);
+    this.getForum = this.getForum.bind(this);
+    this.postNotice = this.postNotice.bind(this);
+    this.postForum = this.postForum.bind(this);
+  }
+
+  postNotice() {
+    this.props.postGroupNotice(this.props.ubase64, this.props.id.split('_')[0], this.notice.value);
+  }
+
+  postForum() {
+    this.props.postGroupForum(this.props.ubase64, this.props.id.split('_')[0], this.forum.value);
+  }
+
+  check() {
+    this.member_list = "";
+    var member_list = this.props.member_list;
+    for (var i = 0; i < member_list.length; i++) {
+      this.member_list += member_list[i];
+      if (i != member_list.length - 1)
+      this.member_list += ', ';
+      if (member_list[i] === this.props.uname)
+      this.join = true;
+    }
+    if (this.props.uname == this.props.admin)
+    this.admin = this.join;
+  }
+
+  onDelete() {
+    this.props.deleteGroupMember(this.props.ubase64, this.props.id.split('_')[0]);
+    this.join = false;
+  }
+
+  onPost() {
+    this.props.postGroupMember(this.props.ubase64, this.props.id.split('_')[0]);
+  }
+
+  getNotice() {
+    this.props.getGroupNotice(this.props.ubase64, this.props.id.split('_')[0]);
+  }
+
+  getForum() {
+    this.props.getGroupForum(this.props.ubase64, this.props.id.split('_')[0]);
+  }
+
+  render() {
+    this.check();
+    let len = this.props.notice_list.length;
+    let len2 = this.props.forum_list.length;
+    return (
+      _react2.default.createElement('div', { id: this.props.id, className: 'tabcontent', __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this },
+        _react2.default.createElement('h4', { __source: { fileName: _jsxFileName, lineNumber: 72 }, __self: this }, '\uAD00\uB9AC\uC790 : ', this.props.admin, ' / \uD68C\uC6D0\uC218 : ', this.props.member, ' / \uD68C\uC6D0 : ', this.member_list),
+        _react2.default.createElement('button', { id: 'join_leave', onClick: this.join ? this.onDelete : this.onPost, __source: { fileName: _jsxFileName, lineNumber: 73 }, __self: this }, this.join ? 'LEAVE' : 'JOIN'),
+        _react2.default.createElement('h3', { __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this }, 'NOTICE', _react2.default.createElement('button', { id: 'get_notice', disabled: !this.join, onClick: this.getNotice, __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this }, 'Get Notice')),
+        _react2.default.createElement('textarea', { id: 'notice_field', disabled: !this.admin, ref: ref => this.notice = ref, placeholder: 'Notice', __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this }),
+        _react2.default.createElement('button', { id: 'post_notice', disabled: !this.admin, onClick: this.postNotice, __source: { fileName: _jsxFileName, lineNumber: 76 }, __self: this }, 'POST NOTICE'),
+        Array.apply(null, Array(len)).map(function (item, i) {
+          return (
+            _react2.default.createElement(_GroupNotice2.default, { created: this.props.notice_list[i].created, text: this.props.notice_list[i].text, __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }));
+
+        }, this),
+        _react2.default.createElement('h3', { __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this }, 'FORUM', _react2.default.createElement('button', { id: 'get_forum', disabled: !this.join, onClick: this.getForum, __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this }, 'Get Forum')),
+        _react2.default.createElement('textarea', { id: 'forum_field', disabled: !this.join, ref: ref => this.forum = ref, placeholder: 'Forum', __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this }),
+        _react2.default.createElement('button', { id: 'post_forum', disabled: !this.join, onClick: this.postForum, __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this }, 'POST FORUM'),
+        Array.apply(null, Array(len2)).map(function (item, i) {
+          return (
+            _react2.default.createElement(_GroupForum2.default, { created: this.props.forum_list[i].created, author: this.props.forum_list[i].author, text: this.props.forum_list[i].text, __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this }));
+
+        }, this)));
+
+
+  }}
+
+
+let mapStateToProps = state => {
+  return {
+    notice_list: state.group_notice_reducer.notice_list,
+    forum_list: state.group_forum_reducer.forum_list,
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64 };
+
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    postGroupNotice: (ubase64, group_id, text) => dispatch((0, _actions.PostGroupNoticeRequest)(ubase64, group_id, text)),
+    postGroupForum: (ubase64, group_id, text) => dispatch((0, _actions.PostGroupForumRequest)(ubase64, group_id, text)),
+    getGroupNotice: (ubase64, group_id) => dispatch((0, _actions.GetGroupNoticeRequest)(ubase64, group_id)),
+    getGroupForum: (ubase64, group_id) => dispatch((0, _actions.GetGroupForumRequest)(ubase64, group_id)),
+    postGroupMember: (ubase64, group_id) => dispatch((0, _actions.PostGroupMemberRequest)(ubase64, group_id)),
+    deleteGroupMember: (ubase64, group_id) => dispatch((0, _actions.DeleteGroupMemberRequest)(ubase64, group_id)) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Group);

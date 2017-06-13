@@ -1,0 +1,612 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_2na1zeljc1 = function () {var path = '/home/ubuntu/project1_frontend_submit/src/actions/index.js',hash = '86b6ed6352514136de050fcf4803bbcb151b3d4e',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/ubuntu/project1_frontend_submit/src/actions/index.js', statementMap: { '0': { start: { line: 1, column: 27 }, end: { line: 1, column: 42 } }, '1': { start: { line: 2, column: 24 }, end: { line: 2, column: 36 } }, '2': { start: { line: 3, column: 32 }, end: { line: 3, column: 52 } }, '3': { start: { line: 4, column: 30 }, end: { line: 4, column: 48 } }, '4': { start: { line: 5, column: 27 }, end: { line: 5, column: 42 } }, '5': { start: { line: 6, column: 35 }, end: { line: 6, column: 58 } }, '6': { start: { line: 7, column: 24 }, end: { line: 7, column: 36 } }, '7': { start: { line: 8, column: 21 }, end: { line: 8, column: 30 } }, '8': { start: { line: 9, column: 29 }, end: { line: 9, column: 46 } }, '9': { start: { line: 11, column: 26 }, end: { line: 11, column: 40 } }, '10': { start: { line: 12, column: 32 }, end: { line: 12, column: 52 } }, '11': { start: { line: 13, column: 38 }, end: { line: 13, column: 64 } }, '12': { start: { line: 14, column: 29 }, end: { line: 14, column: 46 } }, '13': { start: { line: 15, column: 28 }, end: { line: 15, column: 44 } }, '14': { start: { line: 16, column: 20 }, end: { line: 16, column: 28 } }, '15': { start: { line: 18, column: 30 }, end: { line: 18, column: 48 } }, '16': { start: { line: 19, column: 27 }, end: { line: 19, column: 42 } }, '17': { start: { line: 20, column: 24 }, end: { line: 20, column: 36 } }, '18': { start: { line: 21, column: 26 }, end: { line: 21, column: 40 } }, '19': { start: { line: 22, column: 31 }, end: { line: 22, column: 50 } }, '20': { start: { line: 23, column: 30 }, end: { line: 23, column: 48 } }, '21': { start: { line: 24, column: 26 }, end: { line: 24, column: 40 } }, '22': { start: { line: 28, column: 34 }, end: { line: 28, column: 56 } }, '23': { start: { line: 29, column: 36 }, end: { line: 29, column: 60 } }, '24': { start: { line: 30, column: 36 }, end: { line: 30, column: 60 } }, '25': { start: { line: 31, column: 33 }, end: { line: 31, column: 54 } }, '26': { start: { line: 32, column: 30 }, end: { line: 32, column: 48 } }, '27': { start: { line: 33, column: 42 }, end: { line: 33, column: 71 } }, '28': { start: { line: 34, column: 38 }, end: { line: 34, column: 64 } }, '29': { start: { line: 37, column: 34 }, end: { line: 37, column: 56 } }, '30': { start: { line: 38, column: 36 }, end: { line: 38, column: 60 } }, '31': { start: { line: 39, column: 36 }, end: { line: 39, column: 60 } }, '32': { start: { line: 40, column: 33 }, end: { line: 40, column: 54 } }, '33': { start: { line: 41, column: 41 }, end: { line: 41, column: 70 } }, '34': { start: { line: 43, column: 28 }, end: { line: 43, column: 44 } }, '35': { start: { line: 44, column: 30 }, end: { line: 44, column: 48 } }, '36': { start: { line: 45, column: 39 }, end: { line: 45, column: 65 } }, '37': { start: { line: 47, column: 31 }, end: { line: 47, column: 50 } }, '38': { start: { line: 48, column: 33 }, end: { line: 48, column: 54 } }, '39': { start: { line: 49, column: 30 }, end: { line: 49, column: 48 } }, '40': { start: { line: 50, column: 27 }, end: { line: 50, column: 42 } }, '41': { start: { line: 52, column: 36 }, end: { line: 52, column: 60 } }, '42': { start: { line: 53, column: 36 }, end: { line: 53, column: 60 } }, '43': { start: { line: 54, column: 37 }, end: { line: 54, column: 62 } }, '44': { start: { line: 56, column: 38 }, end: { line: 56, column: 64 } }, '45': { start: { line: 57, column: 39 }, end: { line: 57, column: 66 } }, '46': { start: { line: 58, column: 41 }, end: { line: 58, column: 70 } }, '47': { start: { line: 60, column: 38 }, end: { line: 60, column: 64 } }, '48': { start: { line: 61, column: 39 }, end: { line: 61, column: 66 } }, '49': { start: { line: 62, column: 38 }, end: { line: 62, column: 64 } }, '50': { start: { line: 64, column: 37 }, end: { line: 64, column: 62 } }, '51': { start: { line: 65, column: 38 }, end: { line: 65, column: 64 } }, '52': { start: { line: 66, column: 37 }, end: { line: 66, column: 62 } }, '53': { start: { line: 68, column: 32 }, end: { line: 68, column: 52 } }, '54': { start: { line: 71, column: 33 }, end: { line: 71, column: 54 } }, '55': { start: { line: 72, column: 36 }, end: { line: 72, column: 60 } }, '56': { start: { line: 73, column: 33 }, end: { line: 73, column: 54 } }, '57': { start: { line: 76, column: 32 }, end: { line: 76, column: 52 } }, '58': { start: { line: 77, column: 33 }, end: { line: 77, column: 54 } }, '59': { start: { line: 78, column: 35 }, end: { line: 78, column: 58 } }, '60': { start: { line: 79, column: 32 }, end: { line: 79, column: 52 } }, '61': { start: { line: 80, column: 40 }, end: { line: 80, column: 68 } }, '62': { start: { line: 81, column: 40 }, end: { line: 81, column: 68 } }, '63': { start: { line: 83, column: 31 }, end: { line: 83, column: 50 } }, '64': { start: { line: 84, column: 31 }, end: { line: 84, column: 50 } }, '65': { start: { line: 85, column: 34 }, end: { line: 85, column: 56 } }, '66': { start: { line: 88, column: 32 }, end: { line: 93, column: 1 } }, '67': { start: { line: 89, column: 2 }, end: { line: 92, column: 3 } }, '68': { start: { line: 95, column: 29 }, end: { line: 100, column: 1 } }, '69': { start: { line: 96, column: 2 }, end: { line: 99, column: 3 } }, '70': { start: { line: 102, column: 29 }, end: { line: 107, column: 1 } }, '71': { start: { line: 103, column: 2 }, end: { line: 106, column: 3 } }, '72': { start: { line: 109, column: 30 }, end: { line: 115, column: 1 } }, '73': { start: { line: 110, column: 2 }, end: { line: 114, column: 3 } }, '74': { start: { line: 117, column: 37 }, end: { line: 123, column: 1 } }, '75': { start: { line: 118, column: 2 }, end: { line: 122, column: 3 } }, '76': { start: { line: 125, column: 37 }, end: { line: 130, column: 1 } }, '77': { start: { line: 126, column: 2 }, end: { line: 129, column: 3 } }, '78': { start: { line: 132, column: 30 }, end: { line: 137, column: 1 } }, '79': { start: { line: 133, column: 2 }, end: { line: 136, column: 3 } }, '80': { start: { line: 139, column: 31 }, end: { line: 145, column: 1 } }, '81': { start: { line: 140, column: 2 }, end: { line: 144, column: 3 } }, '82': { start: { line: 147, column: 33 }, end: { line: 153, column: 1 } }, '83': { start: { line: 148, column: 2 }, end: { line: 152, column: 3 } }, '84': { start: { line: 155, column: 30 }, end: { line: 160, column: 1 } }, '85': { start: { line: 156, column: 2 }, end: { line: 159, column: 3 } }, '86': { start: { line: 164, column: 31 }, end: { line: 169, column: 1 } }, '87': { start: { line: 165, column: 2 }, end: { line: 168, column: 3 } }, '88': { start: { line: 179, column: 34 }, end: { line: 184, column: 1 } }, '89': { start: { line: 180, column: 2 }, end: { line: 183, column: 3 } }, '90': { start: { line: 187, column: 31 }, end: { line: 199, column: 1 } }, '91': { start: { line: 188, column: 0 }, end: { line: 188, column: 18 } }, '92': { start: { line: 189, column: 0 }, end: { line: 189, column: 21 } }, '93': { start: { line: 190, column: 0 }, end: { line: 190, column: 19 } }, '94': { start: { line: 191, column: 0 }, end: { line: 191, column: 23 } }, '95': { start: { line: 192, column: 0 }, end: { line: 192, column: 22 } }, '96': { start: { line: 193, column: 0 }, end: { line: 193, column: 23 } }, '97': { start: { line: 194, column: 0 }, end: { line: 194, column: 24 } }, '98': { start: { line: 195, column: 2 }, end: { line: 198, column: 3 } }, '99': { start: { line: 204, column: 34 }, end: { line: 210, column: 1 } }, '100': { start: { line: 205, column: 2 }, end: { line: 209, column: 3 } }, '101': { start: { line: 212, column: 35 }, end: { line: 219, column: 1 } }, '102': { start: { line: 213, column: 2 }, end: { line: 218, column: 3 } }, '103': { start: { line: 221, column: 34 }, end: { line: 226, column: 1 } }, '104': { start: { line: 222, column: 2 }, end: { line: 225, column: 3 } }, '105': { start: { line: 230, column: 35 }, end: { line: 236, column: 1 } }, '106': { start: { line: 231, column: 2 }, end: { line: 235, column: 3 } }, '107': { start: { line: 238, column: 36 }, end: { line: 245, column: 1 } }, '108': { start: { line: 239, column: 2 }, end: { line: 244, column: 3 } }, '109': { start: { line: 247, column: 35 }, end: { line: 252, column: 1 } }, '110': { start: { line: 248, column: 2 }, end: { line: 251, column: 3 } }, '111': { start: { line: 256, column: 35 }, end: { line: 262, column: 1 } }, '112': { start: { line: 257, column: 2 }, end: { line: 261, column: 3 } }, '113': { start: { line: 264, column: 36 }, end: { line: 270, column: 1 } }, '114': { start: { line: 265, column: 2 }, end: { line: 269, column: 3 } }, '115': { start: { line: 272, column: 38 }, end: { line: 278, column: 1 } }, '116': { start: { line: 273, column: 2 }, end: { line: 277, column: 3 } }, '117': { start: { line: 282, column: 34 }, end: { line: 288, column: 1 } }, '118': { start: { line: 283, column: 2 }, end: { line: 287, column: 3 } }, '119': { start: { line: 290, column: 33 }, end: { line: 295, column: 1 } }, '120': { start: { line: 291, column: 2 }, end: { line: 294, column: 3 } }, '121': { start: { line: 297, column: 33 }, end: { line: 302, column: 1 } }, '122': { start: { line: 298, column: 2 }, end: { line: 301, column: 3 } }, '123': { start: { line: 306, column: 32 }, end: { line: 313, column: 1 } }, '124': { start: { line: 307, column: 2 }, end: { line: 312, column: 3 } }, '125': { start: { line: 315, column: 34 }, end: { line: 321, column: 1 } }, '126': { start: { line: 316, column: 2 }, end: { line: 320, column: 3 } }, '127': { start: { line: 323, column: 34 }, end: { line: 330, column: 1 } }, '128': { start: { line: 324, column: 2 }, end: { line: 329, column: 3 } }, '129': { start: { line: 332, column: 31 }, end: { line: 337, column: 1 } }, '130': { start: { line: 333, column: 2 }, end: { line: 336, column: 3 } }, '131': { start: { line: 338, column: 39 }, end: { line: 343, column: 1 } }, '132': { start: { line: 339, column: 2 }, end: { line: 342, column: 3 } }, '133': { start: { line: 345, column: 28 }, end: { line: 350, column: 1 } }, '134': { start: { line: 346, column: 2 }, end: { line: 349, column: 3 } }, '135': { start: { line: 352, column: 36 }, end: { line: 358, column: 1 } }, '136': { start: { line: 353, column: 2 }, end: { line: 357, column: 3 } }, '137': { start: { line: 360, column: 32 }, end: { line: 368, column: 1 } }, '138': { start: { line: 361, column: 2 }, end: { line: 367, column: 3 } }, '139': { start: { line: 370, column: 34 }, end: { line: 375, column: 1 } }, '140': { start: { line: 371, column: 2 }, end: { line: 374, column: 3 } }, '141': { start: { line: 377, column: 34 }, end: { line: 383, column: 1 } }, '142': { start: { line: 378, column: 2 }, end: { line: 382, column: 3 } }, '143': { start: { line: 385, column: 31 }, end: { line: 391, column: 1 } }, '144': { start: { line: 386, column: 2 }, end: { line: 390, column: 3 } }, '145': { start: { line: 393, column: 41 }, end: { line: 401, column: 1 } }, '146': { start: { line: 394, column: 2 }, end: { line: 399, column: 3 } }, '147': { start: { line: 404, column: 26 }, end: { line: 409, column: 1 } }, '148': { start: { line: 405, column: 2 }, end: { line: 408, column: 3 } }, '149': { start: { line: 411, column: 28 }, end: { line: 422, column: 1 } }, '150': { start: { line: 412, column: 2 }, end: { line: 412, column: 29 } }, '151': { start: { line: 413, column: 2 }, end: { line: 413, column: 27 } }, '152': { start: { line: 414, column: 2 }, end: { line: 414, column: 27 } }, '153': { start: { line: 415, column: 2 }, end: { line: 415, column: 25 } }, '154': { start: { line: 416, column: 2 }, end: { line: 421, column: 3 } }, '155': { start: { line: 424, column: 38 }, end: { line: 431, column: 1 } }, '156': { start: { line: 425, column: 2 }, end: { line: 430, column: 3 } }, '157': { start: { line: 434, column: 29 }, end: { line: 441, column: 1 } }, '158': { start: { line: 435, column: 2 }, end: { line: 440, column: 3 } }, '159': { start: { line: 443, column: 31 }, end: { line: 449, column: 1 } }, '160': { start: { line: 444, column: 2 }, end: { line: 448, column: 3 } }, '161': { start: { line: 451, column: 28 }, end: { line: 457, column: 1 } }, '162': { start: { line: 452, column: 2 }, end: { line: 456, column: 3 } }, '163': { start: { line: 458, column: 25 }, end: { line: 465, column: 1 } }, '164': { start: { line: 459, column: 2 }, end: { line: 464, column: 3 } }, '165': { start: { line: 468, column: 24 }, end: { line: 473, column: 1 } }, '166': { start: { line: 469, column: 2 }, end: { line: 472, column: 3 } }, '167': { start: { line: 475, column: 28 }, end: { line: 480, column: 1 } }, '168': { start: { line: 476, column: 2 }, end: { line: 479, column: 3 } }, '169': { start: { line: 482, column: 29 }, end: { line: 490, column: 1 } }, '170': { start: { line: 483, column: 2 }, end: { line: 489, column: 3 } }, '171': { start: { line: 492, column: 25 }, end: { line: 497, column: 1 } }, '172': { start: { line: 493, column: 2 }, end: { line: 496, column: 3 } }, '173': { start: { line: 499, column: 23 }, end: { line: 505, column: 1 } }, '174': { start: { line: 500, column: 2 }, end: { line: 504, column: 3 } }, '175': { start: { line: 507, column: 25 }, end: { line: 512, column: 1 } }, '176': { start: { line: 508, column: 2 }, end: { line: 511, column: 3 } }, '177': { start: { line: 514, column: 28 }, end: { line: 520, column: 1 } }, '178': { start: { line: 515, column: 2 }, end: { line: 519, column: 3 } }, '179': { start: { line: 522, column: 27 }, end: { line: 526, column: 1 } }, '180': { start: { line: 523, column: 2 }, end: { line: 525, column: 3 } }, '181': { start: { line: 527, column: 24 }, end: { line: 532, column: 1 } }, '182': { start: { line: 528, column: 2 }, end: { line: 531, column: 3 } }, '183': { start: { line: 533, column: 30 }, end: { line: 538, column: 1 } }, '184': { start: { line: 534, column: 2 }, end: { line: 537, column: 3 } }, '185': { start: { line: 539, column: 35 }, end: { line: 544, column: 1 } }, '186': { start: { line: 540, column: 2 }, end: { line: 543, column: 3 } }, '187': { start: { line: 545, column: 27 }, end: { line: 550, column: 1 } }, '188': { start: { line: 546, column: 2 }, end: { line: 549, column: 3 } }, '189': { start: { line: 551, column: 20 }, end: { line: 555, column: 1 } }, '190': { start: { line: 552, column: 2 }, end: { line: 554, column: 3 } }, '191': { start: { line: 556, column: 27 }, end: { line: 562, column: 1 } }, '192': { start: { line: 557, column: 2 }, end: { line: 561, column: 3 } }, '193': { start: { line: 563, column: 23 }, end: { line: 567, column: 1 } }, '194': { start: { line: 564, column: 2 }, end: { line: 566, column: 3 } }, '195': { start: { line: 568, column: 30 }, end: { line: 574, column: 1 } }, '196': { start: { line: 569, column: 2 }, end: { line: 573, column: 3 } }, '197': { start: { line: 576, column: 29 }, end: { line: 582, column: 1 } }, '198': { start: { line: 577, column: 2 }, end: { line: 581, column: 3 } }, '199': { start: { line: 583, column: 26 }, end: { line: 587, column: 1 } }, '200': { start: { line: 584, column: 2 }, end: { line: 586, column: 3 } }, '201': { start: { line: 589, column: 33 }, end: { line: 596, column: 1 } }, '202': { start: { line: 590, column: 2 }, end: { line: 595, column: 3 } }, '203': { start: { line: 597, column: 23 }, end: { line: 601, column: 1 } }, '204': { start: { line: 598, column: 2 }, end: { line: 600, column: 3 } }, '205': { start: { line: 602, column: 20 }, end: { line: 606, column: 1 } }, '206': { start: { line: 603, column: 2 }, end: { line: 605, column: 3 } }, '207': { start: { line: 607, column: 27 }, end: { line: 612, column: 1 } }, '208': { start: { line: 608, column: 2 }, end: { line: 611, column: 3 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 88, column: 32 }, end: { line: 88, column: 33 } }, loc: { start: { line: 88, column: 50 }, end: { line: 93, column: 1 } }, line: 88 }, '1': { name: '(anonymous_1)', decl: { start: { line: 95, column: 29 }, end: { line: 95, column: 30 } }, loc: { start: { line: 95, column: 40 }, end: { line: 100, column: 1 } }, line: 95 }, '2': { name: '(anonymous_2)', decl: { start: { line: 102, column: 29 }, end: { line: 102, column: 30 } }, loc: { start: { line: 102, column: 42 }, end: { line: 107, column: 1 } }, line: 102 }, '3': { name: '(anonymous_3)', decl: { start: { line: 109, column: 30 }, end: { line: 109, column: 31 } }, loc: { start: { line: 109, column: 47 }, end: { line: 115, column: 1 } }, line: 109 }, '4': { name: '(anonymous_4)', decl: { start: { line: 117, column: 37 }, end: { line: 117, column: 38 } }, loc: { start: { line: 117, column: 52 }, end: { line: 123, column: 1 } }, line: 117 }, '5': { name: '(anonymous_5)', decl: { start: { line: 125, column: 37 }, end: { line: 125, column: 38 } }, loc: { start: { line: 125, column: 60 }, end: { line: 130, column: 1 } }, line: 125 }, '6': { name: '(anonymous_6)', decl: { start: { line: 132, column: 30 }, end: { line: 132, column: 31 } }, loc: { start: { line: 132, column: 41 }, end: { line: 137, column: 1 } }, line: 132 }, '7': { name: '(anonymous_7)', decl: { start: { line: 139, column: 31 }, end: { line: 139, column: 32 } }, loc: { start: { line: 139, column: 50 }, end: { line: 145, column: 1 } }, line: 139 }, '8': { name: '(anonymous_8)', decl: { start: { line: 147, column: 33 }, end: { line: 147, column: 34 } }, loc: { start: { line: 147, column: 48 }, end: { line: 153, column: 1 } }, line: 147 }, '9': { name: '(anonymous_9)', decl: { start: { line: 155, column: 30 }, end: { line: 155, column: 31 } }, loc: { start: { line: 155, column: 45 }, end: { line: 160, column: 1 } }, line: 155 }, '10': { name: '(anonymous_10)', decl: { start: { line: 164, column: 31 }, end: { line: 164, column: 32 } }, loc: { start: { line: 164, column: 42 }, end: { line: 169, column: 1 } }, line: 164 }, '11': { name: '(anonymous_11)', decl: { start: { line: 179, column: 34 }, end: { line: 179, column: 35 } }, loc: { start: { line: 179, column: 86 }, end: { line: 184, column: 1 } }, line: 179 }, '12': { name: '(anonymous_12)', decl: { start: { line: 187, column: 31 }, end: { line: 187, column: 32 } }, loc: { start: { line: 187, column: 107 }, end: { line: 199, column: 1 } }, line: 187 }, '13': { name: '(anonymous_13)', decl: { start: { line: 204, column: 34 }, end: { line: 204, column: 35 } }, loc: { start: { line: 204, column: 55 }, end: { line: 210, column: 1 } }, line: 204 }, '14': { name: '(anonymous_14)', decl: { start: { line: 212, column: 35 }, end: { line: 212, column: 36 } }, loc: { start: { line: 212, column: 62 }, end: { line: 219, column: 1 } }, line: 212 }, '15': { name: '(anonymous_15)', decl: { start: { line: 221, column: 34 }, end: { line: 221, column: 35 } }, loc: { start: { line: 221, column: 48 }, end: { line: 226, column: 1 } }, line: 221 }, '16': { name: '(anonymous_16)', decl: { start: { line: 230, column: 35 }, end: { line: 230, column: 36 } }, loc: { start: { line: 230, column: 56 }, end: { line: 236, column: 1 } }, line: 230 }, '17': { name: '(anonymous_17)', decl: { start: { line: 238, column: 36 }, end: { line: 238, column: 37 } }, loc: { start: { line: 238, column: 63 }, end: { line: 245, column: 1 } }, line: 238 }, '18': { name: '(anonymous_18)', decl: { start: { line: 247, column: 35 }, end: { line: 247, column: 36 } }, loc: { start: { line: 247, column: 50 }, end: { line: 252, column: 1 } }, line: 247 }, '19': { name: '(anonymous_19)', decl: { start: { line: 256, column: 35 }, end: { line: 256, column: 36 } }, loc: { start: { line: 256, column: 56 }, end: { line: 262, column: 1 } }, line: 256 }, '20': { name: '(anonymous_20)', decl: { start: { line: 264, column: 36 }, end: { line: 264, column: 37 } }, loc: { start: { line: 264, column: 57 }, end: { line: 270, column: 1 } }, line: 264 }, '21': { name: '(anonymous_21)', decl: { start: { line: 272, column: 38 }, end: { line: 272, column: 39 } }, loc: { start: { line: 272, column: 59 }, end: { line: 278, column: 1 } }, line: 272 }, '22': { name: '(anonymous_22)', decl: { start: { line: 282, column: 34 }, end: { line: 282, column: 35 } }, loc: { start: { line: 282, column: 57 }, end: { line: 288, column: 1 } }, line: 282 }, '23': { name: '(anonymous_23)', decl: { start: { line: 290, column: 33 }, end: { line: 290, column: 34 } }, loc: { start: { line: 290, column: 47 }, end: { line: 295, column: 1 } }, line: 290 }, '24': { name: '(anonymous_24)', decl: { start: { line: 297, column: 33 }, end: { line: 297, column: 34 } }, loc: { start: { line: 297, column: 44 }, end: { line: 302, column: 1 } }, line: 297 }, '25': { name: '(anonymous_25)', decl: { start: { line: 306, column: 32 }, end: { line: 306, column: 33 } }, loc: { start: { line: 306, column: 55 }, end: { line: 313, column: 1 } }, line: 306 }, '26': { name: '(anonymous_26)', decl: { start: { line: 315, column: 34 }, end: { line: 315, column: 35 } }, loc: { start: { line: 315, column: 48 }, end: { line: 321, column: 1 } }, line: 315 }, '27': { name: '(anonymous_27)', decl: { start: { line: 323, column: 34 }, end: { line: 323, column: 35 } }, loc: { start: { line: 323, column: 58 }, end: { line: 330, column: 1 } }, line: 323 }, '28': { name: '(anonymous_28)', decl: { start: { line: 332, column: 31 }, end: { line: 332, column: 32 } }, loc: { start: { line: 332, column: 42 }, end: { line: 337, column: 1 } }, line: 332 }, '29': { name: '(anonymous_29)', decl: { start: { line: 338, column: 39 }, end: { line: 338, column: 40 } }, loc: { start: { line: 338, column: 53 }, end: { line: 343, column: 1 } }, line: 338 }, '30': { name: '(anonymous_30)', decl: { start: { line: 345, column: 28 }, end: { line: 345, column: 29 } }, loc: { start: { line: 345, column: 44 }, end: { line: 350, column: 1 } }, line: 345 }, '31': { name: '(anonymous_31)', decl: { start: { line: 352, column: 36 }, end: { line: 352, column: 37 } }, loc: { start: { line: 352, column: 51 }, end: { line: 358, column: 1 } }, line: 352 }, '32': { name: '(anonymous_32)', decl: { start: { line: 360, column: 32 }, end: { line: 360, column: 33 } }, loc: { start: { line: 360, column: 59 }, end: { line: 368, column: 1 } }, line: 360 }, '33': { name: '(anonymous_33)', decl: { start: { line: 370, column: 34 }, end: { line: 370, column: 35 } }, loc: { start: { line: 370, column: 45 }, end: { line: 375, column: 1 } }, line: 370 }, '34': { name: '(anonymous_34)', decl: { start: { line: 377, column: 34 }, end: { line: 377, column: 35 } }, loc: { start: { line: 377, column: 51 }, end: { line: 383, column: 1 } }, line: 377 }, '35': { name: '(anonymous_35)', decl: { start: { line: 385, column: 31 }, end: { line: 385, column: 32 } }, loc: { start: { line: 385, column: 46 }, end: { line: 391, column: 1 } }, line: 385 }, '36': { name: '(anonymous_36)', decl: { start: { line: 393, column: 41 }, end: { line: 393, column: 42 } }, loc: { start: { line: 393, column: 67 }, end: { line: 401, column: 1 } }, line: 393 }, '37': { name: '(anonymous_37)', decl: { start: { line: 404, column: 26 }, end: { line: 404, column: 27 } }, loc: { start: { line: 404, column: 40 }, end: { line: 409, column: 1 } }, line: 404 }, '38': { name: '(anonymous_38)', decl: { start: { line: 411, column: 28 }, end: { line: 411, column: 29 } }, loc: { start: { line: 411, column: 56 }, end: { line: 422, column: 1 } }, line: 411 }, '39': { name: '(anonymous_39)', decl: { start: { line: 424, column: 38 }, end: { line: 424, column: 39 } }, loc: { start: { line: 424, column: 74 }, end: { line: 431, column: 1 } }, line: 424 }, '40': { name: '(anonymous_40)', decl: { start: { line: 434, column: 29 }, end: { line: 434, column: 30 } }, loc: { start: { line: 434, column: 50 }, end: { line: 441, column: 1 } }, line: 434 }, '41': { name: '(anonymous_41)', decl: { start: { line: 443, column: 31 }, end: { line: 443, column: 32 } }, loc: { start: { line: 443, column: 46 }, end: { line: 449, column: 1 } }, line: 443 }, '42': { name: '(anonymous_42)', decl: { start: { line: 451, column: 28 }, end: { line: 451, column: 29 } }, loc: { start: { line: 451, column: 43 }, end: { line: 457, column: 1 } }, line: 451 }, '43': { name: '(anonymous_43)', decl: { start: { line: 458, column: 25 }, end: { line: 458, column: 26 } }, loc: { start: { line: 458, column: 46 }, end: { line: 465, column: 1 } }, line: 458 }, '44': { name: '(anonymous_44)', decl: { start: { line: 468, column: 24 }, end: { line: 468, column: 25 } }, loc: { start: { line: 468, column: 35 }, end: { line: 473, column: 1 } }, line: 468 }, '45': { name: '(anonymous_45)', decl: { start: { line: 475, column: 28 }, end: { line: 475, column: 29 } }, loc: { start: { line: 475, column: 39 }, end: { line: 480, column: 1 } }, line: 475 }, '46': { name: '(anonymous_46)', decl: { start: { line: 482, column: 29 }, end: { line: 482, column: 30 } }, loc: { start: { line: 482, column: 64 }, end: { line: 490, column: 1 } }, line: 482 }, '47': { name: '(anonymous_47)', decl: { start: { line: 492, column: 25 }, end: { line: 492, column: 26 } }, loc: { start: { line: 492, column: 37 }, end: { line: 497, column: 1 } }, line: 492 }, '48': { name: '(anonymous_48)', decl: { start: { line: 499, column: 23 }, end: { line: 499, column: 24 } }, loc: { start: { line: 499, column: 41 }, end: { line: 505, column: 1 } }, line: 499 }, '49': { name: '(anonymous_49)', decl: { start: { line: 507, column: 25 }, end: { line: 507, column: 26 } }, loc: { start: { line: 507, column: 38 }, end: { line: 512, column: 1 } }, line: 507 }, '50': { name: '(anonymous_50)', decl: { start: { line: 514, column: 28 }, end: { line: 514, column: 29 } }, loc: { start: { line: 514, column: 46 }, end: { line: 520, column: 1 } }, line: 514 }, '51': { name: '(anonymous_51)', decl: { start: { line: 522, column: 27 }, end: { line: 522, column: 28 } }, loc: { start: { line: 522, column: 31 }, end: { line: 526, column: 1 } }, line: 522 }, '52': { name: '(anonymous_52)', decl: { start: { line: 527, column: 24 }, end: { line: 527, column: 25 } }, loc: { start: { line: 527, column: 35 }, end: { line: 532, column: 1 } }, line: 527 }, '53': { name: '(anonymous_53)', decl: { start: { line: 533, column: 30 }, end: { line: 533, column: 31 } }, loc: { start: { line: 533, column: 47 }, end: { line: 538, column: 1 } }, line: 533 }, '54': { name: '(anonymous_54)', decl: { start: { line: 539, column: 35 }, end: { line: 539, column: 36 } }, loc: { start: { line: 539, column: 57 }, end: { line: 544, column: 1 } }, line: 539 }, '55': { name: '(anonymous_55)', decl: { start: { line: 545, column: 27 }, end: { line: 545, column: 28 } }, loc: { start: { line: 545, column: 41 }, end: { line: 550, column: 1 } }, line: 545 }, '56': { name: '(anonymous_56)', decl: { start: { line: 551, column: 20 }, end: { line: 551, column: 21 } }, loc: { start: { line: 551, column: 24 }, end: { line: 555, column: 1 } }, line: 551 }, '57': { name: '(anonymous_57)', decl: { start: { line: 556, column: 27 }, end: { line: 556, column: 28 } }, loc: { start: { line: 556, column: 45 }, end: { line: 562, column: 1 } }, line: 556 }, '58': { name: '(anonymous_58)', decl: { start: { line: 563, column: 23 }, end: { line: 563, column: 24 } }, loc: { start: { line: 563, column: 27 }, end: { line: 567, column: 1 } }, line: 563 }, '59': { name: '(anonymous_59)', decl: { start: { line: 568, column: 30 }, end: { line: 568, column: 31 } }, loc: { start: { line: 568, column: 45 }, end: { line: 574, column: 1 } }, line: 568 }, '60': { name: '(anonymous_60)', decl: { start: { line: 576, column: 29 }, end: { line: 576, column: 30 } }, loc: { start: { line: 576, column: 46 }, end: { line: 582, column: 1 } }, line: 576 }, '61': { name: '(anonymous_61)', decl: { start: { line: 583, column: 26 }, end: { line: 583, column: 27 } }, loc: { start: { line: 583, column: 30 }, end: { line: 587, column: 1 } }, line: 583 }, '62': { name: '(anonymous_62)', decl: { start: { line: 589, column: 33 }, end: { line: 589, column: 34 } }, loc: { start: { line: 589, column: 56 }, end: { line: 596, column: 1 } }, line: 589 }, '63': { name: '(anonymous_63)', decl: { start: { line: 597, column: 23 }, end: { line: 597, column: 24 } }, loc: { start: { line: 597, column: 27 }, end: { line: 601, column: 1 } }, line: 597 }, '64': { name: '(anonymous_64)', decl: { start: { line: 602, column: 20 }, end: { line: 602, column: 21 } }, loc: { start: { line: 602, column: 24 }, end: { line: 606, column: 1 } }, line: 602 }, '65': { name: '(anonymous_65)', decl: { start: { line: 607, column: 27 }, end: { line: 607, column: 28 } }, loc: { start: { line: 607, column: 36 }, end: { line: 612, column: 1 } }, line: 607 } }, branchMap: {}, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0, '37': 0, '38': 0, '39': 0, '40': 0, '41': 0, '42': 0, '43': 0, '44': 0, '45': 0, '46': 0, '47': 0, '48': 0, '49': 0, '50': 0, '51': 0, '52': 0, '53': 0, '54': 0, '55': 0, '56': 0, '57': 0, '58': 0, '59': 0, '60': 0, '61': 0, '62': 0, '63': 0, '64': 0, '65': 0, '66': 0, '67': 0, '68': 0, '69': 0, '70': 0, '71': 0, '72': 0, '73': 0, '74': 0, '75': 0, '76': 0, '77': 0, '78': 0, '79': 0, '80': 0, '81': 0, '82': 0, '83': 0, '84': 0, '85': 0, '86': 0, '87': 0, '88': 0, '89': 0, '90': 0, '91': 0, '92': 0, '93': 0, '94': 0, '95': 0, '96': 0, '97': 0, '98': 0, '99': 0, '100': 0, '101': 0, '102': 0, '103': 0, '104': 0, '105': 0, '106': 0, '107': 0, '108': 0, '109': 0, '110': 0, '111': 0, '112': 0, '113': 0, '114': 0, '115': 0, '116': 0, '117': 0, '118': 0, '119': 0, '120': 0, '121': 0, '122': 0, '123': 0, '124': 0, '125': 0, '126': 0, '127': 0, '128': 0, '129': 0, '130': 0, '131': 0, '132': 0, '133': 0, '134': 0, '135': 0, '136': 0, '137': 0, '138': 0, '139': 0, '140': 0, '141': 0, '142': 0, '143': 0, '144': 0, '145': 0, '146': 0, '147': 0, '148': 0, '149': 0, '150': 0, '151': 0, '152': 0, '153': 0, '154': 0, '155': 0, '156': 0, '157': 0, '158': 0, '159': 0, '160': 0, '161': 0, '162': 0, '163': 0, '164': 0, '165': 0, '166': 0, '167': 0, '168': 0, '169': 0, '170': 0, '171': 0, '172': 0, '173': 0, '174': 0, '175': 0, '176': 0, '177': 0, '178': 0, '179': 0, '180': 0, '181': 0, '182': 0, '183': 0, '184': 0, '185': 0, '186': 0, '187': 0, '188': 0, '189': 0, '190': 0, '191': 0, '192': 0, '193': 0, '194': 0, '195': 0, '196': 0, '197': 0, '198': 0, '199': 0, '200': 0, '201': 0, '202': 0, '203': 0, '204': 0, '205': 0, '206': 0, '207': 0, '208': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0, '37': 0, '38': 0, '39': 0, '40': 0, '41': 0, '42': 0, '43': 0, '44': 0, '45': 0, '46': 0, '47': 0, '48': 0, '49': 0, '50': 0, '51': 0, '52': 0, '53': 0, '54': 0, '55': 0, '56': 0, '57': 0, '58': 0, '59': 0, '60': 0, '61': 0, '62': 0, '63': 0, '64': 0, '65': 0 }, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();const LOGIN_SUCCESS = /* istanbul ignore next */exports.LOGIN_SUCCESS = (++cov_2na1zeljc1.s[0], 'LOGIN_SUCCESS');
+const LOGIN_FAIL = /* istanbul ignore next */exports.LOGIN_FAIL = (++cov_2na1zeljc1.s[1], 'LOGIN_FAIL');
+const POST_LOGIN_REQUEST = /* istanbul ignore next */exports.POST_LOGIN_REQUEST = (++cov_2na1zeljc1.s[2], 'POST_LOGIN_REQUEST');
+const REGISTER_SUCCESS = /* istanbul ignore next */exports.REGISTER_SUCCESS = (++cov_2na1zeljc1.s[3], 'REGISTER_SUCCESS');
+const REGISTER_FAIL = /* istanbul ignore next */exports.REGISTER_FAIL = (++cov_2na1zeljc1.s[4], 'REGISTER_FAIL');
+const POST_REGISTER_REQUEST = /* istanbul ignore next */exports.POST_REGISTER_REQUEST = (++cov_2na1zeljc1.s[5], 'POST_REGISTER_REQUEST');
+const ID_SUCCESS = /* istanbul ignore next */exports.ID_SUCCESS = (++cov_2na1zeljc1.s[6], 'ID_SUCCESS');
+const ID_FAIL = /* istanbul ignore next */exports.ID_FAIL = (++cov_2na1zeljc1.s[7], 'ID_FAIL');
+const POST_ID_REQUEST = /* istanbul ignore next */exports.POST_ID_REQUEST = (++cov_2na1zeljc1.s[8], 'POST_ID_REQUEST');
+////////////////////////////////////////////////////////////////////////////
+const SET_ID_VALID = /* istanbul ignore next */exports.SET_ID_VALID = (++cov_2na1zeljc1.s[9], 'SET_ID_VALID');
+const SET_PASSWORD_VALID = /* istanbul ignore next */exports.SET_PASSWORD_VALID = (++cov_2na1zeljc1.s[10], 'SET_PASSWORD_VALID');
+const SET_PASSWORD_CHECK_VALID = /* istanbul ignore next */exports.SET_PASSWORD_CHECK_VALID = (++cov_2na1zeljc1.s[11], 'SET_PASSWORD_CHECK_VALID');
+const SET_EMAIL_VALID = /* istanbul ignore next */exports.SET_EMAIL_VALID = (++cov_2na1zeljc1.s[12], 'SET_EMAIL_VALID');
+const RESET_REGISTER = /* istanbul ignore next */exports.RESET_REGISTER = (++cov_2na1zeljc1.s[13], 'RESET_REGISTER');
+const LOGOUT = /* istanbul ignore next */exports.LOGOUT = (++cov_2na1zeljc1.s[14], 'LOGOUT');
+///////////////////////////////////////////////////////
+const GET_USER_REQUEST = /* istanbul ignore next */exports.GET_USER_REQUEST = (++cov_2na1zeljc1.s[15], 'GET_USER_REQUEST');
+const SET_USER_LIST = /* istanbul ignore next */exports.SET_USER_LIST = (++cov_2na1zeljc1.s[16], 'SET_USER_LIST');
+const SET_SENDER = /* istanbul ignore next */exports.SET_SENDER = (++cov_2na1zeljc1.s[17], 'SET_SENDER');
+const SET_RECEIVER = /* istanbul ignore next */exports.SET_RECEIVER = (++cov_2na1zeljc1.s[18], 'SET_RECEIVER');
+const POST_CHAT_REQUEST = /* istanbul ignore next */exports.POST_CHAT_REQUEST = (++cov_2na1zeljc1.s[19], 'POST_CHAT_REQUEST');
+const GET_CHAT_REQUEST = /* istanbul ignore next */exports.GET_CHAT_REQUEST = (++cov_2na1zeljc1.s[20], 'GET_CHAT_REQUEST');
+const SET_CHAT_LOG = /* istanbul ignore next */exports.SET_CHAT_LOG = (++cov_2na1zeljc1.s[21], "SET_CHAT_LOG");
+
+////////////////////////////////////////////////////////////
+
+const POST_ARTICLE_REQUEST = /* istanbul ignore next */exports.POST_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[22], 'POST_ARTICLE_REQUEST');
+const UPDATE_ARTICLE_REQUEST = /* istanbul ignore next */exports.UPDATE_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[23], 'UPDATE_ARTICLE_REQUEST');
+const DELETE_ARTICLE_REQUEST = /* istanbul ignore next */exports.DELETE_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[24], 'DELETE_ARTICLE_REQUEST');
+const GET_ARTICLE_REQUEST = /* istanbul ignore next */exports.GET_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[25], 'GET_ARTICLE_REQUEST');
+const SET_ARTICLE_LIST = /* istanbul ignore next */exports.SET_ARTICLE_LIST = (++cov_2na1zeljc1.s[26], 'SET_ARTICLE_LIST');
+const GET_ARTICLE_REQUEST_WITH_ID = /* istanbul ignore next */exports.GET_ARTICLE_REQUEST_WITH_ID = (++cov_2na1zeljc1.s[27], 'GET_ARTICLE_REQUEST_WITH_ID');
+const SET_ARTICLE_LIST_WITH_ID = /* istanbul ignore next */exports.SET_ARTICLE_LIST_WITH_ID = (++cov_2na1zeljc1.s[28], 'SET_ARTICLE_LIST_WITH_ID');
+////////////////////////////////////
+
+const POST_COMMENT_REQUEST = /* istanbul ignore next */exports.POST_COMMENT_REQUEST = (++cov_2na1zeljc1.s[29], 'POST_COMMENT_REQUEST');
+const UPDATE_COMMENT_REQUEST = /* istanbul ignore next */exports.UPDATE_COMMENT_REQUEST = (++cov_2na1zeljc1.s[30], 'UPDATE_COMMENT_REQUEST');
+const DELETE_COMMENT_REQUEST = /* istanbul ignore next */exports.DELETE_COMMENT_REQUEST = (++cov_2na1zeljc1.s[31], 'DELETE_COMMENT_REQUEST');
+const GET_COMMENT_REQUEST = /* istanbul ignore next */exports.GET_COMMENT_REQUEST = (++cov_2na1zeljc1.s[32], 'GET_COMMENT_REQUEST');
+const GET_COMMENT_REQUEST_WITH_ID = /* istanbul ignore next */exports.GET_COMMENT_REQUEST_WITH_ID = (++cov_2na1zeljc1.s[33], 'GET_COMMENT_REQUEST_WITH_ID');
+
+const SET_COMMENT_ID = /* istanbul ignore next */exports.SET_COMMENT_ID = (++cov_2na1zeljc1.s[34], 'SET_COMMENT_ID');
+const SET_COMMENT_LIST = /* istanbul ignore next */exports.SET_COMMENT_LIST = (++cov_2na1zeljc1.s[35], 'SET_COMMENT_LIST');
+const SET_COMMENT_LIST_WITH_ID = /* istanbul ignore next */exports.SET_COMMENT_LIST_WITH_ID = (++cov_2na1zeljc1.s[36], 'SET_COMMENT_LIST_WITH_ID');
+///////////////////////////////
+const POST_LIKE_REQUEST = /* istanbul ignore next */exports.POST_LIKE_REQUEST = (++cov_2na1zeljc1.s[37], 'POST_LIKE_REQUEST');
+const DELETE_LIKE_REQUEST = /* istanbul ignore next */exports.DELETE_LIKE_REQUEST = (++cov_2na1zeljc1.s[38], 'DELETE_LIKE_REQUEST');
+const GET_LIKE_REQUEST = /* istanbul ignore next */exports.GET_LIKE_REQUEST = (++cov_2na1zeljc1.s[39], 'GET_LIKE_REQUEST');
+const SET_LIKE_LIST = /* istanbul ignore next */exports.SET_LIKE_LIST = (++cov_2na1zeljc1.s[40], 'SET_LIKE_LIST');
+///////////////////////////////////////
+const GET_GROUP_LIST_REQUEST = /* istanbul ignore next */exports.GET_GROUP_LIST_REQUEST = (++cov_2na1zeljc1.s[41], 'GET_GROUP_LIST_REQUEST');
+const SET_GROUP_LIST_REQUEST = /* istanbul ignore next */exports.SET_GROUP_LIST_REQUEST = (++cov_2na1zeljc1.s[42], 'SET_GROUP_LIST_REQUEST');
+const POST_GROUP_LIST_REQUEST = /* istanbul ignore next */exports.POST_GROUP_LIST_REQUEST = (++cov_2na1zeljc1.s[43], 'POST_GROUP_LIST_REQUEST');
+///////////////////////////////////////
+const GET_GROUP_MEMBER_REQUEST = /* istanbul ignore next */exports.GET_GROUP_MEMBER_REQUEST = (++cov_2na1zeljc1.s[44], 'GET_GROUP_MEMBER_REQUEST');
+const POST_GROUP_MEMBER_REQUEST = /* istanbul ignore next */exports.POST_GROUP_MEMBER_REQUEST = (++cov_2na1zeljc1.s[45], 'POST_GROUP_MEMBER_REQUEST');
+const DELETE_GROUP_MEMBER_REQUEST = /* istanbul ignore next */exports.DELETE_GROUP_MEMBER_REQUEST = (++cov_2na1zeljc1.s[46], 'DELETE_GROUP_MEMBER_REQUEST');
+///////////////////////////////////////
+const GET_GROUP_NOTICE_REQUEST = /* istanbul ignore next */exports.GET_GROUP_NOTICE_REQUEST = (++cov_2na1zeljc1.s[47], 'GET_GROUP_NOTICE_REQUEST');
+const POST_GROUP_NOTICE_REQUEST = /* istanbul ignore next */exports.POST_GROUP_NOTICE_REQUEST = (++cov_2na1zeljc1.s[48], 'POST_GROUP_NOTICE_REQUEST');
+const SET_GROUP_NOTICE_REQUEST = /* istanbul ignore next */exports.SET_GROUP_NOTICE_REQUEST = (++cov_2na1zeljc1.s[49], 'SET_GROUP_NOTICE_REQUEST');
+///////////////////////////////////////
+const GET_GROUP_FORUM_REQUEST = /* istanbul ignore next */exports.GET_GROUP_FORUM_REQUEST = (++cov_2na1zeljc1.s[50], 'GET_GROUP_FORUM_REQUEST');
+const POST_GROUP_FORUM_REQUEST = /* istanbul ignore next */exports.POST_GROUP_FORUM_REQUEST = (++cov_2na1zeljc1.s[51], 'POST_GROUP_FORUM_REQUEST');
+const SET_GROUP_FORUM_REQUEST = /* istanbul ignore next */exports.SET_GROUP_FORUM_REQUEST = (++cov_2na1zeljc1.s[52], 'SET_GROUP_FORUM_REQUEST');
+///////////////////////////////////////
+const POST_IMAGE_REQUEST = /* istanbul ignore next */exports.POST_IMAGE_REQUEST = (++cov_2na1zeljc1.s[53], 'POST_IMAGE_REQUEST');
+
+///////////////////////////////////////////////////
+const GET_PROFILE_REQUEST = /* istanbul ignore next */exports.GET_PROFILE_REQUEST = (++cov_2na1zeljc1.s[54], 'GET_PROFILE_REQUEST');
+const UPDATE_PROFILE_REQUEST = /* istanbul ignore next */exports.UPDATE_PROFILE_REQUEST = (++cov_2na1zeljc1.s[55], 'UPDATE_PROFILE_REQUEST');
+const SET_PROFILE_REQUEST = /* istanbul ignore next */exports.SET_PROFILE_REQUEST = (++cov_2na1zeljc1.s[56], 'SET_PROFILE_REQUEST');
+
+////////////////////////////////////////
+const GET_FOLLOW_REQUEST = /* istanbul ignore next */exports.GET_FOLLOW_REQUEST = (++cov_2na1zeljc1.s[57], 'GET_FOLLOW_REQUEST');
+const POST_FOLLOW_REQUEST = /* istanbul ignore next */exports.POST_FOLLOW_REQUEST = (++cov_2na1zeljc1.s[58], 'POST_FOLLOW_REQUEST');
+const DELETE_FOLLOW_REQUEST = /* istanbul ignore next */exports.DELETE_FOLLOW_REQUEST = (++cov_2na1zeljc1.s[59], 'DELETE_FOLLOW_REQUEST');
+const SET_FOLLOW_REQUEST = /* istanbul ignore next */exports.SET_FOLLOW_REQUEST = (++cov_2na1zeljc1.s[60], 'SET_FOLLOW_REQUEST');
+const GET_FOLLOW_ARTICLE_REQUEST = /* istanbul ignore next */exports.GET_FOLLOW_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[61], 'GET_FOLLOW_ARTICLE_REQUEST');
+const SET_FOLLOW_ARTICLE_REQUEST = /* istanbul ignore next */exports.SET_FOLLOW_ARTICLE_REQUEST = (++cov_2na1zeljc1.s[62], 'SET_FOLLOW_ARTICLE_REQUEST');
+////////////////////////////////////////
+const GET_IMAGE_REQUEST = /* istanbul ignore next */exports.GET_IMAGE_REQUEST = (++cov_2na1zeljc1.s[63], 'GET_IMAGE_REQUEST');
+const SET_IMAGE_REQUEST = /* istanbul ignore next */exports.SET_IMAGE_REQUEST = (++cov_2na1zeljc1.s[64], 'SET_IMAGE_REQUEST');
+const DELETE_IMAGE_REQUEST = /* istanbul ignore next */exports.DELETE_IMAGE_REQUEST = (++cov_2na1zeljc1.s[65], 'DELETE_IMAGE_REQUEST');
+
+
+const DeleteImageRequest = /* istanbul ignore next */exports.DeleteImageRequest = (++cov_2na1zeljc1.s[66], (ubase64, idlist) => {/* istanbul ignore next */++cov_2na1zeljc1.f[0];++cov_2na1zeljc1.s[67];
+  return {
+    type: DELETE_IMAGE_REQUEST, ubase64, idlist };
+
+
+});
+
+const GetImageRequest = /* istanbul ignore next */exports.GetImageRequest = (++cov_2na1zeljc1.s[68], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[1];++cov_2na1zeljc1.s[69];
+  return {
+    type: GET_IMAGE_REQUEST, ubase64 };
+
+
+});
+
+const SetImageRequest = /* istanbul ignore next */exports.SetImageRequest = (++cov_2na1zeljc1.s[70], imagelist => {/* istanbul ignore next */++cov_2na1zeljc1.f[2];++cov_2na1zeljc1.s[71];
+  return {
+    type: SET_IMAGE_REQUEST, imagelist };
+
+
+});
+
+const PostImageRequest = /* istanbul ignore next */exports.PostImageRequest = (++cov_2na1zeljc1.s[72], (ubase64, files) => {/* istanbul ignore next */++cov_2na1zeljc1.f[3];++cov_2na1zeljc1.s[73];
+  return {
+    type: POST_IMAGE_REQUEST,
+    ubase64,
+    files };
+
+});
+
+const GetFollowArticleRequest = /* istanbul ignore next */exports.GetFollowArticleRequest = (++cov_2na1zeljc1.s[74], (ubase64, id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[4];++cov_2na1zeljc1.s[75];
+  return {
+    type: GET_FOLLOW_ARTICLE_REQUEST,
+    ubase64,
+    id };
+
+});
+
+const SetFollowArticleRequest = /* istanbul ignore next */exports.SetFollowArticleRequest = (++cov_2na1zeljc1.s[76], follow_article_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[5];++cov_2na1zeljc1.s[77];
+  return {
+    type: SET_FOLLOW_ARTICLE_REQUEST,
+    follow_article_list };
+
+});
+
+const GetFollowRequest = /* istanbul ignore next */exports.GetFollowRequest = (++cov_2na1zeljc1.s[78], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[6];++cov_2na1zeljc1.s[79];
+  return {
+    type: GET_FOLLOW_REQUEST,
+    ubase64 };
+
+});
+
+const PostFollowRequest = /* istanbul ignore next */exports.PostFollowRequest = (++cov_2na1zeljc1.s[80], (ubase64, follow) => {/* istanbul ignore next */++cov_2na1zeljc1.f[7];++cov_2na1zeljc1.s[81];
+  return {
+    type: POST_FOLLOW_REQUEST,
+    ubase64,
+    follow };
+
+});
+
+const DeleteFollowRequest = /* istanbul ignore next */exports.DeleteFollowRequest = (++cov_2na1zeljc1.s[82], (ubase64, id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[8];++cov_2na1zeljc1.s[83];
+  return {
+    type: DELETE_FOLLOW_REQUEST,
+    ubase64,
+    id };
+
+});
+
+const SetFollowRequest = /* istanbul ignore next */exports.SetFollowRequest = (++cov_2na1zeljc1.s[84], follow_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[9];++cov_2na1zeljc1.s[85];
+  return {
+    type: SET_FOLLOW_REQUEST,
+    follow_list };
+
+});
+
+////////////////////////////////////////
+
+const GetProfileRequest = /* istanbul ignore next */exports.GetProfileRequest = (++cov_2na1zeljc1.s[86], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[10];++cov_2na1zeljc1.s[87];
+  return {
+    type: GET_PROFILE_REQUEST,
+    ubase64 };
+
+});
+/*
+    email:state.profile_reducer.email,
+    nickname:state.profile_reducer.nickname,
+    avatar: state.profile_reducer.avatar,
+    first_name:state.profile_reducer.first_name,
+    last_name:state.profile_reducer.last_name,
+    last_login:state.profile_reducer.last_login,
+    date_joined: state.profile_reducer.date_joined
+    */
+const UpdateProfileReqeust = /* istanbul ignore next */exports.UpdateProfileReqeust = (++cov_2na1zeljc1.s[88], (ubase64, nickname, avatar, first_name, last_name) => {/* istanbul ignore next */++cov_2na1zeljc1.f[11];++cov_2na1zeljc1.s[89];
+  return {
+    type: UPDATE_PROFILE_REQUEST,
+    ubase64, nickname, avatar, first_name, last_name };
+
+});
+
+
+const SetProfileReqeust = /* istanbul ignore next */exports.SetProfileReqeust = (++cov_2na1zeljc1.s[90], (email, nickname, avatar, first_name, last_name, last_login, date_joined) => {/* istanbul ignore next */++cov_2na1zeljc1.f[12];++cov_2na1zeljc1.s[91];
+  console.log(email); /* istanbul ignore next */++cov_2na1zeljc1.s[92];
+  console.log(nickname); /* istanbul ignore next */++cov_2na1zeljc1.s[93];
+  console.log(avatar); /* istanbul ignore next */++cov_2na1zeljc1.s[94];
+  console.log(first_name); /* istanbul ignore next */++cov_2na1zeljc1.s[95];
+  console.log(last_name); /* istanbul ignore next */++cov_2na1zeljc1.s[96];
+  console.log(last_login); /* istanbul ignore next */++cov_2na1zeljc1.s[97];
+  console.log(date_joined); /* istanbul ignore next */++cov_2na1zeljc1.s[98];
+  return {
+    type: SET_PROFILE_REQUEST,
+    email, nickname, avatar, first_name, last_name, last_login, date_joined };
+
+});
+
+
+
+//////////////////////////////////////////////////
+const GetGroupForumRequest = /* istanbul ignore next */exports.GetGroupForumRequest = (++cov_2na1zeljc1.s[99], (ubase64, group_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[13];++cov_2na1zeljc1.s[100];
+  return {
+    type: GET_GROUP_FORUM_REQUEST,
+    ubase64,
+    group_id };
+
+});
+
+const PostGroupForumRequest = /* istanbul ignore next */exports.PostGroupForumRequest = (++cov_2na1zeljc1.s[101], (ubase64, group_id, text) => {/* istanbul ignore next */++cov_2na1zeljc1.f[14];++cov_2na1zeljc1.s[102];
+  return {
+    type: POST_GROUP_FORUM_REQUEST,
+    ubase64,
+    group_id,
+    text };
+
+});
+
+const SetGroupForumRequest = /* istanbul ignore next */exports.SetGroupForumRequest = (++cov_2na1zeljc1.s[103], forum_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[15];++cov_2na1zeljc1.s[104];
+  return {
+    type: SET_GROUP_FORUM_REQUEST,
+    forum_list };
+
+});
+
+///////////////////////////////////////
+
+const GetGroupNoticeRequest = /* istanbul ignore next */exports.GetGroupNoticeRequest = (++cov_2na1zeljc1.s[105], (ubase64, group_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[16];++cov_2na1zeljc1.s[106];
+  return {
+    type: GET_GROUP_NOTICE_REQUEST,
+    ubase64,
+    group_id };
+
+});
+
+const PostGroupNoticeRequest = /* istanbul ignore next */exports.PostGroupNoticeRequest = (++cov_2na1zeljc1.s[107], (ubase64, group_id, text) => {/* istanbul ignore next */++cov_2na1zeljc1.f[17];++cov_2na1zeljc1.s[108];
+  return {
+    type: POST_GROUP_NOTICE_REQUEST,
+    ubase64,
+    group_id,
+    text };
+
+});
+
+const SetGroupNoticeRequest = /* istanbul ignore next */exports.SetGroupNoticeRequest = (++cov_2na1zeljc1.s[109], notice_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[18];++cov_2na1zeljc1.s[110];
+  return {
+    type: SET_GROUP_NOTICE_REQUEST,
+    notice_list };
+
+});
+
+///////////////////////////////////////
+
+const GetGroupMemberRequest = /* istanbul ignore next */exports.GetGroupMemberRequest = (++cov_2na1zeljc1.s[111], (ubase64, group_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[19];++cov_2na1zeljc1.s[112];
+  return {
+    type: GET_GROUP_MEMBER_REQUEST,
+    ubase64,
+    group_id };
+
+});
+
+const PostGroupMemberRequest = /* istanbul ignore next */exports.PostGroupMemberRequest = (++cov_2na1zeljc1.s[113], (ubase64, group_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[20];++cov_2na1zeljc1.s[114];
+  return {
+    type: POST_GROUP_MEMBER_REQUEST,
+    ubase64,
+    group_id };
+
+});
+
+const DeleteGroupMemberRequest = /* istanbul ignore next */exports.DeleteGroupMemberRequest = (++cov_2na1zeljc1.s[115], (ubase64, group_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[21];++cov_2na1zeljc1.s[116];
+  return {
+    type: DELETE_GROUP_MEMBER_REQUEST,
+    ubase64,
+    group_id };
+
+});
+
+///////////////////////////////////////
+
+const PostGroupListRequest = /* istanbul ignore next */exports.PostGroupListRequest = (++cov_2na1zeljc1.s[117], (ubase64, group_name) => {/* istanbul ignore next */++cov_2na1zeljc1.f[22];++cov_2na1zeljc1.s[118];
+  return {
+    type: POST_GROUP_LIST_REQUEST,
+    ubase64,
+    group_name };
+
+});
+
+const SetGroupListRequest = /* istanbul ignore next */exports.SetGroupListRequest = (++cov_2na1zeljc1.s[119], group_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[23];++cov_2na1zeljc1.s[120];
+  return {
+    type: SET_GROUP_LIST_REQUEST,
+    group_list };
+
+});
+
+const GetGroupListRequest = /* istanbul ignore next */exports.GetGroupListRequest = (++cov_2na1zeljc1.s[121], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[24];++cov_2na1zeljc1.s[122];
+  return {
+    type: GET_GROUP_LIST_REQUEST,
+    ubase64 };
+
+});
+
+/////////////////////////////////////////////////////////
+
+const PostArticleRequest = /* istanbul ignore next */exports.PostArticleRequest = (++cov_2na1zeljc1.s[123], (ubase64, author, text) => {/* istanbul ignore next */++cov_2na1zeljc1.f[25];++cov_2na1zeljc1.s[124];
+  return {
+    type: POST_ARTICLE_REQUEST,
+    ubase64,
+    author,
+    text };
+
+});
+
+const DeleteArticleRequest = /* istanbul ignore next */exports.DeleteArticleRequest = (++cov_2na1zeljc1.s[125], (ubase64, id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[26];++cov_2na1zeljc1.s[126];
+  return {
+    type: DELETE_ARTICLE_REQUEST,
+    ubase64,
+    id };
+
+});
+
+const UpdateArticleRequest = /* istanbul ignore next */exports.UpdateArticleRequest = (++cov_2na1zeljc1.s[127], (ubase64, id, content) => {/* istanbul ignore next */++cov_2na1zeljc1.f[27];++cov_2na1zeljc1.s[128];
+  return {
+    type: UPDATE_ARTICLE_REQUEST,
+    ubase64,
+    id,
+    content };
+
+});
+
+const GetArticleRequest = /* istanbul ignore next */exports.GetArticleRequest = (++cov_2na1zeljc1.s[129], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[28];++cov_2na1zeljc1.s[130];
+  return {
+    type: GET_ARTICLE_REQUEST,
+    ubase64 };
+
+});
+const GetArticleRequest_WITH_ID = /* istanbul ignore next */exports.GetArticleRequest_WITH_ID = (++cov_2na1zeljc1.s[131], (ubase64, id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[29];++cov_2na1zeljc1.s[132];
+  return {
+    type: GET_ARTICLE_REQUEST_WITH_ID,
+    ubase64, id };
+
+});
+
+const SetArticleList = /* istanbul ignore next */exports.SetArticleList = (++cov_2na1zeljc1.s[133], article_list => {/* istanbul ignore next */++cov_2na1zeljc1.f[30];++cov_2na1zeljc1.s[134];
+  return {
+    type: SET_ARTICLE_LIST,
+    article_list };
+
+});
+
+const SetArticleList_WITH_ID = /* istanbul ignore next */exports.SetArticleList_WITH_ID = (++cov_2na1zeljc1.s[135], (article, id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[31];++cov_2na1zeljc1.s[136];
+  return {
+    type: SET_ARTICLE_LIST_WITH_ID,
+    article,
+    id };
+
+});
+///////////////////////////
+const PostCommentRequest = /* istanbul ignore next */exports.PostCommentRequest = (++cov_2na1zeljc1.s[137], (id, ubase64, author, text) => {/* istanbul ignore next */++cov_2na1zeljc1.f[32];++cov_2na1zeljc1.s[138];
+  return {
+    type: POST_COMMENT_REQUEST,
+    id,
+    ubase64,
+    author,
+    text };
+
+});
+
+const DeleteCommentRequest = /* istanbul ignore next */exports.DeleteCommentRequest = (++cov_2na1zeljc1.s[139], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[33];++cov_2na1zeljc1.s[140];
+  return {
+    type: DELETE_COMMENT_REQUEST,
+    ubase64 };
+
+});
+
+const UpdateCommentRequest = /* istanbul ignore next */exports.UpdateCommentRequest = (++cov_2na1zeljc1.s[141], (ubase64, text) => {/* istanbul ignore next */++cov_2na1zeljc1.f[34];++cov_2na1zeljc1.s[142];
+  return {
+    type: UPDATE_COMMENT_REQUEST,
+    ubase64,
+    text };
+
+});
+
+const GetCommentRequest = /* istanbul ignore next */exports.GetCommentRequest = (++cov_2na1zeljc1.s[143], (id, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[35];++cov_2na1zeljc1.s[144];
+  return {
+    type: GET_COMMENT_REQUEST,
+    id,
+    ubase64 };
+
+});
+
+const GetCommentRequest_WITH_ID = /* istanbul ignore next */exports.GetCommentRequest_WITH_ID = (++cov_2na1zeljc1.s[145], (id, ubase64, comment_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[36];++cov_2na1zeljc1.s[146];
+  return {
+    type: GET_COMMENT_REQUEST_WITH_ID,
+    id,
+    ubase64,
+    comment_id };
+
+
+});
+
+
+const SetCommentId = /* istanbul ignore next */exports.SetCommentId = (++cov_2na1zeljc1.s[147], article_id => {/* istanbul ignore next */++cov_2na1zeljc1.f[37];++cov_2na1zeljc1.s[148];
+  return {
+    type: SET_COMMENT_ID,
+    article_id };
+
+});
+
+const SetCommentList = /* istanbul ignore next */exports.SetCommentList = (++cov_2na1zeljc1.s[149], (comment_list, article_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[38];++cov_2na1zeljc1.s[150];
+  console.log('comment_list'); /* istanbul ignore next */++cov_2na1zeljc1.s[151];
+  console.log(comment_list); /* istanbul ignore next */++cov_2na1zeljc1.s[152];
+  console.log('article_id'); /* istanbul ignore next */++cov_2na1zeljc1.s[153];
+  console.log(article_id); /* istanbul ignore next */++cov_2na1zeljc1.s[154];
+  return {
+    type: SET_COMMENT_LIST,
+    comment_list,
+    article_id };
+
+
+});
+
+const SetCommentList_WITH_ID = /* istanbul ignore next */exports.SetCommentList_WITH_ID = (++cov_2na1zeljc1.s[155], (comment, article_id, comment_id) => {/* istanbul ignore next */++cov_2na1zeljc1.f[39];++cov_2na1zeljc1.s[156];
+  return {
+    type: SET_COMMENT_LIST_WITH_ID,
+    comment,
+    article_id,
+    comment_id };
+
+});
+
+///////////////////////////////
+const PostLikeRequest = /* istanbul ignore next */exports.PostLikeRequest = (++cov_2na1zeljc1.s[157], (id, ubase64, author) => {/* istanbul ignore next */++cov_2na1zeljc1.f[40];++cov_2na1zeljc1.s[158];
+  return {
+    type: POST_LIKE_REQUEST,
+    id,
+    ubase64,
+    author };
+
+});
+
+const DeleteLikeRequest = /* istanbul ignore next */exports.DeleteLikeRequest = (++cov_2na1zeljc1.s[159], (id, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[41];++cov_2na1zeljc1.s[160];
+  return {
+    type: DELETE_LIKE_REQUEST,
+    id,
+    ubase64 };
+
+});
+
+const GetLikeRequest = /* istanbul ignore next */exports.GetLikeRequest = (++cov_2na1zeljc1.s[161], (id, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[42];++cov_2na1zeljc1.s[162];
+  return {
+    type: GET_LIKE_REQUEST,
+    id,
+    ubase64 };
+
+});
+const SetLikeList = /* istanbul ignore next */exports.SetLikeList = (++cov_2na1zeljc1.s[163], (like_list, id1, id2) => {/* istanbul ignore next */++cov_2na1zeljc1.f[43];++cov_2na1zeljc1.s[164];
+  return {
+    type: SET_LIKE_LIST,
+    like_list,
+    id1,
+    id2 };
+
+});
+
+//////////////////////////////////////////////////////////////////////
+const SetChatLog = /* istanbul ignore next */exports.SetChatLog = (++cov_2na1zeljc1.s[165], chatlog => {/* istanbul ignore next */++cov_2na1zeljc1.f[44];++cov_2na1zeljc1.s[166];
+  return {
+    type: SET_CHAT_LOG,
+    chatlog };
+
+});
+
+const GetChatRequest = /* istanbul ignore next */exports.GetChatRequest = (++cov_2na1zeljc1.s[167], ubase64 => {/* istanbul ignore next */++cov_2na1zeljc1.f[45];++cov_2na1zeljc1.s[168];
+  return {
+    type: GET_CHAT_REQUEST,
+    ubase64 };
+
+});
+
+const PostChatRequest = /* istanbul ignore next */exports.PostChatRequest = (++cov_2na1zeljc1.s[169], (sender, ubase64, receiver, chat) => {/* istanbul ignore next */++cov_2na1zeljc1.f[46];++cov_2na1zeljc1.s[170];
+  return {
+    type: POST_CHAT_REQUEST,
+    sender,
+    ubase64,
+    receiver,
+    chat };
+
+});
+
+const SetReceiver = /* istanbul ignore next */exports.SetReceiver = (++cov_2na1zeljc1.s[171], receiver => {/* istanbul ignore next */++cov_2na1zeljc1.f[47];++cov_2na1zeljc1.s[172];
+  return {
+    type: SET_RECEIVER,
+    receiver };
+
+});
+
+const SetSender = /* istanbul ignore next */exports.SetSender = (++cov_2na1zeljc1.s[173], (uname, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[48];++cov_2na1zeljc1.s[174];
+  return {
+    type: SET_SENDER,
+    uname,
+    ubase64 };
+
+});
+
+const SetUserList = /* istanbul ignore next */exports.SetUserList = (++cov_2na1zeljc1.s[175], usernames => {/* istanbul ignore next */++cov_2na1zeljc1.f[49];++cov_2na1zeljc1.s[176];
+  return {
+    type: SET_USER_LIST,
+    usernames };
+
+});
+
+const GetUserRequest = /* istanbul ignore next */exports.GetUserRequest = (++cov_2na1zeljc1.s[177], (uname, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[50];++cov_2na1zeljc1.s[178];
+  return {
+    type: GET_USER_REQUEST,
+    uname,
+    ubase64 };
+
+});
+
+const ResetRegister = /* istanbul ignore next */exports.ResetRegister = (++cov_2na1zeljc1.s[179], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[51];++cov_2na1zeljc1.s[180];
+  return {
+    type: RESET_REGISTER };
+
+});
+const SetIdValid = /* istanbul ignore next */exports.SetIdValid = (++cov_2na1zeljc1.s[181], idValid => {/* istanbul ignore next */++cov_2na1zeljc1.f[52];++cov_2na1zeljc1.s[182];
+  return {
+    type: SET_ID_VALID,
+    idValid };
+
+});
+const SetPasswordValid = /* istanbul ignore next */exports.SetPasswordValid = (++cov_2na1zeljc1.s[183], passwordValid => {/* istanbul ignore next */++cov_2na1zeljc1.f[53];++cov_2na1zeljc1.s[184];
+  return {
+    type: SET_PASSWORD_VALID,
+    passwordValid };
+
+});
+const SetPasswordCheckValid = /* istanbul ignore next */exports.SetPasswordCheckValid = (++cov_2na1zeljc1.s[185], passwordCheckValid => {/* istanbul ignore next */++cov_2na1zeljc1.f[54];++cov_2na1zeljc1.s[186];
+  return {
+    type: SET_PASSWORD_CHECK_VALID,
+    passwordCheckValid };
+
+});
+const SetEmailValid = /* istanbul ignore next */exports.SetEmailValid = (++cov_2na1zeljc1.s[187], emailValid => {/* istanbul ignore next */++cov_2na1zeljc1.f[55];++cov_2na1zeljc1.s[188];
+  return {
+    type: SET_EMAIL_VALID,
+    emailValid };
+
+});
+const Logout = /* istanbul ignore next */exports.Logout = (++cov_2na1zeljc1.s[189], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[56];++cov_2na1zeljc1.s[190];
+  return {
+    type: LOGOUT };
+
+});
+const LoginSuccess = /* istanbul ignore next */exports.LoginSuccess = (++cov_2na1zeljc1.s[191], (uname, ubase64) => {/* istanbul ignore next */++cov_2na1zeljc1.f[57];++cov_2na1zeljc1.s[192];
+  return {
+    type: LOGIN_SUCCESS,
+    uname,
+    ubase64 };
+
+});
+const LoginFail = /* istanbul ignore next */exports.LoginFail = (++cov_2na1zeljc1.s[193], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[58];++cov_2na1zeljc1.s[194];
+  return {
+    type: LOGIN_FAIL };
+
+});
+const postLoginRequest = /* istanbul ignore next */exports.postLoginRequest = (++cov_2na1zeljc1.s[195], (uname, upwd) => {/* istanbul ignore next */++cov_2na1zeljc1.f[59];++cov_2na1zeljc1.s[196];
+  return {
+    type: POST_LOGIN_REQUEST,
+    uname,
+    upwd };
+
+});
+
+const RegisterSuccess = /* istanbul ignore next */exports.RegisterSuccess = (++cov_2na1zeljc1.s[197], (uname, uemail) => {/* istanbul ignore next */++cov_2na1zeljc1.f[60];++cov_2na1zeljc1.s[198];
+  return {
+    type: REGISTER_SUCCESS,
+    uname,
+    uemail };
+
+});
+const RegisterFail = /* istanbul ignore next */exports.RegisterFail = (++cov_2na1zeljc1.s[199], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[61];++cov_2na1zeljc1.s[200];
+  return {
+    type: REGISTER_FAIL };
+
+});
+
+const postRegisterRequest = /* istanbul ignore next */exports.postRegisterRequest = (++cov_2na1zeljc1.s[201], (uname, upwd, uemail) => {/* istanbul ignore next */++cov_2na1zeljc1.f[62];++cov_2na1zeljc1.s[202];
+  return {
+    type: POST_REGISTER_REQUEST,
+    uname,
+    upwd,
+    uemail };
+
+});
+const IdSuccess = /* istanbul ignore next */exports.IdSuccess = (++cov_2na1zeljc1.s[203], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[63];++cov_2na1zeljc1.s[204];
+  return {
+    type: ID_SUCCESS };
+
+});
+const IdFail = /* istanbul ignore next */exports.IdFail = (++cov_2na1zeljc1.s[205], () => {/* istanbul ignore next */++cov_2na1zeljc1.f[64];++cov_2na1zeljc1.s[206];
+  return {
+    type: ID_FAIL };
+
+});
+const postIdRequest = /* istanbul ignore next */exports.postIdRequest = (++cov_2na1zeljc1.s[207], uname => {/* istanbul ignore next */++cov_2na1zeljc1.f[65];++cov_2na1zeljc1.s[208];
+  return {
+    type: POST_ID_REQUEST,
+    uname };
+
+});

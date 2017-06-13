@@ -1,0 +1,100 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/App/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');
+
+var _logo = require('./logo.svg');var _logo2 = _interopRequireDefault(_logo);
+require('./index.css');
+var _Login = require('../Login');var _Login2 = _interopRequireDefault(_Login);
+var _Register = require('../Register');var _Register2 = _interopRequireDefault(_Register);
+var _ChatBox = require('../ChatBox');var _ChatBox2 = _interopRequireDefault(_ChatBox);
+var _ArticleList = require('../ArticleList');var _ArticleList2 = _interopRequireDefault(_ArticleList);
+var _GroupList = require('../GroupList');var _GroupList2 = _interopRequireDefault(_GroupList);
+var _Header = require('../Header');var _Header2 = _interopRequireDefault(_Header);
+var _Image = require('../Image');var _Image2 = _interopRequireDefault(_Image);
+var _Profile = require('../Profile');var _Profile2 = _interopRequireDefault(_Profile);
+var _FollowList = require('../FollowList');var _FollowList2 = _interopRequireDefault(_FollowList);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+class App extends _react.Component {
+  componentDidMount() {
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return JSON.parse(atob(c.substring(name.length, c.length)));
+        }
+      }
+      return "";
+    }
+    var uname = getCookie("uname");
+    var upwd = getCookie("upwd");
+    if (uname !== "" && upwd !== "") {
+
+      this.props.onLogin(uname, upwd);
+    }
+
+  }
+
+
+  /*function getCookie(name){
+      var value = "; "+ document.cookie;
+      var parts = value.split("; "+ name+ "=")
+      if (parts.length==2) return parts.pop().split(";").shift();
+    }
+    let loginData= getCookie('key');
+     if (typeof loginData=== "undefined") return;
+    loginData= JSON.parse(atob(loginData));
+     if (!loginData.isLoggedIn) return;
+     this.props.getStatusRequest().then(
+      ()=> {
+         console.log(this.props.status);
+       }
+    )*/
+
+
+
+
+
+  render() {
+    return (
+      _react2.default.createElement('div', { className: 'App', __source: { fileName: _jsxFileName, lineNumber: 69 }, __self: this },
+        _react2.default.createElement('div', { className: 'App-header', __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this },
+          _react2.default.createElement('img', { src: _logo2.default, className: 'App-logo', alt: 'logo', __source: { fileName: _jsxFileName, lineNumber: 71 }, __self: this }),
+          _react2.default.createElement('h2', { __source: { fileName: _jsxFileName, lineNumber: 72 }, __self: this }, 'Welcome to Project 2 - Team 8')),
+
+        _react2.default.createElement(_reactRouterDom.BrowserRouter, { __source: { fileName: _jsxFileName, lineNumber: 74 }, __self: this },
+          _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this },
+            _react2.default.createElement(_Header2.default, { __source: { fileName: _jsxFileName, lineNumber: 76 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default, __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default, __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/timeline', component: _ArticleList2.default, __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/chat', component: _ChatBox2.default, __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/group', component: _GroupList2.default, __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/image', component: _Image2.default, __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default, __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/follow', component: _FollowList2.default, __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this })))));
+
+
+
+
+  }}
+
+// <Route path="/chat" component={ChatBox}/>
+
+let mapDispatchToProps = dispatch => {
+  return {
+    onLogin: (uname, upwd) => dispatch((0, _actions.postLoginRequest)(uname, upwd)),
+    onLogout: () => dispatch((0, _actions.Logout)()) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(undefined, mapDispatchToProps)(App);

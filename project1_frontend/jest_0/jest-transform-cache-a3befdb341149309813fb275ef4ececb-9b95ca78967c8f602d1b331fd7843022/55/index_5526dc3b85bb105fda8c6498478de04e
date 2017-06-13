@@ -1,0 +1,119 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/home/ubuntu/project1_frontend_submit/src/components/Login/index.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+require('./index.css');
+var _Button = require('../Button');var _Button2 = _interopRequireDefault(_Button);
+var _Input = require('../Input');var _Input2 = _interopRequireDefault(_Input);
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../actions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/*
+                                                                                                                                      export const Login=({onLogin,loginStatus, uname, onLogout})=>{
+                                                                                                                                        let newuname, newpwd;
+                                                                                                                                      
+                                                                                                                                      
+                                                                                                                                        const onSubmit=()=>{
+                                                                                                                                          if (newuname!= undefined && newpwd!= undefined){
+                                                                                                                                            onLogin(newuname.input.value, newpwd.input.value).then(
+                                                                                                                                              ()=>{
+                                                                                                                                                if(loginStatus===1)
+                                                                                                                                                alert("login sucess")
+                                                                                                                                                console.log(uname);
+                                                                                                                                              }
+                                                                                                                                            );
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                        const onLogoutButton=()=>{
+                                                                                                                                            onLogout();
+                                                                                                                                        }
+                                                                                                                                        if(loginStatus===1)
+                                                                                                                                        return (
+                                                                                                                                          <div>
+                                                                                                                                          <p id="login_welcome">{uname}님, 환영합니다!</p>
+                                                                                                                                          <Button id="logout" onClick={onLogoutButton} text="로그아웃"/>
+                                                                                                                                          </div>
+                                                                                                                                        )
+                                                                                                                                        else
+                                                                                                                                        return (
+                                                                                                                                          <div>
+                                                                                                                                            <div className="Id">
+                                                                                                                                            <Input type="text" id="login_id" ref={n=>{newuname=n;}} placeholder="아이디" />
+                                                                                                                                            </div>
+                                                                                                                                            <div className="Password">
+                                                                                                                                            <Input type="password" id="login_pwd" ref={n=>{newpwd=n;}} placeholder="비밀번호"/>
+                                                                                                                                            </div>
+                                                                                                                                            <div className="Submit">
+                                                                                                                                            <Button onClick={onSubmit} id="login_submit" text="로그인"/>
+                                                                                                                                            </div>
+                                                                                                                                            <div>
+                                                                                                                                            <label id="login_submitmessage">
+                                                                                                                                            {loginStatus===0?"":(loginStatus===1?"로그인에 성공했습니다.":"아이디나 비밀번호가 일치하지 않습니다.")}
+                                                                                                                                            </label>
+                                                                                                                                            </div>
+                                                                                                                                          </div>
+                                                                                                                                        );
+                                                                                                                                      }*/
+class Login extends _react.Component {
+
+  onSubmit() {
+    if (this.newuname != undefined && this.newpwd != undefined) {
+
+      this.props.onLogin(this.newuname.input.value, this.newpwd.input.value);
+    }
+  }
+  onLogoutButton() {
+
+    function deleteCookie(cname) {
+      document.cookie = cname + "=;path=/";
+    }
+    deleteCookie("uname");
+    deleteCookie("upwd");
+
+    this.props.onLogout();
+  }
+  render() {
+    if (this.props.loginStatus === 1)
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this },
+        _react2.default.createElement('p', { id: 'login_welcome', __source: { fileName: _jsxFileName, lineNumber: 76 }, __self: this }, this.props.uname, '\uB2D8, \uD658\uC601\uD569\uB2C8\uB2E4!'),
+        _react2.default.createElement(_Button2.default, { id: 'logout', onClick: this.onLogoutButton.bind(this), text: '\uB85C\uADF8\uC544\uC6C3', __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this })));else
+
+
+
+    return (
+      _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this },
+        _react2.default.createElement('div', { className: 'Id', __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this },
+          _react2.default.createElement(_Input2.default, { type: 'text', id: 'login_id', ref: n => {this.newuname = n;}, placeholder: '\uC544\uC774\uB514', __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Password', __source: { fileName: _jsxFileName, lineNumber: 86 }, __self: this },
+          _react2.default.createElement(_Input2.default, { type: 'password', id: 'login_pwd', ref: n => {this.newpwd = n;}, placeholder: '\uBE44\uBC00\uBC88\uD638', __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this })),
+
+        _react2.default.createElement('div', { className: 'Submit', __source: { fileName: _jsxFileName, lineNumber: 89 }, __self: this },
+          _react2.default.createElement(_Button2.default, { onClick: this.onSubmit.bind(this), id: 'login_submit', text: '\uB85C\uADF8\uC778', __source: { fileName: _jsxFileName, lineNumber: 90 }, __self: this })),
+
+        _react2.default.createElement('div', { __source: { fileName: _jsxFileName, lineNumber: 92 }, __self: this },
+          _react2.default.createElement('label', { id: 'login_submitmessage', __source: { fileName: _jsxFileName, lineNumber: 93 }, __self: this },
+            this.props.loginStatus === 0 ? "" : this.props.loginStatus === 1 ? "로그인에 성공했습니다." : "아이디나 비밀번호가 일치하지 않습니다."))));
+
+
+
+
+  }}
+
+
+let mapStateToProps = state => {
+  return {
+    login_entered: state.login_reducer.login_entered,
+    login_fail: state.login_reducer.login_fail,
+    uname: state.login_reducer.uname,
+    loginStatus: state.login_reducer.loginStatus
+    //ubase64: state.login_reducer.ubase64
+  };
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    onLogin: (uname, upwd) => dispatch((0, _actions.postLoginRequest)(uname, upwd)),
+    onLogout: () => dispatch((0, _actions.Logout)()) };
+
+};exports.default =
+
+(0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
