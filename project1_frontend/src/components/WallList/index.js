@@ -15,7 +15,6 @@ class WallList extends Component {
   }
 
   onClick(e) {
-    console.log(e.target.id)
     this.props.getWall(e.target.id, this.props.ubase64)
   }
 
@@ -26,14 +25,9 @@ class WallList extends Component {
 
   render() {
     this.props.getUser(this.props.uname, this.props.ubase64)
+    let article_list = this.props.article_list
 
     if (this.props.loginStatus === 1) {
-      let article_list = []
-      for (var index in this.props.article_list) {
-        let author = this.props.article_list[index].author
-        if (this.props.uname === author) article_list.push(this.props.article_list[index])
-      }
-
       return (
         <div>
           <div>
