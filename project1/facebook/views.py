@@ -341,8 +341,15 @@ class ArticleList(generics.ListCreateAPIView):
   permission_classes = (ListPostPermission, )
 
   def get_queryset(self):
-    article= Article.objects.all()
-    return article
+    article = []
+    article += Article.objects.filter(author=self.request.user)
+    follow_list = Follow.objects.filter(user=self.request.user)
+    for el in follow_list:
+      article += Article.objects.filter(author=el.follow) 
+    #article= Article.objects.all()
+    def getKey(ar):
+      return ar.created
+    return sorted(article, key=getKey)
   def perform_create(self, serializer):
     serializer.save(author=self.request.user)
 

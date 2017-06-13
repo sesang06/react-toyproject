@@ -32,7 +32,8 @@ handleHtmlChange(html){
 
   render() {
    if (this.props.loginStatus === 1) {
-
+      let article_list = this.props.article_list
+      /*
       this.props.getFollow(this.props.ubase64)
       let follow_list = this.props.follow_list
       let article_list = []
@@ -44,6 +45,7 @@ handleHtmlChange(html){
         }
         if (this.props.uname === author) article_list.push(this.props.article_list[index])
       }
+      */
 //      <textarea className="Article-post" cols="120" rows="4" id="text_timeline" ref={ref=>this.newtext=ref} placeholder="Post your status!" />
 
       return (
