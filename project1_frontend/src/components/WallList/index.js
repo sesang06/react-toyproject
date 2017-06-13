@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import Button from '../Button';
 import Article from '../Article';
+import Search from '../Search';
 import { connect } from 'react-redux';
 
 import { GetArticleRequest } from '../../actions';
@@ -28,6 +29,7 @@ class WallList extends Component {
       return (
         <div>
           <div>
+            <Search />
             <Button id="update_wall" onClick={this.onGet} text="담벼락 불러오기"/>
           </div>
           <div>
