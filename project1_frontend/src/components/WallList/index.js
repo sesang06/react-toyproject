@@ -5,7 +5,7 @@ import Article from '../Article';
 import Search from '../Search';
 import { connect } from 'react-redux';
 
-import { GetArticleRequest } from '../../actions';
+import { GetArticleRequest, GetUserRequest } from '../../actions';
 
 class WallList extends Component {
   constructor() {
@@ -19,6 +19,8 @@ class WallList extends Component {
   }
 
   render() {
+    this.props.getUser(this.props.uname, this.props.ubase64)
+
     if (this.props.loginStatus === 1) {
       let article_list = []
       for (var index in this.props.article_list) {
@@ -29,7 +31,7 @@ class WallList extends Component {
       return (
         <div>
           <div>
-            <Search />
+            <Search list={this.props.usernames} />
             <Button id="update_wall" onClick={this.onGet} text="담벼락 불러오기"/>
           </div>
           <div>
@@ -55,6 +57,7 @@ class WallList extends Component {
 
 let mapStateToProps = (state) => {
   return {    
+    usernames: state.userlist_reducer.usernames,
     article_list: state.article_list_reducer.article_list,
     // article_list: state.wall_reducer.article_list, 
     loginStatus: state.login_reducer.loginStatus,
@@ -65,6 +68,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
+    getUser: (uname, ubase64)=>dispatch(GetUserRequest(uname, ubase64)),
     getArticle: (ubase64)=>dispatch(GetArticleRequest(ubase64)),
     //getWall: (uname, ubase64)=>dispatch(GetWallRequest(uname, ubase64)),
   };

@@ -23,9 +23,10 @@
 .myTable tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
+    display: none;
 }
 
-.myTable tr.header, #myTable tr:hover {
+.myTable tr.header, .myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
 }

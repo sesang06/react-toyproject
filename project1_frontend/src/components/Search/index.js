@@ -17,8 +17,10 @@ class Search extends Component {
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
+        if (input.value == "") {
+          tr[i].style.display = "none";
+        } else if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "block";
         } else {
           tr[i].style.display = "none";
         }
@@ -27,16 +29,16 @@ class Search extends Component {
   }
 
   render() {
+    let len = this.props.list.length
     return (
       <div>
         <input onChange={this.onChange} type="text" id="search" className="myInput" placeholder="Find User!" />
         <table id="usertable" className="myTable">
-          <tr>
-            <td>Apple</td>
-          </tr>
-          <tr>
-            <td>Banana</td>
-          </tr>
+          {Array.apply(null, Array(len)).map(function(item, i) {
+            return (
+              <tr><td>{this.props.list[i]}</td></tr>
+            );
+          }, this)}
         </table> 
       </div>
     )
