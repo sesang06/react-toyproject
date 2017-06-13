@@ -236,14 +236,23 @@ export function* getUser(data){
   for (var index in response2) {
     let item = {
       username: "",
-      avatar: null
+      avatar: null,
+      email: "",
+      nickname: ""
     }
     let username = response2[index]["username"]
     let avatar = null
-    if (response2[index]['userprofile'] !== null)
+    let email = response2[index]["email"]
+    let nickname = null
+
+    if (response2[index]['userprofile'] !== null) {
       avatar = response2[index]['userprofile']['avatar']
+      nickname = response2[index]['userprofile']['nickname']
+    }
     item.username = username
     item.avatar = avatar
+    item.email = email
+    item.nickname = nickname
     avatar_list.push(item)
   }
 
@@ -1613,6 +1622,7 @@ export function* getWall(data) {
 //    let like_list = response[index]["likes"]
 //    let comment_list = response[index]["comments"]
 
+//    if (author === uname) {
     if (true) {
       article.id = id
       article.author = author
