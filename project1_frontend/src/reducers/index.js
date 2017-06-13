@@ -15,8 +15,8 @@ import {SET_IMAGE_REQUEST} from '../actions'
 
 ///////////////
 import {GET_DIET_GRAPH_REQUEST, SET_DIET_GRAPH_REQUEST} from '../actions'
-///
-//import {SET_WALL_REQUEST} from '../actions'
+/////////////////
+import {SET_WALL_REQUEST} from '../actions'
 /////////////////////////////////////////
 import {combineReducers} from 'redux';
 //////////////////////////////////////
@@ -41,8 +41,8 @@ export const dietgrpah_reducer=(state=initialDietGraphState, action)=>{
 
 }
 
+/////////////////////////////////////
 
-/*
 export const createNewWallState=()=>{
   return {
     article_list: []
@@ -62,7 +62,7 @@ export const wall_reducer=(state=initialWallState, action)=>{
       return state
   }
 }
-*/
+
 /////////////////////////////////////
 export const createNewImageState=()=>{
   return {
@@ -643,7 +643,7 @@ export const app_reducer=combineReducers({
   profile_reducer,
   follow_reducer,
   image_reducer,
-  //wall_reducer
+  wall_reducer,
   dietgrpah_reducer,
 });
 export default app_reducer;

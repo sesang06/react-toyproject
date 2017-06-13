@@ -86,9 +86,9 @@ export const DELETE_IMAGE_REQUEST='DELETE_IMAGE_REQUEST'
 ////////////////////////////////////////
 export const SET_DIET_GRAPH_REQUEST= "SET_DIET_GRPAH_REQUEST"
 export const GET_DIET_GRAPH_REQUEST= "GET_DIET_GRAPH_REQUEST"
-
-//export const GET_WALL_REQUEST='GET_WALL_REQUEST'
-//export const SET_WALL_REQUEST='SET_WALL_REQUEST'
+///////////////////////////////////////
+export const GET_WALL_REQUEST='GET_WALL_REQUEST'
+export const SET_WALL_REQUEST='SET_WALL_REQUEST'
 
 export const GetDietGraphRequest=(uname, ubase64)=>{
   return{
@@ -106,9 +106,9 @@ export const SetDietGraphRequest=(uname, dietdatalist)=>{
     dietdatalist
     }
 }
-/*
 
 
+//////////////////////////////////////////
 export const GetWallRequest=(uname, ubase64)=>{
   return {
     type: GET_WALL_REQUEST,
@@ -123,7 +123,7 @@ export const SetWallRequest=(article_list)=>{
     article_list
   }
 }
-*/
+
 ////////////////////////////////////////
 
 export const DeleteImageRequest=(ubase64,idlist)=>{

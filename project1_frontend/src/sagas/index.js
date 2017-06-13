@@ -15,7 +15,8 @@ import {SetFollowRequest, SetFollowArticleRequest} from '../actions'
 import {SetImageRequest} from '../actions'
 
 import {SetDietGraphRequest} from '../actions'
-//import {SetWallRequest} from '../actions'
+
+import {SetWallRequest} from '../actions'
 ////////////////////////////////////////////
 
 
@@ -1565,7 +1566,7 @@ export function* getFollowArticle(data) {
 
   yield put(SetFollowArticleRequest(follow_article_list))
 }
-/*
+
 export function* watchGetWall() {
   while(true) {
     const data = yield take('GET_WALL_REQUEST')
@@ -1577,7 +1578,7 @@ export function* getWall(data) {
   const uname = data.uname
   const hash = data.ubase64
 
-  const response = yield call(getApi, article_url, {
+  const response = yield call(getApi, wall_url(uname), {
     method: 'GET',
     headers: {
       'Authorization': `Basic ${hash}`,
@@ -1612,7 +1613,7 @@ export function* getWall(data) {
 //    let like_list = response[index]["likes"]
 //    let comment_list = response[index]["comments"]
 
-    if (author === uname) {
+    if (true) {
       article.id = id
       article.author = author
       article.content = content
@@ -1640,8 +1641,8 @@ export function* getWall(data) {
       article_list.push(article)
     }
   }
-
-  yield put(SetWallRequest(article_list))
+  yield put(SetArticleList(article_list))
+  //yield put(SetWallRequest(article_list))
 
   for (var index in article_list) {
     let data = {ubase64: "", id: 0}
@@ -1656,7 +1657,6 @@ export function* getWall(data) {
     yield call(getLike, data)
   }
 }
-*/
 
 export function* Saga(){
   yield spawn(watchRegister)
@@ -1698,5 +1698,5 @@ export function* Saga(){
   yield spawn(watchDeleteFollow)
   yield spawn(watchGetFollowArticle)
 
-//  yield spawn(watchGetWall)
+  yield spawn(watchGetWall)
 }

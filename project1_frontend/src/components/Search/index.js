@@ -36,7 +36,7 @@ class Search extends Component {
         <table id="usertable" className="myTable">
           {Array.apply(null, Array(len)).map(function(item, i) {
             return (
-              <tr><td>{this.props.list[i]}</td></tr>
+              <tr id={this.props.list[i]} onClick={this.props.onClick}><td>{this.props.list[i]}</td></tr>
             );
           }, this)}
         </table> 

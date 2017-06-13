@@ -23,6 +23,7 @@
 .myTable tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
+    padding: 0px 25px;
     display: none;
 }
 
