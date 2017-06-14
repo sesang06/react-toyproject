@@ -32,12 +32,13 @@ class WallList extends Component {
     this.props.getUser(this.props.uname, this.props.ubase64)
     let article_list = this.props.article_list
     let avatar = this.props.avatar
-    let wall_owner;
+    let wall_owner = null;
     for (var i = 0; i < avatar.length; i++) {
       if (this.owner === "") wall_owner = null;
       else if (this.owner === avatar[i].username) wall_owner = avatar[i];
     }
 
+    console.log(wall_owner)
     if (this.props.loginStatus === 1) {
       return (
         <div>
