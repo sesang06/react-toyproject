@@ -3,6 +3,7 @@ import './index.css';
 import Button from '../Button';
 import Article from '../Article';
 import { connect } from 'react-redux';
+import defaultprofile from '../../img/defaultprofile.png'
 
 import { PostImageRequest, GetArticleRequest } from '../../actions';
 
@@ -10,6 +11,17 @@ import {GetProfileRequest, UpdateProfileReqeust} from '../../actions';
 
 
 class Profile extends Component {
+
+  componentDidMount(){
+    this.onGet()
+  }
+
+     componentWillReceiveProps(nextProps){
+       if(this.props.loginStatus===0 && nextProps.loginStatus===1)
+       this.props.getProfile(nextProps.ubase64)
+
+
+     }
 
   onGet(){
     if (this.props.loginStatus === 1) {
@@ -57,20 +69,16 @@ class Profile extends Component {
    if (this.props.loginStatus === 1) {
       return (
         <div>
-
             <div>
-            <Button  onClick={this.onGet.bind(this)} text="프로필 불러오기"/>
-            </div>
-            <div>
-              <div>이메일 : {this.props.email===null?"없거나 아직 불러오지 못함":this.props.email}</div>
-              <div>별명 : {this.props.nickname===null?"없거나 아직 불러오지 못함":this.props.nickname}</div>
-              <ImageLabel text="프로필 사진" src={this.props.avatar}/>
-              <div>이름 : {this.props.first_name===null?"없거나 아직 불러오지 못함":this.props.first_name}</div>
-              <div>성 : {this.props.last_name===null?"없거나 아직 불러오지 못함":this.props.last_name}</div>
-              <DateLabel text="마지막으로 로그인한 날짜" date={this.props.last_login}/>
-              <DateLabel text="가입 날짜" date={this.props.date_joined}/>
-
-            </div>
+              <ImageLabel src={this.props.avatar}/>
+              <div> {this.props.uname}</div>
+              <div>이메일 {this.props.email===null?"없음":this.props.email}</div>
+              <div>별명 {this.props.nickname===null?"없음":this.props.nickname}</div>
+              <div>이름 {this.props.first_name===null?"없음":this.props.first_name}</div>
+              <div>성 {this.props.last_name===null?"없음":this.props.last_name}</div>
+              <div>마지막 로그인 <DateLabel  date={this.props.last_login}/> </div>
+                <div>가입일 <DateLabel  date={this.props.date_joined}/> </div>
+              </div>
 
             <div>
 
@@ -107,16 +115,12 @@ class ImageLabel extends Component{
   render(){
     if (this.props.src===null){
     return (
-      <div>
-      {this.props.text}: 없거나 아직 불러오지 못함
-      </div>
-    );
+      <img src={defaultprofile} width="100" height="100"/>
+);
   }else{
      return(
-      <div>
-      {this.props.text}: <img src={this.props.src} width="100" height="100"/>
-      </div>
-    );
+      <img src={this.props.src} width="100" height="100"/>
+      );
   }
 }
 }
@@ -125,16 +129,12 @@ class DateLabel extends Component {
 
   render(){
     if (this.props.date===null){
-    return (
-      <div>
-      {this.props.text}: 없거나 아직 불러오지 못함
-      </div>
-    );
+    return  null;
   }else{
      return(
-      <div>
-      {this.props.text}: {this.props.date.getFullYear()}년 {this.props.date.getMonth()}월 {this.props.date.getDate()}일
-      </div>
+
+    <label> {this.props.date.getFullYear()}년 {this.props.date.getMonth()+1}월 {this.props.date.getDate()}일</label>
+
     );
   }
 }

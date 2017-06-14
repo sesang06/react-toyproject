@@ -31,7 +31,11 @@ class Image extends Component {
  componentDidMount(){
    this.onGet()
  }
-    componentWillReceiveProps(){
+
+    componentWillReceiveProps(nextProps){
+      if(this.props.loginStatus===0 && nextProps.loginStatus===1)
+      this.props.getImage(nextProps.ubase64)
+
       this.state={
         files: [],
         deleteimageidlist:[],
@@ -116,6 +120,8 @@ class Image extends Component {
       this.props.deleteImage(this.props.ubase64,this.state.deleteimageidlist)
     }
   render(){
+
+    console.log(this.props.loginStatus )
       const imagelist=(
         <div className='files-list'>
           <ul>{this.state.files.map((file) =>

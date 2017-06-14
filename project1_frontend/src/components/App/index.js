@@ -22,6 +22,7 @@ import DietGraph from '../DietGraph'
 import sound from '../../music/Beenzino-Break.mp3';
 
 class App extends Component {
+
   componentDidMount(){
     function getCookie(cname){
       var name = cname + "=";
@@ -56,7 +57,7 @@ class App extends Component {
             <source src={sound} type="audio/mpeg" />
           </audio>
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Project 2 - Team 8</h2>          
+          <h2>Welcome to Project 2 - Team 8</h2>
         </div>
         <Router>
         <div>

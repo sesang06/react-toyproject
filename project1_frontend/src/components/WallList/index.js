@@ -18,6 +18,18 @@ class WallList extends Component {
     this.onClick = this.onClick.bind(this)
   }
 
+  componentDidMount(){
+    if(this.props.loginStatus===1)
+    this.props.getUser(this.props.uname, this.props.ubase64)
+  }
+
+     componentWillReceiveProps(nextProps){
+       if(this.props.loginStatus===0 && nextProps.loginStatus===1)
+       this.props.getUser(nextProps.uname, nextProps.ubase64)
+
+
+     }
+
   onClick(e) {
     this.owner = e.target.id;
     this.props.getWall(e.target.id, this.props.ubase64)
@@ -29,8 +41,9 @@ class WallList extends Component {
     //this.props.getArticle(this.props.ubase64)
   }
 
+
+
   render() {
-    this.props.getUser(this.props.uname, this.props.ubase64)
     let article_list = this.props.article_list
     let avatar = this.props.avatar
     let wall_owner = null;
@@ -78,11 +91,11 @@ class WallList extends Component {
 }
 
 let mapStateToProps = (state) => {
-  return {    
+  return {
     avatar: state.userlist_reducer.avatar,
     usernames: state.userlist_reducer.usernames,
     article_list: state.article_list_reducer.article_list,
-    //article_list: state.wall_reducer.article_list, 
+    //article_list: state.wall_reducer.article_list,
     loginStatus: state.login_reducer.loginStatus,
     uname: state.login_reducer.uname,
     ubase64: state.login_reducer.ubase64,
