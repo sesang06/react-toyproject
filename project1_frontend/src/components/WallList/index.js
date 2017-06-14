@@ -6,6 +6,7 @@ import Search from '../Search';
 import { connect } from 'react-redux';
 
 import defaultprofile from '../../img/defaultprofile.png'
+//import sound from '../../music/Beenzino-Break.mp3'
 
 import { GetWallRequest, GetArticleRequest, GetUserRequest, PostArticleRequest } from '../../actions';
 
@@ -38,7 +39,6 @@ class WallList extends Component {
       else if (this.owner === avatar[i].username) wall_owner = avatar[i];
     }
 
-    console.log(wall_owner)
     if (this.props.loginStatus === 1) {
       return (
         <div>

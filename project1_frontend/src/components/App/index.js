@@ -19,6 +19,8 @@ import FollowList from '../FollowList';
 import WallList from '../WallList';
 import DietGraph from '../DietGraph'
 
+import sound from '../../music/Beenzino-Break.mp3';
+
 class App extends Component {
   componentDidMount(){
     function getCookie(cname){
@@ -50,8 +52,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <audio controls className="App-music">
+            <source src={sound} type="audio/mpeg" />
+          </audio>
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Project 2 - Team 8</h2>
+          <h2>Welcome to Project 2 - Team 8</h2>          
         </div>
         <Router>
         <div>
