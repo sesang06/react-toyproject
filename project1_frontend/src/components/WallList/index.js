@@ -5,6 +5,8 @@ import Article from '../Article';
 import Search from '../Search';
 import { connect } from 'react-redux';
 
+import defaultprofile from '../../img/defaultprofile.png'
+
 import { GetWallRequest, GetArticleRequest, GetUserRequest, PostArticleRequest } from '../../actions';
 
 class WallList extends Component {
@@ -43,8 +45,15 @@ class WallList extends Component {
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 담벼락 불러오기"/>
           </div>
-          <div>
+          <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
+            {(wall_owner !== null && wall_owner.avatar !== null) ? <img src={wall_owner.avatar} width="200" height="200"/> :
+             (wall_owner !== null && wall_owner.avatar === null) ? <img src={defaultprofile} width="200" height="200"/> :
+             null}
+            <h4>{(wall_owner !== null && wall_owner.nickname !== null) ? '닉네임: ' + wall_owner.nickname :
+                 (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
+            <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
+                 (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
           </div>
           <div>
             {article_list.slice(0).reverse().map(function(item, i) {
