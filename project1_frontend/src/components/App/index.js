@@ -20,6 +20,7 @@ import WallList from '../WallList';
 import DietGraph from '../DietGraph'
 import DietGraphMain from '../DietGraphMain'
 import WallMain from '../WallMain';
+import MapMain from '../MapMain';
 
 import sound from '../../music/Beenzino-Break.mp3';
 
@@ -76,6 +77,7 @@ class App extends Component {
           <Route path="/dietgraph/:username" component={DietGraph}/>
           <Route exact path="/dietgraph/" component={DietGraphMain}/>
           <Route exact path="/wall/" component={WallMain}/>
+          <Route exact path="/map/" component={MapMain}/>
 
         </div>
         </Router>

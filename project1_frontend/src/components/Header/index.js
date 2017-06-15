@@ -19,6 +19,7 @@ const Header = () => {
         <Link id="follow_menu" className="menu" to={'/follow'}>Follow</Link>
         <Link id="wall_menu" className="menu" to={'/wall'}>Wall</Link>
         <Link id="dietgrpah_menu" className="menu" to={'/dietgraph/'}>DietGraph</Link>
+        <Link id="map_menu" className="menu" to={'/map/'}>Map</Link>
 
       </div>
     </div>
