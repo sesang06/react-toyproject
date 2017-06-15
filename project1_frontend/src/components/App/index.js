@@ -18,6 +18,7 @@ import Profile from '../Profile';
 import FollowList from '../FollowList';
 import WallList from '../WallList';
 import DietGraph from '../DietGraph'
+import DietGraphMain from '../DietGraphMain'
 
 import sound from '../../music/Beenzino-Break.mp3';
 
@@ -72,6 +73,7 @@ class App extends Component {
           <Route path="/follow" component={FollowList}/>
           <Route path="/wall" component={WallList}/>
           <Route path="/dietgraph/:username" component={DietGraph}/>
+          <Route exact path="/dietgraph/" component={DietGraphMain}/>
 
         </div>
         </Router>
