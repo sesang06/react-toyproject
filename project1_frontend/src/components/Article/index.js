@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import CommentList from '../CommentList'
 import LikeList from '../LikeList'
 import Editor from '../Editor'
+
+import { Link } from 'react-router-dom';
+
 import defaultprofile from '../../img/defaultprofile.png'
 //import defaultprofile from '../../../img/defaultprofile.png'
 import { DeleteArticleRequest, UpdateArticleRequest, GetArticleRequest_WITH_ID } from '../../actions/';
@@ -76,7 +79,8 @@ class Article extends Component{
     const contentform=(
       <div>
       <div className="Article-author">
-      <ProfileLabel src={this.props.avatar}/>
+      {(this.props.avatar !== null) ? <Link to={'/wall/'+this.props.author}><img src={this.props.avatar} width="100" height="100"/></Link>:
+      <Link to={'/wall/'+this.props.author}><img src={defaultprofile} width="100" height="100"/></Link>}
       {this.props.nickname!==null?"닉네임: ":"글쓴이: "}<label>{this.props.nickname!==null?this.props.nickname:this.props.author}</label>
       </div>
       <div className="Article-date">
@@ -116,24 +120,6 @@ class Article extends Component{
   }
 }
 
-class ProfileLabel extends Component{
-  render(){
-    if (this.props.src===null){
-    return (
-      <div>
-      <img src={defaultprofile} width="100" height="100"/>
-
-      </div>
-    );
-  }else{
-     return(
-      <div>
-      <img src={this.props.src} width="100" height="100"/>
-      </div>
-    );
-  }
-}
-}
 let mapStateToProps=(state)=>{
   return {
     ubase64: state.login_reducer.ubase64,

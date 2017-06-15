@@ -54,8 +54,8 @@ import { GetUserRequest, } from '../../actions';
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
-            {(wall_owner !== null && wall_owner.avatar !== null) ? <img src={wall_owner.avatar} width="200" height="200"/> :
-             (wall_owner !== null && wall_owner.avatar === null) ? <img src={defaultprofile} width="200" height="200"/> :
+            {(wall_owner !== null && wall_owner.avatar !== null) ? <Link to={'/wall/'+wall_owner.username}><img src={wall_owner.avatar} width="200" height="200"/> </Link>:
+             (wall_owner !== null && wall_owner.avatar === null) ? <Link to={'/wall/'+wall_owner.username}><img src={defaultprofile} width="200" height="200"/> </Link>:
              null}
             <h4>{(wall_owner !== null && wall_owner.nickname !== null) ? '닉네임: ' + wall_owner.nickname :
                  (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
