@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import './index.css';
+import './index.css';
 import { connect } from 'react-redux';
 
 import { GetMusicRequest, PostMusicRequest } from '../../actions';
@@ -7,8 +7,10 @@ import { GetMusicRequest, PostMusicRequest } from '../../actions';
 class Music extends Component {
   constructor() {
     super();
+    this.audio = new Audio();
     this.onClick = this.onClick.bind(this)
     this.upload = this.upload.bind(this)
+    this.play = this.play.bind(this)
   }
 
   onClick() {
@@ -28,14 +30,25 @@ class Music extends Component {
       this.props.postMusic(this.props.uname, this.props.ubase64, title, artist, source)
   }
 
+  play() {
+    let src = null;
+    if (this.props.music_list.length !== 0) src = this.props.music_list[0].source
+    if (src !== null) {
+      this.audio.src = src.toString();
+      this.audio.play();
+    }
+  }
+    
+
   render() {
     if (this.props.loginStatus === 1) {
       return (
         <div>
           <button id="get_music" onClick={this.onClick}>Get</button>
-          <input type="text" ref={ref=>this.title=ref} placeholder="title" />
-          <input type="text" ref={ref=>this.artist=ref} placeholder="artist" />
-          <input type="file" ref={ref=>this.source=ref} />
+          <button id="play_music" onClick={this.play}>Play</button>
+          <input className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
+          <input className="input" type="text" ref={ref=>this.artist=ref} placeholder="artist" />
+          <input className="input" type="file" ref={ref=>this.source=ref} />
           <button id="post_music" onClick={this.upload}>Upload</button>
         </div>
       );

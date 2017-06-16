@@ -86,7 +86,7 @@ class ChatBox extends Component {
           <div className="chatBox">
           <ChatBubble messages={messages} />
           </div>
-          <textarea cols="25" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
+          <textarea cols="24" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
           <button id="chat_send" onClick={this.onChat}>
             <MorphIcon shapes={icons.communication.chat} size="30" />
           </button>
