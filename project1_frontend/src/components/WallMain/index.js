@@ -11,43 +11,33 @@ import defaultprofile from '../../img/defaultprofile.png'
 
 import { GetWallRequest, GetArticleRequest, GetUserRequest, PostArticleRequest } from '../../actions';
 
-class WallList extends Component {
-  constructor(props) {
-    super(props);
+class WallMain extends Component {
+  constructor() {
+    super();
     this.state={
-    owner:this.props.match.params.username
+    owner:""
     }
-    this.onGet = this.onGet.bind(this)
+  this.onGet = this.onGet.bind(this)
     this.onClick = this.onClick.bind(this)
   }
 
   componentDidMount(){
-    if(this.props.loginStatus===1){
-      this.props.getWall(this.props.match.params.username, this.props.ubase64)
-
+    if(this.props.loginStatus===1)
     this.props.getUser(this.props.uname, this.props.ubase64)
-
-  }
   }
 
      componentWillReceiveProps(nextProps){
-       if(this.props.loginStatus===0 && nextProps.loginStatus===1){
+       if(this.props.loginStatus===0 && nextProps.loginStatus===1)
        this.props.getUser(nextProps.uname, nextProps.ubase64)
-       this.props.getWall(this.props.match.params.username, nextProps.ubase64)
-     }
-
      }
 
   onClick(e) {
     this.setState({owner : e.target.id});
-    this.props.getWall(e.target.id, this.props.ubase64)
   }
 
   onGet() {
     this.setState({owner : this.props.uname});
-this.props.getWall(this.props.uname, this.props.ubase64)
-    //this.props.getArticle(this.props.ubase64)
-  }
+}
 
 
 
@@ -63,26 +53,21 @@ this.props.getWall(this.props.uname, this.props.ubase64)
     if (this.props.loginStatus === 1) {
       return (
         <div>
-        <Link to={'/wall/'}>담벼락 메인으로 돌아가기</Link>
-
+          <div>
+            <Search onClick={this.onClick} list={this.props.usernames} />
+            <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>
+          </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
-            {(wall_owner !== null && wall_owner.avatar !== null) ?<Link to={'/wall/'+wall_owner.username}><img src={wall_owner.avatar} width="200" height="200"/></Link>:
+            {(wall_owner !== null && wall_owner.avatar !== null) ?<Link to={'/wall/'+wall_owner.username}><img src={wall_owner.avatar} width="200" height="200"/></Link> :
              (wall_owner !== null && wall_owner.avatar === null) ?<Link to={'/wall/'+wall_owner.username}><img src={defaultprofile} width="200" height="200"/></Link>:
              null}
             <h4>{(wall_owner !== null && wall_owner.nickname !== null) ? '닉네임: ' + wall_owner.nickname :
                  (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
             <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
-          </div>
-          <div>
-            {article_list.slice(0).reverse().map(function(item, i) {
-              return (
-                <div>
-                  <Article id={item.id} author={item.author} content={item.content} created_time={item.created_time} updated_time={item.updated_time} comment_list={item.comment_list} like_list={item.like_list} likes_count={item.likes_count} comments_count={item.comments_count} nickname={item.nickname} avatar={item.avatar}/>
-                </div>
-              )
-            })}
+                 {(wall_owner!==null)?    <Link to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
+
           </div>
         </div>
       )
@@ -117,4 +102,4 @@ let mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WallList);
+export default connect(mapStateToProps, mapDispatchToProps)(WallMain);

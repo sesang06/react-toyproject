@@ -18,6 +18,17 @@ class ArticleList extends Component {
       this.props.getArticle(this.props.ubase64)
     }
   }
+
+  componentDidMount(){
+    this.onGet()
+  }
+
+     componentWillReceiveProps(nextProps){
+       if(this.props.loginStatus===0 && nextProps.loginStatus===1)
+       this.props.getArticle(nextProps.ubase64)
+
+     }
+
 handleHtmlChange(html){
   this.setState({ editorHtml: html });
 
@@ -52,7 +63,6 @@ handleHtmlChange(html){
         <div>
             <div>
               <Editor id="Article-post" placeholder="당신의 생각을 포스트하세요!" readOnly={false} onChange={this.handleHtmlChange.bind(this)}/>
-            <Button id="updata_timeline" onClick={this.onGet.bind(this)} text="타임라인 불러오기"/>
             </div>
             <div>
               <Button id="post_timeline" onClick={this.onSubmit.bind(this)} text="포스트하기"/>
