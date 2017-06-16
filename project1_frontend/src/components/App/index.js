@@ -21,6 +21,7 @@ import DietGraph from '../DietGraph'
 import DietGraphMain from '../DietGraphMain'
 import WallMain from '../WallMain';
 import MapMain from '../MapMain';
+import Music from '../Music';
 
 class App extends Component {
   constructor() {
@@ -74,7 +75,8 @@ class App extends Component {
     <div>
       <div id="mySidenav" className="sidenav">
         <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
-        <a href="#">About</a>
+        <Music />
+        <ChatBox />
       </div>
       <div>
         <span id="open_btn" className="open_btn" onClick={this.openNav}>&#9776;</span>
@@ -91,7 +93,6 @@ class App extends Component {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/timeline" component={ArticleList}/>
-          <Route path="/chat" component={ChatBox}/>
           <Route path="/group" component={GroupList}/>
           <Route path="/image" component={Image}/>
           <Route path="/profile" component={Profile}/>

@@ -17,9 +17,34 @@ import {SET_IMAGE_REQUEST} from '../actions'
 import {GET_DIET_GRAPH_REQUEST, SET_DIET_GRAPH_REQUEST} from '../actions'
 /////////////////
 import {SET_WALL_REQUEST} from '../actions'
+import {SET_MUSIC_REQUEST} from '../actions'
 /////////////////////////////////////////
 import {combineReducers} from 'redux';
 //////////////////////////////////////
+
+
+export const createNewMusicState=()=>{
+  return {
+    music_list: []
+  }
+}
+
+export const initialMusicState=createNewMusicState()
+
+export const music_reducer=(state=initialMusicState, action)=>{
+  switch(action.type) {
+    case SET_MUSIC_REQUEST:
+      return {
+        ...state,
+        music_list: action.music_list
+      }
+    default:
+      return state
+  }
+}
+
+
+/////////////////////////////////////
 export const createNewDietGraphState=()=>{
   return {
     dietdatalist:[]
@@ -645,5 +670,6 @@ export const app_reducer=combineReducers({
   image_reducer,
   wall_reducer,
   dietgrpah_reducer,
+  music_reducer,
 });
 export default app_reducer;

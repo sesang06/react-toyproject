@@ -12,7 +12,6 @@ const Header = () => {
         <Link id="login_menu" className="menu" to={'/login'}>Login</Link>
         <Link id="register_menu" className="menu" to={'/register'}>Register</Link>
         <Link id="timeline_menu" className="menu" to={'/timeline'}>Timeline</Link>
-        <Link id="chat_menu" className="menu" to={'/chat'}>Chat</Link>
         <Link id="group_menu" className="menu" to={'/group'}>Group</Link>
         <Link id="image_menu" className="menu" to={'/image'}>Image</Link>
         <Link id="profile_menu" className="menu" to={'/profile'}>Profile</Link>

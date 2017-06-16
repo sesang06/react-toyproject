@@ -89,6 +89,39 @@ export const GET_DIET_GRAPH_REQUEST= "GET_DIET_GRAPH_REQUEST"
 ///////////////////////////////////////
 export const GET_WALL_REQUEST='GET_WALL_REQUEST'
 export const SET_WALL_REQUEST='SET_WALL_REQUEST'
+//////////////////////////////////////
+export const GET_MUSIC_REQUEST='GET_MUSIC_REQUEST';
+export const SET_MUSIC_REQUEST='SET_MUSIC_REQUEST';
+export const POST_MUSIC_REQUEST='POST_MUSIC_REQUEST';
+
+
+export const PostMusicRequest=(uname, ubase64, title, artist, source)=>{
+  return {
+    type: POST_MUSIC_REQUEST,
+    uname,
+    ubase64,
+    title,
+    artist,
+    source
+  }
+}
+
+export const SetMusicRequest=(music_list)=>{
+  return {
+    type: SET_MUSIC_REQUEST,
+    music_list
+  }
+}
+
+export const GetMusicRequest=(uname, ubase64)=>{
+  return {
+    type: GET_MUSIC_REQUEST,
+    uname,
+    ubase64
+  }
+}
+
+//////////////////////////////////////
 
 export const GetDietGraphRequest=(uname, ubase64)=>{
   return{
