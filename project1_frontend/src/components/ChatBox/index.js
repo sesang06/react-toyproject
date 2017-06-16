@@ -17,9 +17,20 @@ var chatlog = [];
 class ChatBox extends Component {
   constructor() {
     super();
+    this.state = { chat: false }
     this.onText = this.onText.bind(this)
     this.onChat = this.onChat.bind(this)
     this.getChatlog = this.getChatlog.bind(this)
+    this.inChat = this.inChat.bind(this)
+    this.outChat = this.outChat.bind(this)
+  }
+
+  inChat() {
+    this.setState({ chat: true })
+  }
+
+  outChat() {
+    this.setState({ chat: false })
   }
 
   getChatlog() {
@@ -68,10 +79,16 @@ class ChatBox extends Component {
       }
     }
 
-    if (this.props.loginStatus === 1) {
-      let messages = []
-      return (
-        <div>
+    let messages = []
+
+    const outForm = (
+      <div>
+        <button id="in_chat" onClick={this.inChat}>Chat</button>
+      </div>
+    );
+
+    const chatForm = (
+      <div>
           <UserList/>
           {Array.apply(null, Array(chatlist.length)).map(function(item, i){
             var type = (chatlist[i].sender == this.props.uname) ? 0 : 1;
@@ -86,16 +103,24 @@ class ChatBox extends Component {
           <div className="chatBox">
           <ChatBubble messages={messages} />
           </div>
-          <textarea cols="24" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
+          <textarea cols="25" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
           <button id="chat_send" onClick={this.onChat}>
             <MorphIcon shapes={icons.communication.chat} size="30" />
           </button>
+          <button id="out_chat" onClick={this.outChat}>Exit</button>
+        </div>
+    );  
+    
+
+    if (this.props.loginStatus === 1) {
+      return (
+        <div>
+          {(this.state.chat) ? chatForm : outForm }
         </div>
       );
     } else {
       return (
         <div>
-          <p> 로그인이 필요합니다. </p>
         </div>
       );
     }

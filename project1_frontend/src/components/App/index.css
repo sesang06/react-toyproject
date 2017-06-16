@@ -1,3 +1,8 @@
+.info {
+  color: white;
+  margin-left: 10px;
+}
+
 .open_btn {
   position: fixed;
   bottom: 0;

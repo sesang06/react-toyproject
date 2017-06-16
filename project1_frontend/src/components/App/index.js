@@ -75,7 +75,9 @@ class App extends Component {
     <div>
       <div id="mySidenav" className="sidenav">
         <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <h3 className="info">Music</h3>
         <Music />
+        <h3 className="info">Chat</h3>
         <ChatBox />
       </div>
       <div>

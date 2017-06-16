@@ -7,10 +7,13 @@ import { GetMusicRequest, PostMusicRequest } from '../../actions';
 class Music extends Component {
   constructor() {
     super();
+    this.state = { upload: false, play: false }
     this.audio = new Audio();
     this.onClick = this.onClick.bind(this)
     this.upload = this.upload.bind(this)
     this.play = this.play.bind(this)
+    this.onUpload = this.onUpload.bind(this)
+    this.onPlay = this.onPlay.bind(this)
   }
 
   onClick() {
@@ -28,6 +31,8 @@ class Music extends Component {
 
     if ((title !== null) && (artist !== null) && (source !== null))  
       this.props.postMusic(this.props.uname, this.props.ubase64, title, artist, source)
+    
+    this.setState({ upload: false })
   }
 
   play() {
@@ -39,17 +44,37 @@ class Music extends Component {
     }
   }
     
+  onUpload() {
+    this.setState({ upload: true })
+  }
+
+  onPlay() {
+    this.setState({ upload: false })
+  }
 
   render() {
+    const uploadForm=(
+      <div>
+        <input className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
+        <input className="input" type="text" ref={ref=>this.artist=ref} placeholder="artist" />
+        <input className="input" type="file" ref={ref=>this.source=ref} />
+        <button id="upload_music" onClick={this.upload}>Upload</button>
+        <button id="play_music" onClick={this.onPlay}>Play</button>
+      </div>
+    );
+
+    const playForm=(
+      <div>
+        <button id="get_music" onClick={this.onClick}>Get</button>
+        <button id="play_music" onClick={this.play}>Play</button>
+        <button id="upload_music" onClick={this.onUpload}>Upload</button>
+      </div>
+    );
+
     if (this.props.loginStatus === 1) {
       return (
         <div>
-          <button id="get_music" onClick={this.onClick}>Get</button>
-          <button id="play_music" onClick={this.play}>Play</button>
-          <input className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
-          <input className="input" type="text" ref={ref=>this.artist=ref} placeholder="artist" />
-          <input className="input" type="file" ref={ref=>this.source=ref} />
-          <button id="post_music" onClick={this.upload}>Upload</button>
+          {(this.state.upload) ? uploadForm : playForm}
         </div>
       );
     } else {
