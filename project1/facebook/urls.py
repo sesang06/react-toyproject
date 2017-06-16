@@ -37,8 +37,10 @@ urlpatterns = [
   url(r'^wall/(?P<pk>[\w.@+-]+)/$',views.WallList.as_view()),
 
 
-  url(r'^dietgraph/(?P<pk>[\w.@+-]+)/$',views.DietGraphList.as_view())
+  url(r'^dietgraph/(?P<pk>[\w.@+-]+)/$',views.DietGraphList.as_view()),
 
+  url(r'^music/$', views.MusicList.as_view()),
+  url(r'^music/(?P<pk>[0-9]+)/$', views.MusicList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

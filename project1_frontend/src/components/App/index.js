@@ -22,9 +22,25 @@ import DietGraphMain from '../DietGraphMain'
 import WallMain from '../WallMain';
 import MapMain from '../MapMain';
 
-import sound from '../../music/Beenzino-Break.mp3';
-
 class App extends Component {
+  constructor() {
+    super();
+    this.openNav = this.openNav.bind(this);
+    this.closeNav = this.closeNav.bind(this);
+  }
+
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginRight = "250px";
+    //document.getElementById("main").style.marginLeft = "0px";
+    document.getElementById("open_btn").style.display = "none";
+  }
+
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginRight = "0";
+    document.getElementById("open_btn").style.display = "block";
+  }
 
   componentDidMount(){
     function getCookie(cname){
@@ -53,12 +69,19 @@ class App extends Component {
 
 
   render() {
+    let tmp;
     return (
-      <div className="App">
+    <div>
+      <div id="mySidenav" className="sidenav">
+        <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <a href="#">About</a>
+      </div>
+      <div>
+        <span id="open_btn" className="open_btn" onClick={this.openNav}>&#9776;</span>
+      </div>
+
+      <div id="main" className="App">
         <div className="App-header">
-          <audio controls className="App-music">
-            <source src={sound} type="audio/mpeg" />
-          </audio>
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Project 2 - Team 8</h2>
         </div>
@@ -82,6 +105,7 @@ class App extends Component {
         </div>
         </Router>
       </div>
+    </div>
     );
   }
 }

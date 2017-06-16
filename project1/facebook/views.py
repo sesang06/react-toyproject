@@ -5,6 +5,7 @@ from facebook.models import ArticleLike, CommentLike
 from facebook.models import Group, Member, GroupNotice, GroupForum
 from facebook.models import Follow
 from facebook.models import Dietdata
+from facebook.models import Music
 
 from facebook.serializers import UserSerializer, UserDuplicateSerializer, UserLoginSerializer
 from facebook.serializers import ChattingSerializer, ChattingUserSerializer
@@ -13,6 +14,7 @@ from facebook.serializers import ArticleLikeSerializer, CommentLikeSerializer
 from facebook.serializers import GroupSerializer, MemberSerializer, GroupNoticeSerializer, GroupForumSerializer
 from facebook.serializers import FollowSerializer
 from facebook.serializers import DietdataSerializer
+from facebook.serializers import MusicSerializer
 
 from facebook.permissions import UserPermission
 from facebook.permissions import ChatPermission
@@ -23,6 +25,7 @@ from facebook.permissions import GroupForumListPermission, GroupForumDetailPermi
 from facebook.permissions import ProfilePermission
 from facebook.permissions import FollowListPermission, FollowDetailPermission, FollowArticlePermission
 from facebook.permissions import DietdataDetailPermission, DietdataPostPermission
+from facebook.permissions import MusicListPermission, MusicDetailPermission
 
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
@@ -38,6 +41,16 @@ from facebook.serializers import ProfileSerializer
 from facebook.models import ImageArticle
 
 # project 2
+
+class MusicList(generics.ListCreateAPIView):
+  permission_classes = (MusicListPermission, )
+  serializer_class = MusicSerializer
+  queryset = Music.objects.all()
+
+class MusicDetail(generics.RetrieveUpdateDestroyAPIView):
+  permission_classes = (MusicDetailPermission, )
+  serializer_class = MusicSerializer
+  queryset = Music.objects.all()
 
 class DietGraphList(generics.ListAPIView):
   serializer_class   = DietdataSerializer
