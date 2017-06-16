@@ -20,9 +20,9 @@ import {SetWallRequest} from '../actions'
 ////////////////////////////////////////////
 
 
-//const url='http://localhost:8000/'
+const url='http://localhost:8000/'
 //const url='http://13.124.72.170:8000/'
-const url='http://13.124.72.170:8888/'
+//const url='http://13.124.72.170:8888/'
 const user_dup_url = url+'users/duplication/'
 const user_url=url+'users/'
 const user_login_url= url+'users/login/'

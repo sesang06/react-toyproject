@@ -18,10 +18,14 @@ import Profile from '../Profile';
 import FollowList from '../FollowList';
 import WallList from '../WallList';
 import DietGraph from '../DietGraph'
+import DietGraphMain from '../DietGraphMain'
+import WallMain from '../WallMain';
+import MapMain from '../MapMain';
 
 import sound from '../../music/Beenzino-Break.mp3';
 
 class App extends Component {
+
   componentDidMount(){
     function getCookie(cname){
       var name = cname + "=";
@@ -56,7 +60,7 @@ class App extends Component {
             <source src={sound} type="audio/mpeg" />
           </audio>
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Project 2 - Team 8</h2>          
+          <h2>Welcome to Project 2 - Team 8</h2>
         </div>
         <Router>
         <div>
@@ -69,8 +73,11 @@ class App extends Component {
           <Route path="/image" component={Image}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/follow" component={FollowList}/>
-          <Route path="/wall" component={WallList}/>
+          <Route path="/wall/:username" component={WallList}/>
           <Route path="/dietgraph/:username" component={DietGraph}/>
+          <Route exact path="/dietgraph/" component={DietGraphMain}/>
+          <Route exact path="/wall/" component={WallMain}/>
+          <Route exact path="/map/" component={MapMain}/>
 
         </div>
         </Router>
