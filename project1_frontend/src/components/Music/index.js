@@ -81,6 +81,11 @@ class Music extends Component {
     if (index !== 0) this.audio.src = this.props.music_list[index-1].source
     else this.audio.src = src;
     this.setState({ index: index-1 })
+
+    if (this.state.play) {
+      this.audio.load()
+      this.play()
+    }
   }
 
   render() {
