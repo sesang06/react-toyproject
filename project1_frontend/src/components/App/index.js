@@ -70,20 +70,18 @@ class App extends Component {
 
 
   render() {
-    let tmp;
     return (
     <div>
       <div id="mySidenav" className="sidenav">
-        <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
-        <h3 className="info">Music</h3>
+        <a id="close_btn" href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <h3 className="info">{(this.props.loginStatus === 1) ? 'Music' : 'Welcome!'}</h3>
         <Music />
-        <h3 className="info">Chat</h3>
+        <h3 className="info">{(this.props.loginStatus === 1) ? 'Chat' : ''}</h3>
         <ChatBox />
       </div>
       <div>
         <span id="open_btn" className="open_btn" onClick={this.openNav}>&#9776;</span>
       </div>
-
       <div id="main" className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -112,7 +110,12 @@ class App extends Component {
     );
   }
 }
-// <Route path="/chat" component={ChatBox}/>
+
+let mapStateToProps=(state)=>{
+  return {
+    loginStatus: state.login_reducer.loginStatus,
+  };
+}
 
 let mapDispatchToProps=(dispatch)=>{
   return {
@@ -121,4 +124,4 @@ let mapDispatchToProps=(dispatch)=>{
   };
 }
 
-export default connect(undefined, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

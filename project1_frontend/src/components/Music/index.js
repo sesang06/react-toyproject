@@ -55,6 +55,7 @@ class Music extends Component {
 
     this.audio.src = this.props.music_list[index].source;
     this.audio.load()
+    this.audio.play()
     console.log('next: ' + this.audio.src)
   }
 
@@ -88,9 +89,9 @@ class Music extends Component {
     let len = music_list.length
     const uploadForm=(
       <div>
-        <input className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
-        <input className="input" type="text" ref={ref=>this.artist=ref} placeholder="artist" />
-        <input className="input" type="file" ref={ref=>this.source=ref} />
+        <input id="music_title" className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
+        <input id="music_artist" className="input" type="text" ref={ref=>this.artist=ref} placeholder="artist" />
+        <input id="music_source" className="input" type="file" ref={ref=>this.source=ref} />
         <button id="upload_music" onClick={this.upload}>Upload</button>
         <button id="play_music" onClick={this.onPlay}>Play</button>
       </div>
