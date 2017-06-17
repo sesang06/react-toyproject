@@ -17,12 +17,14 @@ import {SetImageRequest} from '../actions'
 import {SetDietGraphRequest} from '../actions'
 
 import {SetWallRequest} from '../actions'
+
+import {SetMusicRequest} from '../actions'
 ////////////////////////////////////////////
 
 
-const url='http://localhost:8000/'
+//const url='http://localhost:8000/'
 //const url='http://13.124.72.170:8000/'
-//const url='http://13.124.72.170:8888/'
+const url='http://13.124.72.170:8888/'
 const user_dup_url = url+'users/duplication/'
 const user_url=url+'users/'
 const user_login_url= url+'users/login/'
@@ -31,6 +33,7 @@ const chat_userlist_url=url+'chatting/userlist/'
 const article_url=url+'article/'
 const image_url=url+'image/'
 const profile_url= url+'profile/'
+const music_url=url+'music/'
 
 function image_id_url(id){
   return image_url+id+'/'
@@ -1668,6 +1671,92 @@ export function* getWall(data) {
   }
 }
 
+export function* watchGetMusic() {
+  while(true) {
+    const data = yield take('GET_MUSIC_REQUEST')
+    yield call(getMusic, data)
+  }
+}
+
+export function* getMusic(data) {
+  const hash = data.ubase64
+
+  const response = yield call(getApi, music_url, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+      'Content-Type': 'application/json'
+    }
+  })
+
+  let music_list = []
+
+  for (var index in response) {
+    let music = {
+      id: 0,
+      title: "",
+      artist: "",
+      source: ""
+    }
+
+    let id = response[index]["id"]
+    let title = response[index]["title"]
+    let artist = response[index]["artist"]
+    let source = response[index]["music"]
+
+    music.id = id
+    music.title = title
+    music.artist = artist
+    music.source = source
+
+    music_list.push(music)
+  }
+
+  yield put(SetMusicRequest(music_list))
+}
+  
+export function* watchPostMusic() {
+  while(true) {
+    const data = yield take('POST_MUSIC_REQUEST')
+    yield call(postMusic, data)
+  }
+}
+
+export function* postMusic(data) {
+  const hash = data.ubase64
+  const uname = data.uname
+  const title = data.title
+  const artist = data.artist
+  const source = data.source
+
+  var form = new FormData();
+  form.append('title', title)
+  form.append('artist', artist)
+  form.append('music', source)
+
+  const response = yield call(fetch, music_url, {
+    "async": true,
+    "crossDomain": true,
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
+    body: form
+    //body: JSON.stringify({'title': title, 'artist': artist, 'music': source})
+  })
+
+  if (response.ok) {
+    console.log('music_success')
+    const data2 = { uname: uname, ubase64: hash }
+    yield call(getMusic, data2)
+  } else {
+    console.log('music_fail')
+  }
+}
+
 export function* Saga(){
   yield spawn(watchRegister)
   yield spawn(watchId)
@@ -1709,4 +1798,6 @@ export function* Saga(){
   yield spawn(watchGetFollowArticle)
 
   yield spawn(watchGetWall)
+  yield spawn(watchGetMusic)
+  yield spawn(watchPostMusic)
 }

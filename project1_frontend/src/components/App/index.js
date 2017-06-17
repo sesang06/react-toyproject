@@ -21,10 +21,27 @@ import DietGraph from '../DietGraph'
 import DietGraphMain from '../DietGraphMain'
 import WallMain from '../WallMain';
 import MapMain from '../MapMain';
-
-import sound from '../../music/Beenzino-Break.mp3';
+import Music from '../Music';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.openNav = this.openNav.bind(this);
+    this.closeNav = this.closeNav.bind(this);
+  }
+
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginRight = "250px";
+    //document.getElementById("main").style.marginLeft = "0px";
+    document.getElementById("open_btn").style.display = "none";
+  }
+
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginRight = "0";
+    document.getElementById("open_btn").style.display = "block";
+  }
 
   componentDidMount(){
     function getCookie(cname){
@@ -54,11 +71,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+    <div>
+      <div id="mySidenav" className="sidenav">
+        <a id="close_btn" href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <h3 className="info">{(this.props.loginStatus === 1) ? 'Music' : 'Welcome!'}</h3>
+        <Music />
+        <h3 className="info">{(this.props.loginStatus === 1) ? 'Chat' : ''}</h3>
+        <ChatBox />
+      </div>
+      <div>
+        <span id="open_btn" className="open_btn" onClick={this.openNav}>&#9776;</span>
+      </div>
+      <div id="main" className="App">
         <div className="App-header">
-          <audio controls className="App-music">
-            <source src={sound} type="audio/mpeg" />
-          </audio>
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Project 2 - Team 8</h2>
         </div>
@@ -68,7 +93,6 @@ class App extends Component {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/timeline" component={ArticleList}/>
-          <Route path="/chat" component={ChatBox}/>
           <Route path="/group" component={GroupList}/>
           <Route path="/image" component={Image}/>
           <Route path="/profile" component={Profile}/>
@@ -82,10 +106,16 @@ class App extends Component {
         </div>
         </Router>
       </div>
+    </div>
     );
   }
 }
-// <Route path="/chat" component={ChatBox}/>
+
+let mapStateToProps=(state)=>{
+  return {
+    loginStatus: state.login_reducer.loginStatus,
+  };
+}
 
 let mapDispatchToProps=(dispatch)=>{
   return {
@@ -94,4 +124,4 @@ let mapDispatchToProps=(dispatch)=>{
   };
 }
 
-export default connect(undefined, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

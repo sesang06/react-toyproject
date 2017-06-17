@@ -7,9 +7,11 @@ class GroupNotice extends Component {
   }
 
   render() {
+    let month = this.props.created.getMonth() + 1;
+    let date = this.props.created.getDate();
     return (
       <div>
-        <h4>{this.props.created.getMonth() + ' / ' + this.props.created.getDate() + ' : ' + this.props.text}</h4>
+        <h4>{month + ' / ' + date + ' : ' + this.props.text}</h4>
       </div>
     )
   }

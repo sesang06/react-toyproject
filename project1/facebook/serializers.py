@@ -9,10 +9,16 @@ from facebook.models import ImageArticle
 from facebook.models import UserProfile
 from facebook.models import Follow
 from facebook.models import Dietdata
+from facebook.models import Music
 
 from django.db import models
 
 # project 2
+
+class MusicSerializer(serializers.ModelSerializer):
+  class Meta:
+    model  = Music
+    fields = ('id', 'title', 'artist', 'music')
 
 class DietdataSerializer(serializers.ModelSerializer):
   author= serializers.ReadOnlyField(source='author.username')

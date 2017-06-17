@@ -7,9 +7,11 @@ class GroupForum extends Component {
   }
 
   render() {
+    let month = this.props.created.getMonth() + 1;
+    let date = this.props.created.getDate();
     return (
       <div>
-        <p>{'(' + this.props.created.getMonth() + ' / ' + this.props.created.getDate() + ') ' + this.props.author + ' : ' + this.props.text}</p>
+        <p>{'(' + month + ' / ' + date + ') ' + this.props.author + ' : ' + this.props.text}</p>
       </div>
     )
   }

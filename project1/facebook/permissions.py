@@ -4,6 +4,30 @@ from facebook.models import Group, Member, Follow
 
 # project 2
 
+class MusicListPermission(permissions.BasePermission):
+  def has_permission(self, request, view):
+    username = request.user.username
+    user     = User.objects.filter(username=username).exists()
+    if (request.method == 'GET'):
+      return user
+    elif (request.method == 'POST'):
+      return user
+    else:
+      return True
+
+class MusicDetailPermission(permissions.BasePermission):
+  def has_object_permission(self, request, view, obj):
+    username = request.user.username
+    user     = User.objects.filter(username=username).exists()
+    if (request.method == 'GET'):
+      return user
+    elif (request.method == 'DELETE'):
+      return user
+    elif (request.method == 'PUT'):
+      return user
+    else:
+      return True
+
 class DietdataDetailPermission(permissions.BasePermission):
   def has_object_permission(self, request, view, obj):
     username = request.user.username

@@ -12,6 +12,12 @@ User._meta.get_field('email').blank   = False
 
 # project 2
 
+class Music(models.Model):
+  id       = models.AutoField(primary_key=True)
+  title    = models.CharField(max_length=50, null=False)
+  artist   = models.CharField(max_length=30, null=False)
+  music    = models.FileField(max_length=255, null=False)
+
 class Dietdata(models.Model):
   id       = models.AutoField(primary_key=True)
   created  = models.DateTimeField(auto_now_add=True)
