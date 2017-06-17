@@ -1,7 +1,17 @@
 .chatBox {
   /*padding: 0px 200px 0px 200px;*/
   border: 1px solid #ccc;
-  height: 300px;
+  height: 280px;
   width: 100%;
   overflow-y: scroll;
+}
+
+.chat_btn {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.chat_input {
+  margin-top: 10px;
+  margin-left: 10px;
 }
