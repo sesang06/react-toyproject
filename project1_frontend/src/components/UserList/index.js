@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import './index.css';
+import './index.css';
 import { connect } from 'react-redux';
 
 import { GetUserRequest, SetUserList, SetSender, SetReceiver } from '../../actions';
@@ -22,8 +22,12 @@ class UserList extends Component {
   setReceiver(e) {
     var index = e.nativeEvent.target.selectedIndex;
     var selected = e.nativeEvent.target[index].text;
-    this.props.setSender(this.props.uname, this.props.ubase64)
-    this.props.setReceiver(selected)
+    if (index !== 0) {
+      this.props.setSender(this.props.uname, this.props.ubase64)
+      this.props.setReceiver(selected)
+    } else {
+      this.props.setReceiver('')
+    }
   }
 /*
   updateUsernames() {
@@ -47,9 +51,9 @@ class UserList extends Component {
       let len = usernames.length
       return (
         <div>
-        <button id="chat_get_userlist" onClick={this.getUserList}>Get</button>
-        <select className="select" id="chat_userlist" onChange={this.setReceiver}>
-          <option value="chat_user_0" disabled="true">receiver</option>
+        <button className="userlist_btn" id="chat_get_userlist" onClick={this.getUserList}>Get</button>
+        <select className="userlist_select" id="chat_userlist" onChange={this.setReceiver}>
+          <option value="chat_user_0">receiver</option>
           {Array.apply(null, Array(len)).map(function(item, i){
             return (
               <option id={"chat_user_"+(i+1)} key={i+1} value={i+1}>{usernames[i]}</option>

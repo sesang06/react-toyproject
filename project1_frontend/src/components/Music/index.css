@@ -1,7 +1,19 @@
-.input {
+.music_input1 {
+  padding-left: 5px;
+  margin-left: 10px;
+}
+
+.music_input2 {
+  margin-top: 10px;
+  padding-left: 10px;
   color: white;
 }
 
-.select {
-  width: 200px;
+.music_select {
+  width: 190px;
+}
+
+.music_btn {
+  margin-top: 10px;
+  margin-left: 10px;
 }

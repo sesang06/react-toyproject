@@ -1,3 +1,8 @@
-.select {
-  width: 200px;
+.userlist_select {
+  width: 190px;
+}
+
+.userlist_btn {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }

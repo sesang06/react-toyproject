@@ -60,8 +60,9 @@ class ChatBox extends Component {
   }
 
   onChat() {
-    if (this.props.valid)
+    if (this.props.valid && (this.props.receiver !== '')) {
       this.props.postChat(this.props.uname, this.props.ubase64, this.props.receiver, newchat)
+    }
   }
 
   render() {
@@ -83,7 +84,7 @@ class ChatBox extends Component {
 
     const outForm = (
       <div>
-        <button id="in_chat" onClick={this.inChat}>Chat</button>
+        <button className="chat_btn" id="in_chat" onClick={this.inChat}>Chat</button>
       </div>
     );
 
@@ -103,11 +104,11 @@ class ChatBox extends Component {
           <div className="chatBox">
           <ChatBubble messages={messages} />
           </div>
-          <textarea cols="25" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
-          <button id="chat_send" onClick={this.onChat}>
-            <MorphIcon shapes={icons.communication.chat} size="30" />
+          <textarea className="chat_input" cols="25" rows="2" style={{resize: "none"}} id="chat_box" onChange={this.onText} placeholder="Send a message to your friend!" />
+          <button className="chat_btn" id="chat_send" onClick={this.onChat}>
+            <MorphIcon shapes={icons.communication.chat} size="25" />
           </button>
-          <button id="out_chat" onClick={this.outChat}>Exit</button>
+          <button className="chat_btn" id="out_chat" onClick={this.outChat}>Exit</button>
         </div>
     );  
     

@@ -33,6 +33,12 @@ class WallMain extends Component {
 
   onClick(e) {
     this.setState({owner : e.target.id});
+    
+    var table = document.getElementById("usertable");
+    var tr = table.getElementsByTagName("tr");
+    for (var i = 0; i < tr.length; i++) {
+      tr[i].style.display = "none";
+    }
   }
 
   onGet() {
