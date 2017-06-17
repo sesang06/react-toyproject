@@ -82,7 +82,9 @@ class Music extends Component {
     else this.audio.src = src;
     this.setState({ index: index-1 })
 
-    if (this.state.play) {
+    if (index === 0) {
+      this.stop()
+    } else if (this.state.play) {
       this.audio.load()
       this.play()
     }
