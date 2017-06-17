@@ -7,13 +7,9 @@ import {
 import {
   withGoogleMap,
   GoogleMap,
+  Marker,
   InfoWindow,
-Marker,
 } from "react-google-maps";
-
-
-
-import canUseDOM from "can-use-dom";
 
 import SearchBox from "react-google-maps/lib/places/SearchBox";
 
@@ -38,6 +34,8 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
     defaultZoom={15}
     center={props.center}
     onBoundsChanged={props.onBoundsChanged}
+    onClick={props.onMapClick}
+
   >
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -47,66 +45,83 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
       inputPlaceholder="Customized your placeholder"
       inputStyle={INPUT_STYLE}
     />
-    {props.markers.map((marker, index) => (
-      <Marker position={marker.position} key={index} />
-    ))}
+    {props.markers.map((marker, index) => {
+       const onClick = () => props.onMarkerClick(marker);
+       const onCloseClick = () => props.onCloseClick(marker);
+
+       return (
+         <Marker
+           key={index}
+           position={marker.position}
+           title={(index + 1).toString()}
+           onClick={onClick}
+         >
+           {marker.showInfo && (
+             <InfoWindow onCloseClick={onCloseClick}>
+               <div>
+                 <strong>{marker.content}</strong>
+                 <br />
+                 <em>The contents of this InfoWindow are actually ReactElements.</em>
+               </div>
+             </InfoWindow>
+           )}
+         </Marker>
+       );
+     })}
   </GoogleMap>
 ));
-
-const GeolocationExampleGoogleMap = withGoogleMap(props => (
-  <GoogleMap ref={props.onMapMounted}
-    defaultZoom={15}
-    center={props.center}
-    onBoundsChanged={props.onBoundsChanged}
-  >
-
- <SearchBox
-      ref={props.onSearchBoxMounted}
-      bounds={props.bounds}
-      controlPosition={google.maps.ControlPosition.TOP_LEFT}
-      onPlacesChanged={props.onPlacesChanged}
-      inputPlaceholder="Customized your placeholder"
-      inputStyle={INPUT_STYLE}
-    />
-    {props.markers.map((marker, index) => (
-     <Marker position={marker.position} key={index} />
-   ))}
-   {props.center && (
-      <InfoWindow position={props.center}>
-        <div>{props.content}</div>
-      </InfoWindow>
-    )}
-
-  </GoogleMap>
-));
-
-
-
-/* global google */
-
-const geolocation = (
-  canUseDOM && navigator.geolocation ?
-  navigator.geolocation :
-  ({
-    getCurrentPosition(success, failure) {
-      failure(`브라우저가 geolocation을 지원하지 않습니다.`);
-    },
-  })
-);
-
 
 /*
- * https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+ * https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
  *
  * Add <script src="https://maps.googleapis.com/maps/api/js"></script> to your HTML to provide google.maps reference
  */
-export default class GeolocationExample extends Component {
+export default class SearchBoxExample extends Component {
+
+  state = {
+    bounds: null,
+    center: {
+      lat: 47.6205588,
+      lng: -122.3212725,
+    },
+    markers: [],
+  };
 
   handleMapMounted = this.handleMapMounted.bind(this);
   handleBoundsChanged = this.handleBoundsChanged.bind(this);
   handleSearchBoxMounted = this.handleSearchBoxMounted.bind(this);
   handlePlacesChanged = this.handlePlacesChanged.bind(this);
+  handleMarkerClick = this.handleMarkerClick.bind(this);
+    handleCloseClick = this.handleCloseClick.bind(this);
+    handleMapClick = this.handleMapClick.bind(this);
 
+    handleMarkerClick(targetMarker) {
+      this.setState({
+        markers: this.state.markers.map(marker => {
+          if (marker === targetMarker) {
+            return {
+              ...marker,
+              showInfo: true,
+            };
+          }
+          return marker;
+        }),
+      });
+    }
+
+    handleCloseClick(targetMarker) {
+      this.setState({
+        markers: this.state.markers.map(marker => {
+          if (marker === targetMarker) {
+            return {
+              ...marker,
+              showInfo: false,
+            };
+          }
+          return marker;
+        }),
+      });
+    }
   handleMapMounted(map) {
     this._map = map;
   }
@@ -122,12 +137,21 @@ export default class GeolocationExample extends Component {
     this._searchBox = searchBox;
   }
 
+    handleMapClick(event) {
+      this.setState({
+        markers: [
+          ...this.state.markers,
+          { position: event.latLng },
+        ],
+      });
+    }
   handlePlacesChanged() {
     const places = this._searchBox.getPlaces();
 
     // Add a marker for each place returned from search bar
     const markers = places.map(place => ({
       position: place.geometry.location,
+      content: place.formatted_address
     }));
 
     // Set markers; set map center to first search result
@@ -137,68 +161,29 @@ export default class GeolocationExample extends Component {
       center: mapCenter,
       markers,
     });
-}
-  state = {
- bounds: null,
-    center: {
-      lat: 47.6205588,
-      lng: -122.3212725,
-    },
-    markers: [],
-    content: null,
-  };
-
-  isUnmounted = false;
-
-  componentDidMount() {
-
-    geolocation.getCurrentPosition((position) => {
-      if (this.isUnmounted) {
-        return;
-      }
-      this.setState({
-        center: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        },
-        content: `지금 여기 있으시네요!.`,
-      });
-
-    }, (reason) => {
-      if (this.isUnmounted) {
-        return;
-      }
-      this.setState({
-        center: {
-          lat: 60,
-          lng: 105,
-        },
-        content: `Error: The Geolocation service failed (${reason}).`,
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.isUnmounted = true;
   }
 
   render() {
     return (
-      <GeolocationExampleGoogleMap
+      <SearchBoxExampleGoogleMap
         containerElement={
-          <div style={{ height: 200, weight:200 }} />
+          <div style={{  height: 700, weight:200 }} />
         }
         mapElement={
-          <div style={{  height: 200, weight:200 }} />
+          <div style={{  height: 700, weight:200 }} />
         }
         center={this.state.center}
-        content={this.state.content}
-  	onMapMounted={this.handleMapMounted}
+        onMapMounted={this.handleMapMounted}
         onBoundsChanged={this.handleBoundsChanged}
         onSearchBoxMounted={this.handleSearchBoxMounted}
         bounds={this.state.bounds}
         onPlacesChanged={this.handlePlacesChanged}
         markers={this.state.markers}
+        onMapClick={this.handleMapClick}
+
+        onMarkerClick={this.handleMarkerClick}
+       onCloseClick={this.handleCloseClick}
+
       />
     );
   }
