@@ -47,8 +47,8 @@ class UserList extends Component {
       let len = usernames.length
       return (
         <div>
-        <button id="chat_get_userlist" onClick={this.getUserList}>Get User List</button>
-        <select id="chat_userlist" onChange={this.setReceiver}>
+        <button id="chat_get_userlist" onClick={this.getUserList}>Get</button>
+        <select className="select" id="chat_userlist" onChange={this.setReceiver}>
           <option value="chat_user_0" disabled="true">receiver</option>
           {Array.apply(null, Array(len)).map(function(item, i){
             return (

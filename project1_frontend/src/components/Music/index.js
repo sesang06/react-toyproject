@@ -7,13 +7,16 @@ import { GetMusicRequest, PostMusicRequest } from '../../actions';
 class Music extends Component {
   constructor() {
     super();
-    this.state = { upload: false, play: false }
+    this.state = { upload: false, play: false, index: 0 }
     this.audio = new Audio();
     this.onClick = this.onClick.bind(this)
     this.upload = this.upload.bind(this)
     this.play = this.play.bind(this)
     this.onUpload = this.onUpload.bind(this)
     this.onPlay = this.onPlay.bind(this)
+    this.stop = this.stop.bind(this)
+    this.setMusic = this.setMusic.bind(this)
+    this.next = this.next.bind(this)
   }
 
   onClick() {
@@ -36,12 +39,30 @@ class Music extends Component {
   }
 
   play() {
-    let src = null;
-    if (this.props.music_list.length !== 0) src = this.props.music_list[0].source
-    if (src !== null) {
-      this.audio.src = src.toString();
-      this.audio.play();
+    if (this.audio.src !== "") {
+      this.audio.load()
+      this.audio.play()
+      this.setState({ play: true })
+      this.audio.addEventListener('ended', this.next)
     }
+    console.log('play: ' + this.audio.src)
+  }
+
+  next() {
+    console.log('next')
+    var index = this.state.index + 1;
+    if (index === this.props.music_list.length) index = 0;
+
+    this.audio.src = this.props.music_list[index].source;
+    this.audio.load()
+    console.log('next: ' + this.audio.src)
+  }
+
+  stop() {
+    this.audio.pause()
+    this.setState({ play: false })
+
+    console.log('stop: ' + this.audio.src)
   }
     
   onUpload() {
@@ -52,7 +73,19 @@ class Music extends Component {
     this.setState({ upload: false })
   }
 
+  setMusic(e) {
+    var index = e.nativeEvent.target.selectedIndex;
+    var selected = e.nativeEvent.target[index].text;
+    var src = null;
+
+    if (index !== 0) this.audio.src = this.props.music_list[index-1].source
+    else this.audio.src = src;
+    this.setState({ index: index-1 })
+  }
+
   render() {
+    let music_list = this.props.music_list
+    let len = music_list.length
     const uploadForm=(
       <div>
         <input className="input" type="text" ref={ref=>this.title=ref} placeholder="title" />
@@ -66,7 +99,19 @@ class Music extends Component {
     const playForm=(
       <div>
         <button id="get_music" onClick={this.onClick}>Get</button>
-        <button id="play_music" onClick={this.play}>Play</button>
+        <select className="select" id="music_list" onChange={this.setMusic}>
+          <option value="music_0">music</option>
+          {Array.apply(null, Array(len)).map(function(item, i) {
+            return (
+              <option id={"music_"+music_list[i].id} key={i+1}>
+                {music_list[i].title+' - '+music_list[i].artist}
+              </option>
+            );
+          }, this)}
+        </select>
+        <button id="play_music" onClick={(this.state.play) ? this.stop : this.play}>
+          {this.state.play ? 'Stop' : 'Play'}
+        </button>
         <button id="upload_music" onClick={this.onUpload}>Upload</button>
       </div>
     );
