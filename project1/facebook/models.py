@@ -26,8 +26,8 @@ class Route(models.Model):
     duration=models.IntegerField(null=False)
     created= models.DateTimeField(auto_now_add=True)
     author= models.ForeignKey('auth.User',null=False, related_name='route',  on_delete=models.CASCADE)
-    content= models.TextField(null=True)
-
+    start_address=models.TextField(null=False)
+    end_address=models.TextField(null=False)
 
 class Music(models.Model):
   id       = models.AutoField(primary_key=True)

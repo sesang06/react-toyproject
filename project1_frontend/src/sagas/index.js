@@ -1642,6 +1642,8 @@ if (route!==null){
 let form = new FormData();
 form.append('distance', route.distance)
 form.append('duration', route.duration)
+form.append('start_address', route.start_address)
+form.append('end_address', route.end_address)
 
 let response = yield call(fetch, route_url, {
   "async": true,
@@ -1662,7 +1664,7 @@ if (response.ok) {
   console.log('fail')
 }
 }
-//yield call(get,data)
+yield call(getLocation,data)
 }
 
 
@@ -1728,7 +1730,9 @@ export function* getLocation(data){
       author: "",
       created: new Date(),
       distance : 0,
-      duration: 0
+      duration: 0,
+      start_address:"",
+      end_address:""
       }
 
     let id = response2[index]["id"]
@@ -1736,12 +1740,16 @@ export function* getLocation(data){
     let created = response2[index]["created"]
     let distance= response2[index]["distance"]
     let duration= response2[index]["duration"]
-      route.id = id
+    let start_address=response2[index]["start_address"]
+    let end_address=response2[index]["end_address"]
+    route.id = id
     route.author = author
     route.created = new Date(created)
       route.distance = distance
       route.duration = duration
-      route_list.push(location)
+      route.start_address=start_address
+      route.end_address=end_address
+      route_list.push(route)
 
   }
 

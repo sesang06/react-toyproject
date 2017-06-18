@@ -98,9 +98,9 @@ export const POST_LOCATION_REQUEST= 'POST_LOCATION_REQUEST';
 export const SET_LOCATION_REQUEST= 'SET_LOCATION_REQUEST';
 export const GET_LOCATION_REQUEST= 'GET_LOCATION_REQUEST';
 
-export const PostLocationRequest= (ubase64, location_list, route)=>{
+export const PostLocationRequest= (ubase64, location_list, route, uname)=>{
  return{
-   type: POST_LOCATION_REQUEST, ubase64, location_list , route
+   type: POST_LOCATION_REQUEST, ubase64, location_list , route, uname
  }
 }
 

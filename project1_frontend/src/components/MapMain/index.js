@@ -58,7 +58,6 @@ class MapMain extends Component {
     if (this.props.loginStatus === 1) {
       return (
         <div>
-          <Map/>
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>
@@ -72,7 +71,7 @@ class MapMain extends Component {
                  (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
             <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
-                 {(wall_owner!==null)?    <Link to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
+                 {(wall_owner!==null)?    <Link to={'/map/'+wall_owner.username}>지도 보러가기</Link>:null}
 
           </div>
         </div>
