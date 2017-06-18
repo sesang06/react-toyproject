@@ -40,7 +40,46 @@ from facebook.serializers import UserProfileSerializer
 from facebook.serializers import ProfileSerializer
 from facebook.models import ImageArticle
 
+from facebook.models import Location
+from facebook.serializers import LocationSerializer
+from facebook.models import Route
+from facebook.serializers import RouteSerializer
 # project 2
+
+class RouteList(generics.ListCreateAPIView):
+  serializer_class = RouteSerializer
+  queryset = Route.objects.all()
+  def perform_create(self, serializer):
+    serializer.save(author=self.request.user)
+
+class RouteUserList(generics.ListAPIView):
+  serializer_class = RouteSerializer
+  def get_queryset(self):
+    user = get_object_or_404(User,username=self.kwargs['pk'])
+    routedata = Route.objects.filter(author=user) | Route.objects.filter(author=self.request.user)
+    return routedata
+
+class RouteDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Route.objects.all()
+  serializer_class = RouteSerializer
+
+
+class LocationList(generics.ListCreateAPIView):
+  serializer_class = LocationSerializer
+  queryset = Location.objects.all()
+  def perform_create(self, serializer):
+    serializer.save(author=self.request.user)
+
+class LocationUserList(generics.ListAPIView):
+  serializer_class = LocationSerializer
+  def get_queryset(self):
+    user = get_object_or_404(User,username=self.kwargs['pk'])
+    locationdata = Location.objects.filter(author=user) | Location.objects.filter(author=self.request.user)
+    return locationdata
+
+class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Location.objects.all()
+  serializer_class = LocationSerializer
 
 class MusicList(generics.ListCreateAPIView):
   permission_classes = (MusicListPermission, )
@@ -358,7 +397,7 @@ class ArticleList(generics.ListCreateAPIView):
     article += Article.objects.filter(author=self.request.user)
     follow_list = Follow.objects.filter(user=self.request.user)
     for el in follow_list:
-      article += Article.objects.filter(author=el.follow) 
+      article += Article.objects.filter(author=el.follow)
     #article= Article.objects.all()
     def getKey(ar):
       return ar.created

@@ -21,6 +21,28 @@ import {SET_MUSIC_REQUEST} from '../actions'
 /////////////////////////////////////////
 import {combineReducers} from 'redux';
 //////////////////////////////////////
+import {SET_LOCATION_REQUEST} from '../actions'
+
+export const createNewMapState=()=>{
+  return {
+    location_list: []
+  }
+
+}
+export const initialMapState=createNewMapState()
+
+export const map_reducer= (state=initialMapState, action)=> {
+
+  switch(action.type) {
+    case SET_LOCATION_REQUEST:
+      return {
+        ...state,
+        location_list: action.location_list
+      }
+    default:
+      return state
+    }
+}
 
 
 export const createNewMusicState=()=>{
@@ -671,5 +693,6 @@ export const app_reducer=combineReducers({
   wall_reducer,
   dietgrpah_reducer,
   music_reducer,
+  map_reducer
 });
 export default app_reducer;

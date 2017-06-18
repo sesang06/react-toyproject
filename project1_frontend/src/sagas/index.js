@@ -19,12 +19,14 @@ import {SetDietGraphRequest} from '../actions'
 import {SetWallRequest} from '../actions'
 
 import {SetMusicRequest} from '../actions'
+
+import {SetLocationRequest} from '../actions'
 ////////////////////////////////////////////
 
 
-//const url='http://localhost:8000/'
+const url='http://localhost:8000/'
 //const url='http://13.124.72.170:8000/'
-const url='http://13.124.72.170:8888/'
+//const url='http://13.124.72.170:8888/'
 const user_dup_url = url+'users/duplication/'
 const user_url=url+'users/'
 const user_login_url= url+'users/login/'
@@ -34,6 +36,22 @@ const article_url=url+'article/'
 const image_url=url+'image/'
 const profile_url= url+'profile/'
 const music_url=url+'music/'
+const location_url=url+'location/'
+const route_url= url+'route/'
+function location_id_url(id){
+  return location_url+id+'/'
+}
+function location_uname_url(uname){
+  return location_url+'user/'+uname+'/'
+}
+
+
+function route_id_url(id){
+  return route_url+id+'/'
+}
+function route_uname_url(uname){
+  return route_url+'user/'+uname+'/'
+}
 
 function image_id_url(id){
   return image_url+id+'/'
@@ -72,7 +90,10 @@ function wall_url(uname){
 function dietgraph_url(uname){
     return url+'dietgraph/'+uname+'/'}
 
+
 //////////////////////////////////
+
+
 
 export function * watchRegister(){
   while(true){
@@ -1579,6 +1600,121 @@ export function* getFollowArticle(data) {
   yield put(SetFollowArticleRequest(follow_article_list))
 }
 
+export function* watchPostLocation(){
+  while(true){
+    const data = yield take('POST_LOCATION_REQUEST')
+    yield call(postLocation, data)
+  }
+}
+
+export function* postLocation(data){
+   const hash = data.ubase64
+  const location_list =data.location_list
+  const route= data.route
+  console.log("hh")
+for (var index in location_list){
+  let form = new FormData();
+  form.append('longitude', location_list[index].longitude)
+  form.append('latitude',  location_list[index].latitude)
+  form.append('content', location_list[index].content)
+
+  let response = yield call(fetch, location_url, {
+    "async": true,
+    "crossDomain": true,
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
+    body: form
+  })
+  console.log(response)
+  if (response.ok) {
+    console.log('success')
+  } else {
+    console.log('fail')
+  }
+}
+console.log(route)
+if (route!==null){
+let form = new FormData();
+form.append('distance', route.distance)
+form.append('duration', route.duration)
+
+let response = yield call(fetch, route_url, {
+  "async": true,
+  "crossDomain": true,
+  method: 'POST',
+  headers: {
+    'Authorization': `Basic ${hash}`,
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  body: form
+})
+console.log(response)
+if (response.ok) {
+  console.log('success')
+} else {
+  console.log('fail')
+}
+}
+//yield call(get,data)
+}
+
+
+export function* watchGetLocation(){
+  while(true){
+    const data= yield take('GET_LOCATION_REQUEST')
+    yield call(getLocation, data)
+  }
+}
+export function* getLocation(data){
+  const uname = data.uname
+  const hash = data.ubase64
+
+  const response = yield call(getApi, location_uname_url(uname), {
+    method: 'GET',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  console.log(response)
+  let location_list = []
+
+  for (var index in response) {
+    let location = {
+      id: 0,
+      author: "",
+      content: "",
+      created_time: new Date(),
+      longitude : 0,
+      latitude : 0
+      }
+
+    let id = response[index]["id"]
+    let author = response[index]["author"]
+    let created = response[index]["created"]
+    let content = response[index]["content"]
+    let longitude= response[index]["longitude"]
+    let latitude= response[index]["latitude"]
+      location.id = id
+      location.author = author
+      location.content = content
+      location.created = new Date(created)
+      location.longitude = longitude
+      location.latitude =latitude
+      location_list.push(location)
+
+  }
+  yield put(SetLocationRequest(location_list))
+
+}
+
 export function* watchGetWall() {
   while(true) {
     const data = yield take('GET_WALL_REQUEST')
@@ -1714,7 +1850,7 @@ export function* getMusic(data) {
 
   yield put(SetMusicRequest(music_list))
 }
-  
+
 export function* watchPostMusic() {
   while(true) {
     const data = yield take('POST_MUSIC_REQUEST')
@@ -1800,4 +1936,8 @@ export function* Saga(){
   yield spawn(watchGetWall)
   yield spawn(watchGetMusic)
   yield spawn(watchPostMusic)
+
+  yield spawn(watchPostLocation)
+  yield spawn(watchGetLocation)
+
 }

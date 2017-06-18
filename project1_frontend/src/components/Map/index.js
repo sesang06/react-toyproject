@@ -14,6 +14,10 @@ import {
 
 import SearchBox from "react-google-maps/lib/places/SearchBox";
 
+
+import { connect } from 'react-redux';
+import { PostLocationRequest , GetLocationRequest} from '../../actions';
+
 const INPUT_STYLE = {
   boxSizing: `border-box`,
   MozBoxSizing: `border-box`,
@@ -57,6 +61,7 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
            position={marker.position}
            title={(index + 1).toString()}
            onClick={onClick}
+           label={marker.label}
          >
            {marker.showInfo && (
              <InfoWindow onCloseClick={onCloseClick}>
@@ -78,7 +83,7 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
  *
  * Add <script src="https://maps.googleapis.com/maps/api/js"></script> to your HTML to provide google.maps reference
  */
-export default class SearchBoxExample extends Component {
+class Map extends Component {
 
   state = {
     bounds: null,
@@ -105,10 +110,54 @@ export default class SearchBoxExample extends Component {
     handleDeleteMarkers= this.handleDeleteMarkers.bind(this);
 getdistance= this.getdistance.bind(this);
 getduration= this.getduration.bind(this);
+postMarkers= this.postMarkers.bind(this);
+getMarkers= this.getMarkers.bind(this);
 
+componentDidMount(){
+  if(this.props.loginStatus===1)
+  this.props.getlocation(this.props.uname, this.props.ubase64)
+}
+
+   componentWillReceiveProps(nextProps){
+     if(this.props.loginStatus===0 && nextProps.loginStatus===1)
+     this.props.getlocation(nextProps.uname, nextProps.ubase64)
+   }
+
+getMarkers(){
+  this.props.getlocation(this.props.uname, this.props.ubase64)
+}
+postMarkers(){
+  let markers= this.state.markers.slice(0);
+  let location_list=[]
+  for (var index in markers){
+    let location= {
+        content: "",
+        longitude:0,
+        latitude:0
+    }
+    location.longitude= markers[index].position.lng()
+    location.latitude= markers[index].position.lat()
+
+    location_list.push(location)
+  }
+    console.log(this.state.directions)
+    if (this.state.directions!==null){
+      let route= {
+        duration:0,
+        distance:0
+      }
+      route.duration=this.getduration(this.state.directions)
+      route.distance=this.getdistance(this.state.directions)
+      this.props.postlocation(this.props.ubase64, location_list,route)
+
+    }else
+  this.props.postlocation(this.props.ubase64, location_list,null)
+
+}
     handleDeleteMarkers(){
       this.setState({
-        markers: []
+        markers: [],
+        directions: null
       })
     }
     handleRouteClick(){
@@ -177,7 +226,7 @@ getduration= this.getduration.bind(this);
       this.setState({
         markers: [
           ...this.state.markers,
-          { position: event.latLng },
+          { position: event.latLng, label:{text:(this.state.markers.length+1+'')} },
         ],
       });
       console.log(this.state.markers)
@@ -188,7 +237,8 @@ getduration= this.getduration.bind(this);
     // Add a marker for each place returned from search bar
     const markers = places.map(place => ({
       position: place.geometry.location,
-    }));
+    label:{text:(this.state.markers.length+1+'')}
+  }));
 
     // Set markers; set map center to first search result
     const mapCenter = markers.length > 0 ? markers[0].position : this.state.center;
@@ -245,6 +295,8 @@ getdistance(directions){
       <div>이동 시간 :{this.getduration(this.state.directions)}초</div>
       <button onClick={this.handleRouteClick}>경로 계산하기</button>
       <button onClick={this.handleDeleteMarkers}>지도 초기화하기</button>
+      <button onClick={this.postMarkers}>지도 포스트하기</button>
+      <button onClick={this.getMarkers}>마커 가져오기</button>
       <SearchBoxExampleGoogleMap
         containerElement={
           <div style={{  height: 700, weight:200 }} />
@@ -258,7 +310,9 @@ getdistance(directions){
         onSearchBoxMounted={this.handleSearchBoxMounted}
         bounds={this.state.bounds}
         onPlacesChanged={this.handlePlacesChanged}
-        markers={this.state.markers}
+        markers={[...this.state.markers,...this.props.location_list.map(({longitude, latitude, author})=>({
+          position:{lng: longitude, lat: latitude}, label:{text:author, }
+        }))]}
         onMapClick={this.handleMapClick}
         directions={this.state.directions}
 
@@ -270,3 +324,25 @@ getdistance(directions){
     );
   }
 }
+
+let mapStateToProps = (state) => {
+  return {
+    avatar: state.userlist_reducer.avatar,
+    usernames: state.userlist_reducer.usernames,
+    article_list: state.article_list_reducer.article_list,
+    //article_list: state.wall_reducer.article_list,
+    loginStatus: state.login_reducer.loginStatus,
+    uname: state.login_reducer.uname,
+    ubase64: state.login_reducer.ubase64,
+    location_list: state.map_reducer.location_list
+  };
+}
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    getlocation: (uname, ubase64)=> dispatch(GetLocationRequest(uname,ubase64)),
+    postlocation: (ubase64, location, route)=>dispatch(PostLocationRequest(ubase64, location,route)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);

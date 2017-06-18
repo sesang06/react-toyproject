@@ -10,10 +10,26 @@ from facebook.models import UserProfile
 from facebook.models import Follow
 from facebook.models import Dietdata
 from facebook.models import Music
-
+from facebook.models import Location
+from facebook.models import Route
 from django.db import models
 
 # project 2
+
+class LocationSerializer(serializers.ModelSerializer):
+    author= serializers.ReadOnlyField(source='author.username')
+    class Meta:
+        model= Location
+        fields= ('id','author','content','created','latitude','longitude')
+
+
+
+class RouteSerializer(serializers.ModelSerializer):
+    author= serializers.ReadOnlyField(source='author.username')
+    class Meta:
+        model= Route
+        fields= ('id','author','created','distance','duration')
+
 
 class MusicSerializer(serializers.ModelSerializer):
   class Meta:
