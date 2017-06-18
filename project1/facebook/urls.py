@@ -41,6 +41,14 @@ urlpatterns = [
 
   url(r'^music/$', views.MusicList.as_view()),
   url(r'^music/(?P<pk>[0-9]+)/$', views.MusicList.as_view()),
+   url(r'^location/$',views.LocationList.as_view()),
+  url(r'^location/(?P<pk>[0-9]+)/$', views.LocationDetail.as_view()),
+  url(r'^location/user/(?P<pk>[\w.@+-]+)/$', views.LocationUserList.as_view()),
+  url(r'^route/$',views.RouteList.as_view()),
+ url(r'^route/(?P<pk>[0-9]+)/$', views.RouteDetail.as_view()),
+ url(r'^route/user/(?P<pk>[\w.@+-]+)/$', views.RouteUserList.as_view()),
+
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

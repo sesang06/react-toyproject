@@ -11,6 +11,23 @@ User._meta.get_field('email')._unique = True
 User._meta.get_field('email').blank   = False
 
 # project 2
+class Location(models.Model):
+    id      = models.AutoField(primary_key=True)
+    latitude =models.FloatField(null=False)
+    longitude=models.FloatField(null=False)
+    created= models.DateTimeField(auto_now_add=True)
+    author= models.ForeignKey('auth.User',null=False, related_name='location', on_delete=models.CASCADE)
+    content= models.TextField(null=True)
+
+
+class Route(models.Model):
+    id      = models.AutoField(primary_key=True)
+    distance =models.IntegerField(null=False)
+    duration=models.IntegerField(null=False)
+    created= models.DateTimeField(auto_now_add=True)
+    author= models.ForeignKey('auth.User',null=False, related_name='route',  on_delete=models.CASCADE)
+    content= models.TextField(null=True)
+
 
 class Music(models.Model):
   id       = models.AutoField(primary_key=True)
