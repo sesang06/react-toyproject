@@ -71,29 +71,54 @@ class Profile extends Component {
         <div>
             <div>
               <ImageLabel src={this.props.avatar}/>
-              <div> {this.props.uname}</div>
-              <div>이메일 {this.props.email===null?"없음":this.props.email}</div>
-              <div>별명 {this.props.nickname===null?"없음":this.props.nickname}</div>
-              <div>이름 {this.props.first_name===null?"없음":this.props.first_name}</div>
-              <div>성 {this.props.last_name===null?"없음":this.props.last_name}</div>
-              <div>마지막 로그인 <DateLabel  date={this.props.last_login}/> </div>
-                <div>가입일 <DateLabel  date={this.props.date_joined}/> </div>
+              <div><h3 className="hanna"> {this.props.uname}</h3></div>
+              <table className="profile-table">
+                <tr className="profile-tr">
+                  <td className="profile-td">이메일</td>
+                  <td className="profile-td">{this.props.email===null?"없음":this.props.email}</td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">별명</td>
+                  <td className="profile-td">{this.props.nickname===null?"없음":this.props.nickname}</td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">이름</td>
+                  <td className="profile-td">{this.props.first_name===null?"없음":this.props.first_name}</td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">성</td>
+                  <td className="profile-td">{this.props.last_name===null?"없음":this.props.last_name}</td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">마지막 로그인</td>
+                  <td className="profile-td"><DateLabel  date={this.props.last_login}/></td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">가입일</td>
+                  <td className="profile-td"><DateLabel  date={this.props.date_joined}/></td>
+                </tr>
+              </table>
               </div>
 
             <div>
-
-              <div>
-              별명 수정: <input  type="text" ref={ref=>this.newnickname=ref}/>
-              </div>
-              <div>
-              이름 수정 : <input  type="text" ref={ref=>this.newfirst_name=ref}/>
-              </div>
-              <div>
-              성 수정 : <input  type="text" ref={ref=>this.newlast_name=ref}/>
-              </div>
-              <div>
-              프로필 사진 수정 : <input type="file" ref={ref=>this.newfile=ref} />
-              </div>
+              <table className="profile-table">
+                <tr className="profile-tr">
+                  <td className="profile-td">별명 수정</td>
+                  <td className="profile-td"><input className="profile-input" type="text" ref={ref=>this.newnickname=ref}/></td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">이름 수정</td>
+                  <td className="profile-td"><input className="profile-input" type="text" ref={ref=>this.newfirst_name=ref}/></td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">성 수정</td>
+                  <td className="profile-td"><input className="profile-input" type="text" ref={ref=>this.newlast_name=ref}/></td>
+                </tr>
+                <tr className="profile-tr">
+                  <td className="profile-td">프로필 사진 수정</td>
+                  <td className="profile-td"><input className="profile-input" type="file" ref={ref=>this.newfile=ref} /></td>
+                </tr>
+              </table>
               <Button onClick={this.onSubmit.bind(this)} text="프로필 수정하기"/>
 
             </div>

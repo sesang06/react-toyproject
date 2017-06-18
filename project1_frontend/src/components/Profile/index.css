@@ -1,0 +1,31 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+.hanna {
+ font-family: 'Hanna', fantasy;
+}
+
+.profile-table {
+  border: 1px solid gray;
+  margin: 20px auto;
+}
+
+.profile-th {
+  border: 1px solid gray;
+}
+
+.profile-td {
+  border: 1px solid gray;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Hanna', fantasy;
+}
+
+.profile-input {
+  font-size:15px;
+  text-align: center;
+  width: 190px;
+  height: 25px;
+  font-family: 'Hanna', fantasy;
+}
