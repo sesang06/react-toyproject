@@ -125,6 +125,7 @@ componentDidMount(){
 
 getMarkers(){
   this.props.getlocation(this.props.uname, this.props.ubase64)
+  console.log(this.props.route_list)
 }
 postMarkers(){
   let markers= this.state.markers.slice(0);
@@ -291,6 +292,7 @@ getdistance(directions){
       {this.state.markers.map((item)=> (
         <div>{item.content}</div>
       ))}
+
       <div>이동 거리 :{this.getdistance(this.state.directions)}분</div>
       <div>이동 시간 :{this.getduration(this.state.directions)}초</div>
       <button onClick={this.handleRouteClick}>경로 계산하기</button>
@@ -334,7 +336,8 @@ let mapStateToProps = (state) => {
     loginStatus: state.login_reducer.loginStatus,
     uname: state.login_reducer.uname,
     ubase64: state.login_reducer.ubase64,
-    location_list: state.map_reducer.location_list
+    location_list: state.map_reducer.location_list,
+    route_list: state.map_reducer.route_list
   };
 }
 

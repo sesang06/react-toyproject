@@ -1691,7 +1691,7 @@ export function* getLocation(data){
       id: 0,
       author: "",
       content: "",
-      created_time: new Date(),
+      created: new Date(),
       longitude : 0,
       latitude : 0
       }
@@ -1711,7 +1711,42 @@ export function* getLocation(data){
       location_list.push(location)
 
   }
-  yield put(SetLocationRequest(location_list))
+
+  const response2 = yield call(getApi, route_uname_url(uname), {
+    method: 'GET',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  console.log(response2)
+  let route_list = []
+
+  for (var index in response2) {
+    let route = {
+      id: 0,
+      author: "",
+      created: new Date(),
+      distance : 0,
+      duration: 0
+      }
+
+    let id = response2[index]["id"]
+    let author = response2[index]["author"]
+    let created = response2[index]["created"]
+    let distance= response2[index]["distance"]
+    let duration= response2[index]["duration"]
+      route.id = id
+    route.author = author
+    route.created = new Date(created)
+      route.distance = distance
+      route.duration = duration
+      route_list.push(location)
+
+  }
+
+
+  yield put(SetLocationRequest(location_list,route_list))
 
 }
 

@@ -104,9 +104,9 @@ export const PostLocationRequest= (ubase64, location_list, route)=>{
  }
 }
 
-export const SetLocationRequest= (location_list)=>{
+export const SetLocationRequest= (location_list, route_list)=>{
   return{
-    type: SET_LOCATION_REQUEST, location_list
+    type: SET_LOCATION_REQUEST, location_list , route_list
   }
 }
 

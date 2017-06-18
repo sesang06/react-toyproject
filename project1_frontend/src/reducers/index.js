@@ -25,7 +25,8 @@ import {SET_LOCATION_REQUEST} from '../actions'
 
 export const createNewMapState=()=>{
   return {
-    location_list: []
+    location_list: [],
+    route_list: []
   }
 
 }
@@ -37,7 +38,8 @@ export const map_reducer= (state=initialMapState, action)=> {
     case SET_LOCATION_REQUEST:
       return {
         ...state,
-        location_list: action.location_list
+        location_list: action.location_list,
+        route_list: action.route_list
       }
     default:
       return state
