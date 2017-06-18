@@ -94,6 +94,28 @@ export const GET_MUSIC_REQUEST='GET_MUSIC_REQUEST';
 export const SET_MUSIC_REQUEST='SET_MUSIC_REQUEST';
 export const POST_MUSIC_REQUEST='POST_MUSIC_REQUEST';
 
+export const POST_LOCATION_REQUEST= 'POST_LOCATION_REQUEST';
+export const SET_LOCATION_REQUEST= 'SET_LOCATION_REQUEST';
+export const GET_LOCATION_REQUEST= 'GET_LOCATION_REQUEST';
+
+export const PostLocationRequest= (ubase64, location_list, route)=>{
+ return{
+   type: POST_LOCATION_REQUEST, ubase64, location_list , route
+ }
+}
+
+export const SetLocationRequest= (location_list, route_list)=>{
+  return{
+    type: SET_LOCATION_REQUEST, location_list , route_list
+  }
+}
+
+export const GetLocationRequest=(uname,ubase64)=>{
+  return {
+    type : GET_LOCATION_REQUEST,
+    ubase64, uname
+  }
+}
 
 export const PostMusicRequest=(uname, ubase64, title, artist, source)=>{
   return {

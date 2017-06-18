@@ -12,7 +12,7 @@ import defaultprofile from '../../img/defaultprofile.png'
 import { GetWallRequest, GetArticleRequest, GetUserRequest, PostArticleRequest } from '../../actions';
 
 class MapMain extends Component {
-/*
+
   constructor() {
     super();
     this.state={
@@ -32,20 +32,21 @@ class MapMain extends Component {
        this.props.getUser(nextProps.uname, nextProps.ubase64)
      }
 
-  onClick(e) {
-    this.setState({owner : e.target.id});
-  }
+       onClick(e) {
+         this.setState({owner : e.target.id});
 
+         var table = document.getElementById("usertable");
+         var tr = table.getElementsByTagName("tr");
+         for (var i = 0; i < tr.length; i++) {
+           tr[i].style.display = "none";
+         }
+       }
   onGet() {
     this.setState({owner : this.props.uname});
 }
-*/
-render(){
-  return(
-  <Map/>)
-}
 
-/*  render() {
+
+  render() {
     let article_list = this.props.article_list
     let avatar = this.props.avatar
     let wall_owner = null;
@@ -57,6 +58,7 @@ render(){
     if (this.props.loginStatus === 1) {
       return (
         <div>
+          <Map/>
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>
@@ -73,7 +75,6 @@ render(){
                  {(wall_owner!==null)?    <Link to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
 
           </div>
-          <Map/>
         </div>
       )
     } else {
@@ -84,7 +85,6 @@ render(){
       )
     }
   }
-  */
 }
 
 let mapStateToProps = (state) => {
