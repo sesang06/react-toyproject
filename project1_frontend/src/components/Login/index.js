@@ -3,6 +3,7 @@ import './index.css';
 import Button from '../Button';
 import Input from '../Input';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import {postLoginRequest, Logout} from '../../actions';
 /*
@@ -70,10 +71,25 @@ class Login extends Component{
         this.props.onLogout();
     }
     render(){
+      const registerForm = (
+        <div>
+          <p id="login_welcome">{'회원이 아니신가요? '}
+            <Link id="register_menu" to={'/register'}>회원가입 하러가기</Link>
+          </p>
+        </div>
+      )
+
+      const profileForm = (
+        <div>
+          <Link id="profile_menu" to={'/profile'}>회원정보 수정하기</Link>
+        </div>
+      )
+  
       if(this.props.loginStatus===1)
       return (
         <div>
         <p id="login_welcome">{this.props.uname}님, 환영합니다!</p>
+        {profileForm}
         <Button id="logout" onClick={this.onLogoutButton.bind(this)} text="로그아웃"/>
         </div>
       )
@@ -93,6 +109,7 @@ class Login extends Component{
           <label id="login_submitmessage">
           {this.props.loginStatus===0?"":(this.props.loginStatus===1?"로그인에 성공했습니다.":"아이디나 비밀번호가 일치하지 않습니다.")}
           </label>
+          {(this.props.loginStatus !== 1) ? registerForm : ""}
           </div>
         </div>
       );
