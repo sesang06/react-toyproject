@@ -2,6 +2,79 @@ import React from 'react';
 import * as types from '../actions';
 import * as reducers from './index.js';
 
+
+describe('music reducer', () => {
+  it('should return the initial state', () => {
+    expect(
+      reducers.music_reducer(reducers.initialMusicState, {})
+    ).toEqual(
+      {
+        music_list: []
+      }
+    )
+  })
+  it('should handle SET_MUSIC_REQUEST', () => {
+    expect(
+      reducers.music_reducer([], {
+        type: types.SET_MUSIC_REQUEST,
+        music_list: ['test']
+      })
+    ).toEqual(
+      {
+        music_list: ['test']
+      }
+    )
+  })
+})
+
+describe('dietgraph reducer', () => {
+  it('should return the initial state', () => {
+    expect(
+      reducers.dietgrpah_reducer(reducers.initialDietGraphState, {})
+    ).toEqual(
+      {
+        dietdatalist:[]
+      }
+    )
+  })
+  it('should handle SET_DIET_GRAPH_REQUEST', () => {
+    expect(
+      reducers.dietgrpah_reducer([], {
+        type: types.SET_DIET_GRAPH_REQUEST,
+        dietdatalist: ['test']
+      })
+    ).toEqual(
+      {
+        dietdatalist: ['test']
+      }
+    )
+  })
+})
+
+describe('wall reducer', () => {
+  it('should return the initial state', () => {
+    expect(
+      reducers.wall_reducer(reducers.initialWallState, {})
+    ).toEqual(
+      {
+        article_list: []
+      }
+    )
+  })
+  it('should handle SET_WALL_REQUEST', () => {
+    expect(
+      reducers.wall_reducer([], {
+        type: types.SET_WALL_REQUEST,
+        article_list: ['test']
+      })
+    ).toEqual(
+      {
+        article_list: ['test']
+      }
+    )
+  })
+})
+
 describe('image reducer', () => {
   it('should return the initial state', () => {
     expect(
@@ -276,7 +349,8 @@ describe('userlist reducer', () => {
       {
         uname: "",
         ubase64: "",
-        usernames: []
+        usernames: [],
+        avatar: []
       }
     )
   })
@@ -310,7 +384,7 @@ describe('userlist reducer', () => {
     expect(
       reducers.userlist_reducer([], {
         type: types.SET_USER_AVATAR,
-        avatar: ['test2']
+        avatars: ['test2']
       })
     ).toEqual(
       {
