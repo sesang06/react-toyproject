@@ -44,7 +44,7 @@ import { GetUserRequest, } from '../../actions';
 
        onClick(e) {
         var profile = document.getElementsByClassName("profile");
-        profile[0].style.display = "block"; 
+        profile[0].style.display = "block";
 
         this.setState({owner : e.target.id});
 
@@ -80,6 +80,7 @@ import { GetUserRequest, } from '../../actions';
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_graph" onClick={this.onGet} text="내 프로필 불러오기"/>
+            <Link to={'/dietgraph/'+this.props.uname}>내 DietGraph 보러가기</Link>
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
@@ -92,7 +93,6 @@ import { GetUserRequest, } from '../../actions';
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
             {(wall_owner!==null)?    <Link to={'/dietgraph/'+wall_owner.username}>DietGraph 보러가기</Link>:null}
             <br></br>
-            {(wall_owner!==null) ? <Link to={'/postdietgraph'}>Diet 정보 포스트하기</Link> : null}
           </div>
         </div>
       )

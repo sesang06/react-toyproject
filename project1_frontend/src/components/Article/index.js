@@ -79,13 +79,15 @@ class Article extends Component{
     const contentform=(
       <div>
       <div className="Article-author">
-      {(this.props.avatar !== null) ? <Link to={'/wall/'+this.props.author}><img src={this.props.avatar} width="100" height="100"/></Link>:
-      <Link to={'/wall/'+this.props.author}><img src={defaultprofile} width="100" height="100"/></Link>}
-      {this.props.nickname!==null?"닉네임: ":"글쓴이: "}<label>{this.props.nickname!==null?this.props.nickname:this.props.author}</label>
+      <div style={{display:'inline-block'}}>
+      {(this.props.avatar !== null) ? <div><Link to={'/wall/'+this.props.author}><img src={this.props.avatar} width="100" height="100"/></Link></div>:
+      <div><Link to={'/wall/'+this.props.author}><img src={defaultprofile} width="100" height="100"/></Link></div>}
+      {this.props.nickname!==null?"닉네임 ":"글쓴이 "}<label>{this.props.nickname!==null?this.props.nickname:this.props.author}</label>
+      </div>
       </div>
       <div className="Article-date">
-      작성일: <label>{this.props.created_time.getMonth()+1}-{this.props.created_time.getDate()}</label>&nbsp;
-      수정일: <label>{this.props.updated_time.getMonth()+1}-{this.props.updated_time.getDate()}</label>
+      작성일 <label>{this.props.created_time.getMonth()+1}월 {this.props.created_time.getDate()}일</label>&nbsp;
+      수정일 <label>{this.props.updated_time.getMonth()+1}월 {this.props.updated_time.getDate()}일</label>
       </div>
 
       <div className="Article-content">

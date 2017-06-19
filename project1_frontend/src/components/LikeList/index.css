@@ -3,15 +3,24 @@
   border-radius: 10px;
   margin: 30px;
 }
+
 .Like-button{
-  background-color : #4caf50;
-  border:none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display:inline-block;
-  font-size:16px;
-  margin: 4px 2px;
-  cursor: pointer;
+    background-color : #343a40;
+    border:none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size:16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Like-button:hover {
+  background-color: #495057;
+}
+
+.Like-button:active {
+  background-color: #1862ab;
 }
