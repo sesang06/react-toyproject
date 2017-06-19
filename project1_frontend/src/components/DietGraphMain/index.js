@@ -81,6 +81,7 @@ import { GetUserRequest, } from '../../actions';
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_graph" onClick={this.onGet} text="내 프로필 불러오기"/>
             <Link to={'/dietgraph/'+this.props.uname}>내 DietGraph 보러가기</Link>
+            <Link to={'/postdietgraph'}>Diet 정보 포스트하기</Link>
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>

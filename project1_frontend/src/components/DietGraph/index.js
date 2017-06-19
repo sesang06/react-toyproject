@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 //import './index.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import DietGraphPost from '../DietGraphPost'
 import Search from '../Search';
 import Chart from '../Chart'
 import {GetDietGraphRequest} from '../../actions'
@@ -36,8 +35,7 @@ class DietGraph extends Component {
 <p><Link to={'/dietgraph/'}>DietGraph 메인으로 돌아가기</Link></p>
 <p><Link to={'/wall/'+this.props.others_username}>{this.props.others_username}님의 담벼락 보러가기</Link></p>
 <p><Link to={'/map/'+this.props.others_username}>{this.props.others_username}님의 지도 보러가기</Link></p>
- {(this.props.others_username===this.props.uname)?<DietGraphPost update={this.onGet.bind(this)}/>:null}
-    <div>
+     <div>
         <div>
           <div style={{display:'inline-block', width:'50%'}}>
           <Chart data={ this.props.dietdatalist.map(({created, bmi})=>(

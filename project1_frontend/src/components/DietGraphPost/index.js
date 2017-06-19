@@ -34,7 +34,6 @@ class DietGraphPost extends Component {
     if (this.valid) {
       this.setState({ valid: true })
       this.props.postData(this.props.uname, this.props.ubase64, height, weight, step, calorie)
-      this.props.update()
     } else {
       this.setState({ valid: false })
     }
@@ -44,6 +43,7 @@ class DietGraphPost extends Component {
     if (this.props.loginStatus === 1) {
       return (
         <div>
+          <Link to={'/dietgraph'}>그래프 메인으로 돌아가기</Link>
           <table className="diet-table">
             <tr className="diet-tr">
               <td className="diet-td">신장</td>

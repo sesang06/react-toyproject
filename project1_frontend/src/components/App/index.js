@@ -109,6 +109,7 @@ class App extends Component {
           <Route exact path="/wall/" component={WallMain}/>
           <Route exact path="/map/" component={MapMain}/>
           <Route exact path="/map/:username" component={Map}/>
+          <Route exact path="/postdietgraph" component={DietGraphPost}/>
          </div>
         </Router>
       </div>
