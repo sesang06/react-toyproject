@@ -1,14 +1,8 @@
-.Like{
-  border: 1px solid gray;
-  border-radius: 10px;
-  margin: 30px;
-}
-
-.Like-button{
+.Button{
     background-color : #343a40;
     border:none;
     color: white;
-    padding: 8px 16px;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display:inline-block;
@@ -17,10 +11,10 @@
     cursor: pointer;
 }
 
-.Like-button:hover {
+.Button:hover {
   background-color: #495057;
 }
 
-.Like-button:active {
+.Button:active, .Button.active {
   background-color: #1862ab;
 }

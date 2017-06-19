@@ -36,7 +36,7 @@ class WallMain extends Component {
     profile[0].style.display = "block";
 
     this.setState({owner : e.target.id});
-    
+
     var table = document.getElementById("usertable");
     var tr = table.getElementsByTagName("tr");
     for (var i = 0; i < tr.length; i++) {
@@ -77,6 +77,8 @@ class WallMain extends Component {
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>
+            <Link className="Button" to={'/wall/'+this.props.uname}>내 담벼락 보러가기</Link>
+
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
@@ -87,7 +89,11 @@ class WallMain extends Component {
                  (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
             <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
-                 {(wall_owner!==null)?    <Link to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
+                 {(wall_owner!==null)?    <Link className="Button" to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
+                 <br/>
+                 {(wall_owner!==null)?    <Link className="Button" to={'/dietgraph/'+wall_owner.username}>그래프 보러가기</Link>:null}
+                 <br/>
+                 {(wall_owner!==null)?    <Link className="Button" to={'/map/'+wall_owner.username}>지도 보러가기</Link>:null}
 
           </div>
         </div>

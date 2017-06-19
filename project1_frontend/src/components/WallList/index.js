@@ -69,7 +69,24 @@ this.props.getWall(this.props.uname, this.props.ubase64)
     if (this.props.loginStatus === 1) {
       return (
         <div>
-        <Link to={'/wall/'}>담벼락 메인으로 돌아가기</Link>
+        <div>
+        {this.props.uname===this.props.match.params.username?<h1>내 담벼락</h1>:<h1>{this.props.match.params.username}님의 담벼락</h1>}
+        {this.props.uname===this.props.match.params.username?
+          <div>
+          <Link className="Button" to={'/wall/'}>담벼락 메인으로 돌아가기</Link>
+          <Link className="Button" to={'/timeline/'}>내 타임라인 보러가기</Link>
+          <Link className="Button" to={'/dietgraph/'+this.props.uname}>내 그래프 보러가기</Link>
+          <Link className="Button" to={'/map/'+this.props.uname}>내 지도 보러가기</Link>
+          </div>
+        :
+        <div>
+        <Link className="Button" to={'/wall/'}>담벼락 메인으로 돌아가기</Link>
+        <Link className="Button" to={'/dietgraph/'+this.props.match.params.username}>{this.props.match.params.username}님의 그래프 보러가기</Link>
+        <Link className="Button" to={'/map/'+this.props.match.params.username}>{this.props.match.params.username}님의 지도 보러가기</Link>
+        <Link className="Button" to={'/wall/'+this.props.uname}>내 담벼락 보러가기</Link>
+        </div>}
+
+        </div>
 
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>

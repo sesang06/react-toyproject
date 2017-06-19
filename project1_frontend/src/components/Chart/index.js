@@ -23,7 +23,11 @@ class Chart extends Component {
       credits: {
         enabled: false
       },
-
+      plotOptions:{
+        series:{
+          color: '#343a40'
+        }
+      },
       xAxis: {
         type: 'datetime',
         title:{
