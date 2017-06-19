@@ -44,7 +44,7 @@ class DietGraphPost extends Component {
       return (
         <div>
           <Link className="Button" to={'/dietgraph'}>그래프 메인으로 돌아가기</Link>
-          <Link className="Button" to={'/dietgraph'+this.props.uname}>내 그래프 보러가기</Link>
+          <Link className="Button" to={'/dietgraph/'+this.props.uname}>내 그래프 보러가기</Link>
           <table className="diet-table">
             <tr className="diet-tr">
               <td className="diet-td">신장</td>
