@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import './index.css';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 import { connect } from 'react-redux';
 import Search from '../Search';
@@ -19,6 +20,11 @@ import { GetUserRequest, } from '../../actions';
     this.state={
     owner:""
     }
+    this.onGet = this.onGet.bind(this)
+  }
+
+  onGet() {
+    this.setState({ owner: this.props.uname });
   }
 
   componentDidMount(){
@@ -57,6 +63,7 @@ import { GetUserRequest, } from '../../actions';
         <div>
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
+            <Button id="get_my_graph" onClick={this.onGet} text="내 프로필 불러오기"/>
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
