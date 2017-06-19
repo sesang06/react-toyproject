@@ -31,12 +31,23 @@ class DietGraph extends Component {
 
     return (
     <div>
-    <h1>{this.props.others_username+"님의 운동 그래프"}</h1>
-<Link className="Button" to={'/dietgraph/'}>그래프 메인으로 돌아가기</Link>
-<Link className="Button" to={'/wall/'+this.props.others_username}>{this.props.others_username}님의 담벼락 보러가기</Link>
-<Link className="Button" to={'/map/'+this.props.others_username}>{this.props.others_username}님의 지도 보러가기</Link>
-<Link className="Button" to={'/dietgraph/'+this.props.uname}>내 그래프 보러가기</Link>
-     <div>
+    {this.props.uname===this.props.others_username?<h1>내 운동 그래프</h1>:<h1>{this.props.others_username}님의 운동 그래프</h1>}
+
+    {this.props.uname===this.props.others_username?
+      <div>
+      <Link className="Button" to={'/dietgraph/'}>그래프 메인으로 돌아가기</Link>
+      <Link className="Button" to={'/wall/'+this.props.uname}>내 담벼락 보러가기</Link>
+      <Link className="Button" to={'/map/'+this.props.uname}>내 지도 보러가기</Link>
+      </div>
+    :
+    <div>
+    <Link className="Button" to={'/dietgraph/'}>그래프 메인으로 돌아가기</Link>
+    <Link className="Button" to={'/wall/'+this.props.others_username}>{this.props.others_username}님의 담벼락 보러가기</Link>
+    <Link className="Button" to={'/map/'+this.props.others_username}>{this.props.others_username}님의 지도 보러가기</Link>
+    <Link className="Button" to={'/dietgraph/'+this.props.uname}>내 그래프 보러가기</Link>
+    </div>}
+
+<div>
         <div>
           <div style={{display:'inline-block', width:'50%'}}>
           <Chart data={ this.props.dietdatalist.map(({created, bmi})=>(

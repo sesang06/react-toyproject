@@ -294,7 +294,7 @@ getdistance(directions){
     return (
       <div>
       <div>
-      <h1>{this.props.match.params.username}님의 운동 지도</h1>
+      {this.props.uname===this.props.match.params.username?<h1>내 운동 지도</h1>:<h1>{this.props.match.params.username}님의 운동 지도</h1>}
       <p>운동한 지점을 표시하고, 운동 시간을 계산해보세요!</p>
       <ul>
       <li>지도를 클릭하거나 검색하면 마커가 생성되어 방문한 곳을 찍을 수 있어요.</li>
@@ -305,6 +305,21 @@ getdistance(directions){
       <li>마커와 경로를 포스트해서 친구들에게 알리세요!</li>
 
       </ul>
+      {this.props.uname===this.props.match.params.username?
+        <div>
+        <Link className="Button" to={'/map/'}>지도 메인으로 돌아가기</Link>
+        <Link className="Button" to={'/dietgraph/'+this.props.uname}>내 그래프 보러가기</Link>
+        <Link className="Button" to={'/wall/'+this.props.uname}>내 담벼락 보러가기</Link>
+        </div>
+      :
+      <div>
+      <Link className="Button" to={'/map/'}>지도 메인으로 돌아가기</Link>
+    <Link className="Button" to={'/dietgraph/'+this.props.match.params.username}>{this.props.match.params.username}님의 그래프 보러가기</Link>
+    <Link className="Button" to={'/wall/'+this.props.match.params.username}>{this.props.match.params.username}님의 담벼락 보러가기</Link>
+    <Link className="Button" to={'/map/'+this.props.uname}>내 지도 보러가기</Link>
+    </div>
+
+      }
 
       </div>
       <div style={{width:"30%", float:"left"}}>
@@ -314,12 +329,8 @@ getdistance(directions){
   )
       })}
       </div>
-      <div>
-      <Link className="Button" to={'/map/'}>지도 메인으로 돌아가기</Link>
-      <Link className="Button" to={'/dietgraph/'+this.props.match.params.username}>{this.props.match.params.username}님의 그래프 보러가기</Link>
-      <Link className="Button" to={'/wall/'+this.props.match.params.username}>{this.props.match.params.username}님의 담벼락 보러가기</Link>
-      <Link className="Button" to={'/map/'+this.props.uname}>내 지도 보러가기</Link>
-      </div>
+
+
       <div>
       {this.state.directions?directioninfo:null}
       <button className="Button" onClick={this.handleRouteClick}>지도에 찍은 기점을 바탕으로 운동 경로를 계산하세요!</button>
