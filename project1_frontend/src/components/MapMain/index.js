@@ -33,6 +33,9 @@ class MapMain extends Component {
      }
 
        onClick(e) {
+        var profile = document.getElementsByClassName("profile");
+        profile[0].style.display = "block";
+
          this.setState({owner : e.target.id});
 
          var table = document.getElementById("usertable");
@@ -42,6 +45,9 @@ class MapMain extends Component {
          }
        }
   onGet() {
+    var profile = document.getElementsByClassName("profile");  
+    profile[0].style.display = "block";
+
     this.setState({owner : this.props.uname});
 }
 

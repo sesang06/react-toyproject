@@ -25,6 +25,9 @@ import { GetUserRequest, } from '../../actions';
 
   onGet() {
     this.setState({ owner: this.props.uname });
+    var profile = document.getElementsByClassName("profile");
+    profile[0].style.display = "block";
+
   }
 
   componentDidMount(){
@@ -40,7 +43,10 @@ import { GetUserRequest, } from '../../actions';
      }
 
        onClick(e) {
-         this.setState({owner : e.target.id});
+        var profile = document.getElementsByClassName("profile");
+        profile[0].style.display = "block"; 
+
+        this.setState({owner : e.target.id});
 
          var table = document.getElementById("usertable");
          var tr = table.getElementsByTagName("tr");
