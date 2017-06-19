@@ -49,7 +49,22 @@ class GroupList extends Component {
     if (this.props.loginStatus == 1) {
       let len = this.props.group_list.length
       return (
+      <div>
         <div>
+          <ul>
+            <li>그룹을 생성하고 가입하세요!</li>
+            <li>그리고 다양한 사람들과 이야기를 나누어보세요!</li>
+            <li>왼쪽 사이드바에서 그룹을 생성할 수 있습니다.</li> 
+            <li>적당한 이름을 적은 뒤, + 버튼을 누르면 당신이 관리자인 그룹이 생성됩니다.</li>
+            <li>그룹을 생성했다면 들어가서 NOTICE를 작성해보세요.</li>
+            <li>그룹 만들기가 귀찮다면 이미 있는 그룹에 들어가세요!</li>
+            <li>왼쪽 사이드바에서 Get Group List 버튼을 누르고 다양한 그룹 목록을 불러오세요.</li>
+            <li>목록에서 끌리는 그룹에 들어가 JOIN 버튼을 눌러 가입하세요!</li>  
+            <li>당싱이 가입한 그룹에서는 FORUM을 작성해 다양한 사람들과 이야기를 나눌 수 있습니다.</li>
+          </ul>
+        </div>
+
+
         <div className="tab">
           <button id="get_group_list" className="tablinks" onClick={this.onGet}>Get Group List</button>
           {Array.apply(null, Array(len)).map(function(item, i){

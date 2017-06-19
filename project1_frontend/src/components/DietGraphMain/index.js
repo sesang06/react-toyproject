@@ -68,6 +68,16 @@ import { GetUserRequest, } from '../../actions';
       return (
         <div>
           <div>
+            <ul>
+              <li>DIET 정보를 보러갈 수 있습니다.</li>
+              <li>아래 검색창에서 친구의 아이디를 검색해보세요.</li>
+              <li>그러면 친구의 프로필이 뜨고 그의 DIET 그래프를 볼 수 있는 링크가 나타납니다.</li>
+              <li>당신의 DIET 그래프를 보고싶다면, 내 프로필 불러오기 버튼을 누르세요.</li>
+              <li>그러면 당신의 프로필이 뜨고 DIET 그래프를 보러가는 링크가 나타날겁니다.</li>
+              <li>새로운 DIET 정보를 올리고 싶다면, DIET 정보 포스트하기 링크를 통해 정보 포스트 창으로 가세요!</li>
+            </ul>
+          </div>
+          <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_graph" onClick={this.onGet} text="내 프로필 불러오기"/>
           </div>

@@ -52,6 +52,13 @@ class FollowList extends Component {
       let len = this.props.usernames.filter(e => e.includes(this.filterStr)).length
       return (
         <div>
+          <div>
+            <ul>
+              <li>관심있는 사람을 팔로우해보세요!</li>
+              <li>왼쪽 사이드바에서 검색을 해서 찾을 수 있습니다.</li>
+              <li>팔로우하고 싶은 사람의 담벼락을 미리 구경해볼 수 있습니다.</li>
+            </ul>
+          </div>
         <div className="tab">
           <textarea cols="20" rows="2" style={{resize: "none"}} id='search_user_field' onChange={this.onChange} placeholder="Find User" />
           <button id='search_user' onClick={this.getUser}>Search</button>
