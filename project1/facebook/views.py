@@ -56,9 +56,18 @@ class RouteUserList(generics.ListAPIView):
   serializer_class = RouteSerializer
   def get_queryset(self):
     user = get_object_or_404(User,username=self.kwargs['pk'])
-    routedata = Route.objects.filter(author=user) | Route.objects.filter(author=self.request.user)
-    return routedata
-
+    if user== self.request.user:
+        routedata=[]
+        routedata+=Route.objects.filter(author=self.request.user)
+        follow_list = Follow.objects.filter(user=self.request.user)
+        for el in follow_list:
+          routedata += Route.objects.filter(author=el.follow)
+        def getKey(ar):
+          return ar.created
+        return sorted(routedata, key=getKey)
+    else:
+        routedata = Route.objects.filter(author=user) | Route.objects.filter(author=self.request.user)
+        return routedata
 class RouteDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Route.objects.all()
   serializer_class = RouteSerializer
@@ -73,9 +82,19 @@ class LocationList(generics.ListCreateAPIView):
 class LocationUserList(generics.ListAPIView):
   serializer_class = LocationSerializer
   def get_queryset(self):
-    user = get_object_or_404(User,username=self.kwargs['pk'])
-    locationdata = Location.objects.filter(author=user) | Location.objects.filter(author=self.request.user)
-    return locationdata
+      user = get_object_or_404(User,username=self.kwargs['pk'])
+      if user== self.request.user:
+        locationdata=[]
+        locationdata+=Location.objects.filter(author=self.request.user)
+        follow_list = Follow.objects.filter(user=self.request.user)
+        for el in follow_list:
+          locationdata += Location.objects.filter(author=el.follow)
+        def getKey(ar):
+          return ar.created
+        return sorted(locationdata, key=getKey)
+      else:
+        locationdata = Location.objects.filter(author=user) | Location.objects.filter(author=self.request.user)
+        return locationdata
 
 class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Location.objects.all()
