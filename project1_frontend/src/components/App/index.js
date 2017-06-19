@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {connect} from 'react-redux';
 
+import RabbiTur_Rabbit_logo from '../../img/RabbiTur_Rabbit_logo.png'
 import {postLoginRequest, Logout} from '../../actions';
 
 import logo from './logo.svg';
@@ -24,7 +25,7 @@ import MapMain from '../MapMain';
 import Music from '../Music';
 import Map from '../Map'
 import DietGraphPost from '../DietGraphPost';
-
+import Main from '../Main';
 class App extends Component {
   constructor() {
     super();
@@ -86,12 +87,12 @@ class App extends Component {
       </div>
       <div id="main" className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Project 2 - Team 8</h2>
+          <img src={RabbiTur_Rabbit_logo}  className="App-logo" />
         </div>
         <Router>
         <div>
           <Header/>
+          <Route exact path="/" component={Main}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/timeline" component={ArticleList}/>
