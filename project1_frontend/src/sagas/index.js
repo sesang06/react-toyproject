@@ -38,6 +38,8 @@ const profile_url= url+'profile/'
 const music_url=url+'music/'
 const location_url=url+'location/'
 const route_url= url+'route/'
+const dietdata_url=url+'dietdata/'
+
 function location_id_url(id){
   return location_url+id+'/'
 }
@@ -1936,6 +1938,46 @@ export function* postMusic(data) {
   }
 }
 
+export function* watchDietData(){
+  while(true){
+    const data = yield take('POST_DIET_DATA_REQUEST')
+    yield call(postDietData, data)
+  }
+}
+
+export function* postDietData(data){
+  console.log(data)
+
+  const uname = data.uname
+  const hash = data.ubase64
+  //const id = data.id
+  const height = data.height
+  const weight = data.weight
+  const step = data.step
+  const calorie = data.calorie
+  
+
+  const response = yield call(fetch, dietdata_url, {
+    //"async": true,
+    //"crossDomain": true,
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${hash}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ height:height, weight: weight, step: step, calorie: calorie })
+  })
+
+  if (response.ok) {
+    console.log('dietdata_success')
+  } else {
+    console.log('dietdata_fail')
+  }
+
+  //const data2 = { ubase64: hash, uname: uname }
+  //yield call(getDietGraph, data2)
+}
+
 export function* Saga(){
   yield spawn(watchRegister)
   yield spawn(watchId)
@@ -1983,4 +2025,5 @@ export function* Saga(){
   yield spawn(watchPostLocation)
   yield spawn(watchGetLocation)
 
+  yield spawn(watchDietData)
 }

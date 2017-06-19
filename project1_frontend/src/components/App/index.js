@@ -23,6 +23,7 @@ import WallMain from '../WallMain';
 import MapMain from '../MapMain';
 import Music from '../Music';
 import Map from '../Map'
+import DietGraphPost from '../DietGraphPost';
 
 class App extends Component {
   constructor() {
@@ -104,7 +105,8 @@ class App extends Component {
           <Route exact path="/wall/" component={WallMain}/>
           <Route exact path="/map/" component={MapMain}/>
           <Route exact path="/map/:username" component={Map}/>
-        </div>
+          <Route exact path="/postdietgraph" component={DietGraphPost}/>
+         </div>
         </Router>
       </div>
     </div>
