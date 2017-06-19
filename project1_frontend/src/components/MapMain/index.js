@@ -64,6 +64,16 @@ class MapMain extends Component {
     if (this.props.loginStatus === 1) {
       return (
         <div>
+        <div>
+          <ul>
+            <li>친구의 운동 지도를 보러갈 수 있습니다.</li>
+            <li>아래 검색창에서 친구의 아이디를 검색해보세요.</li>
+            <li>그러면 친구의 프로필이 뜨고 친구의 운동 지도를 볼 수 있는 링크가 나타납니다.</li>
+            <li>회원님과 친구들의 운동 지도를 모두 보고싶다면, 내 프로필 불러오기 버튼을 누르세요.</li>
+            <li>그러면 당신의 프로필이 뜨고 내 지도를 보러가는 링크가 나타날겁니다.</li>
+          </ul>
+        </div>
+
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>

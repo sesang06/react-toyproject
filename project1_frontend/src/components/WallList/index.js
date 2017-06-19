@@ -35,7 +35,11 @@ class WallList extends Component {
        this.props.getUser(nextProps.uname, nextProps.ubase64)
        this.props.getWall(this.props.match.params.username, nextProps.ubase64)
      }
+      if (this.props.match.params.username!==nextProps.match.params.username){
+        this.props.getUser(nextProps.uname, nextProps.ubase64)
+        this.props.getWall(nextProps.match.params.username, nextProps.ubase64)
 
+      }
      }
 
   onClick(e) {

@@ -5,6 +5,7 @@ import Article from '../Article';
 import { connect } from 'react-redux';
 import Editor from '../Editor'
 import { PostArticleRequest, GetArticleRequest, GetFollowRequest } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class ArticleList extends Component {
   constructor() {
@@ -67,6 +68,9 @@ handleHtmlChange(html){
               <li>당신의 글은 물론, 팔로우한 사람의 글도 보여줍니다.</li>
               <li>아래 에디터를 이용해 다양한 게시글을 작성해보세요!</li>
             </ul>
+          </div>
+          <div>
+          <Link className="Button" to={'/wall/'+this.props.uname}>내 담벼락 보러가기</Link>
           </div>
             <div>
               <Editor id="Article-post" placeholder="당신의 생각을 포스트하세요!" readOnly={false} onChange={this.handleHtmlChange.bind(this)}/>

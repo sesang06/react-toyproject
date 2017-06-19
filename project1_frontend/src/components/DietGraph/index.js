@@ -24,6 +24,10 @@ class DietGraph extends Component {
      componentWillReceiveProps(nextProps){
        if(this.props.loginStatus===0 && nextProps.loginStatus===1)
        this.props.getDietGraph(nextProps.match.params.username,nextProps.ubase64)
+       if (this.props.match.params.username!==nextProps.match.params.username){
+         this.props.getDietGraph(nextProps.match.params.username, nextProps.ubase64)
+
+       }
 
      }
 
