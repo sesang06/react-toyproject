@@ -200,6 +200,16 @@ const FileUpload=(
 )
       if(this.props.loginStatus===1)
     return (
+      <div>
+        <div>
+          <ul>
+            <li>이미지를 업로드하고 볼 수 있는 갤러리입니다.</li>
+            <li>갤러리 불러오기 버튼을 눌러 최신 버전의 갤러리를 구경하세요!</li>
+            <li>갤러리 수정 버튼을 눌러 직접 이미지를 올려보세요.</li>
+            <li>이미 있는 이미지를 지울수도 있습니다.</li>
+          </ul>
+        </div>
+
       <div className="div-body">
       <button id="gallery_button" onClick={this.onGet}>갤러리 불러오기 </button>
 
@@ -218,6 +228,7 @@ const FileUpload=(
 
 
       </div>
+    </div>
     )
     else return(
       <div>

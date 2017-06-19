@@ -65,6 +65,16 @@ class WallMain extends Component {
       return (
         <div>
           <div>
+            <ul>
+              <li>담벼락을 보러갈 수 있습니다.</li>
+              <li>담벼락에서는 자신의 글, 자신이 댓글이나 좋아요를 누른 다른 사람의 글을 모아볼 수 있어요!</li>
+              <li>아래 검색창에서 친구의 아이디를 검색해보세요.</li>
+              <li>그러면 친구의 프로필이 뜨고 그의 담벼락으로 가는 링크가 나타납니다!</li>
+              <li>당신의 담벼락을 보고싶다면, 내 프로필 불러오기 버튼을 누르세요.</li>
+              <li>그러면 당신의 프로필이 뜨고 담벼락으로 가는 링크가 나타날겁니다.</li>
+            </ul>
+          </div>
+          <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_wall" onClick={this.onGet} text="내 프로필 불러오기"/>
           </div>
