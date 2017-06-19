@@ -32,7 +32,7 @@ class Search extends Component {
     let len = this.props.list.length
     return (
       <div>
-        <input onChange={this.onChange} type="text" id="search" className="myInput" placeholder="Find User!" />
+        <input onChange={this.onChange} type="text" id="search" className="myInput" placeholder="친구를 검색해보세요!" />
         <table id="usertable" className="myTable">
           {Array.apply(null, Array(len)).map(function(item, i) {
             return (

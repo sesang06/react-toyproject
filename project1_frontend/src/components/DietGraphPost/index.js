@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import Button from '../Button';
 
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { PostDietDataRequest } from '../../actions';
@@ -42,6 +43,7 @@ class DietGraphPost extends Component {
     if (this.props.loginStatus === 1) {
       return (
         <div>
+          <Link to={'/dietgraph'}>DietGraph 메인으로 돌아가기</Link>
           <table className="diet-table">
             <tr className="diet-tr">
               <td className="diet-td">신장</td>
