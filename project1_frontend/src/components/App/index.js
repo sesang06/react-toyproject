@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import RabbiTur_Rabbit_logo from '../../img/RabbiTur_Rabbit_logo.png'
 import {postLoginRequest, Logout} from '../../actions';
@@ -29,6 +30,7 @@ import Main from '../Main';
 class App extends Component {
   constructor() {
     super();
+    this.url = 'http://13.124.72.170:3333';
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
   }
@@ -71,7 +73,6 @@ class App extends Component {
 
   }
 
-
   render() {
     return (
     <div>
@@ -87,7 +88,9 @@ class App extends Component {
       </div>
       <div id="main" className="App">
         <div className="App-header">
-          <img src={RabbiTur_Rabbit_logo}  className="App-logo" />
+          <a href={this.url}>
+            <img src={RabbiTur_Rabbit_logo}  className="App-logo" />
+          </a>
         </div>
         <Router>
         <div>

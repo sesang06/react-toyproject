@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Editor from '../Editor'
 
 import { GetFollowArticleRequest, PostFollowRequest, DeleteFollowRequest } from '../../actions';
@@ -8,7 +9,7 @@ import { GetFollowArticleRequest, PostFollowRequest, DeleteFollowRequest } from 
 class Follow extends Component {
   constructor() {
     super();
-    this.onGet = this.onGet.bind(this)
+    //this.onGet = this.onGet.bind(this)
     this.follow = false
     this.follow_id = 0
     this.follow_name = ""
@@ -17,12 +18,12 @@ class Follow extends Component {
     this.onDelete = this.onDelete.bind(this)
   }
 
-  onGet() {
-    this.props.getFollowArticle(this.props.ubase64, this.follow_id)
-  }
-  handleHtmlChange(html){
+  //onGet() {
+  //  this.props.getFollowArticle(this.props.ubase64, this.follow_id)
+  //}
+  //handleHtmlChange(html){
 
-  }
+  //}
   check() {
     this.follow_name = ""
     for (var i = 0; i < this.props.follow_list.length; i++) {
@@ -57,19 +58,9 @@ class Follow extends Component {
         <h5><u>Follow List : {this.follow_name}</u></h5>
         <h4>User Name : {this.props.name}</h4>
         <button id='follow_button' onClick={this.follow ? this.onDelete : this.onPost}>{this.follow ? '팔로우 취소' : '팔로우'}</button>
-        <h3>Summary of {this.props.name} <button id='get_follow_article' disabled={!this.follow} onClick={this.onGet}>Get Summary</button></h3>  
-        <div>
-          {Array.apply(null, Array(len)).map(function(item, i){
-            let j = len-i-1
-            return (
-              <div>
-                <h4>{this.props.follow_article_list[j].created_time.getMonth()+1}월 {this.props.follow_article_list[j].created_time.getDate()}일</h4>
-                <Editor readOnly={true} onChange={this.handleHtmlChange.bind(this)} defaultValue={this.props.follow_article_list[j].content} />
-
-              </div>
-            );
-          }, this)}
-        </div>
+        <p>
+          <Link to={'/wall/'+this.props.name}>담벼락 보러가기</Link>
+        </p>
       </div>
     )
   }

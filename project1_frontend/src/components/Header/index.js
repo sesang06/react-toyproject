@@ -5,6 +5,9 @@ import './index.css';
 const Header = () => {
   return (
     <div>
+      <div className="logo">
+        SWPP - 8조
+      </div>
       <div>
         <Link id="login_menu" className="menu" to={'/login'}>Login</Link>
         <Link id="timeline_menu" className="menu" to={'/timeline'}>Timeline</Link>
