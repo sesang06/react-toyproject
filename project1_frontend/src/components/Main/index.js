@@ -14,7 +14,7 @@ class Main extends Component{
 
       return (
         <div>
-          <h1 style={{fontSize: '200%'}}>Team 7조 - RabbiTur</h1>
+          <h1 style={{fontSize: '200%'}}>Team 8조 - RabbiTur</h1>
           <h2 style={{fontSize: '180%'}}>조원 : 조세상, 손혜원, 오용석, 선민준</h2>
           <h3 style={{fontSize: '170%'}}>RabbiTur란?</h3>
           <h4 style={{fontSize: '160%'}}><div style={{display:'inline-block'}}><div><img src={RabbiTur_Rabbit}  style={{width:'100px'}} /></div><strong>토끼</strong></div>와 <div style={{display:'inline-block'}}><div><img src={RabbiTur_Turtle}  style={{width:'100px'}} />
