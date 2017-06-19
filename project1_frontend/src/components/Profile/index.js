@@ -3,6 +3,7 @@ import './index.css';
 import Button from '../Button';
 import Article from '../Article';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import defaultprofile from '../../img/defaultprofile.png'
 
 import { PostImageRequest, GetArticleRequest } from '../../actions';
@@ -69,6 +70,7 @@ class Profile extends Component {
    if (this.props.loginStatus === 1) {
       return (
         <div>
+          <Link to={'/login'}>Login 메인으로 돌아가기</Link>
             <div>
               <ImageLabel src={this.props.avatar}/>
               <div><h3 className="hanna"> {this.props.uname}</h3></div>
