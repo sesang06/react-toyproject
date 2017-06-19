@@ -10,20 +10,32 @@ class DietGraphPost extends Component {
   constructor() {
     super()
     this.onSubmit = this.onSubmit.bind(this)
+    this.valid = false
+    this.state = { valid: false }
   }
 
   onSubmit() {
-    let height = null;
-    let weight = null;
-    let step = null;
-    let calorie = null;
+    let height = -1;
+    let weight = -1;
+    let step = -1;
+    let calorie = -1;
 
     if (this.height.value !== "") height = this.height.value
     if (this.weight.value !== "") weight = this.weight.value
     if (this.step.value !== "") step = this.step.value
     if (this.calorie.value !== "") calorie = this.calorie.value
 
-    this.props.postData(this.props.uname, this.props.ubase64, height, weight, step, calorie)
+    if ((height >= 0) && (weight >= 0) && (step >= 0) && (calorie >= 0))
+      this.valid = true
+    else
+      this.valid = false
+
+    if (this.valid) {
+      this.setState({ valid: true })
+      this.props.postData(this.props.uname, this.props.ubase64, height, weight, step, calorie)
+    } else {
+      this.setState({ valid: false })
+    }
   }
 
   render() {
@@ -33,21 +45,22 @@ class DietGraphPost extends Component {
           <table className="diet-table">
             <tr className="diet-tr">
               <td className="diet-td">신장</td>
-              <td className="diet-td"><input className="diet-input" type="number" step="1" ref={ref=>this.height=ref}/></td>
+              <td className="diet-td"><input min="0" className="diet-input" type="number" step="1" ref={ref=>this.height=ref}/></td>
             </tr>
             <tr className="diet-tr">
               <td className="diet-td">몸무게</td>
-              <td className="diet-td"><input className="diet-input" type="number" step="1" ref={ref=>this.weight=ref}/></td>
+              <td className="diet-td"><input min="0" className="diet-input" type="number" step="1" ref={ref=>this.weight=ref}/></td>
             </tr>
             <tr className="diet-tr">
               <td className="diet-td">걸음수</td>
-              <td className="diet-td"><input className="diet-input" type="number" step="1" ref={ref=>this.step=ref}/></td>
+              <td className="diet-td"><input min="0" className="diet-input" type="number" step="1" ref={ref=>this.step=ref}/></td>
             </tr>
             <tr className="diet-tr">
               <td className="diet-td">칼로리</td>
-              <td className="diet-td"><input className="diet-input" type="number" step="1" ref={ref=>this.calorie=ref}/></td>
+              <td className="diet-td"><input min="0" className="diet-input" type="number" step="1" ref={ref=>this.calorie=ref}/></td>
             </tr>
           </table>
+          {(this.state.valid) ? '' : '0 이상의 정수를 입력해주세요'}
           <Button onClick={this.onSubmit} text="포스트하기"/>
        </div>
       )
