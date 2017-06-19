@@ -47,31 +47,20 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
       bounds={props.bounds}
       controlPosition={google.maps.ControlPosition.TOP_LEFT}
       onPlacesChanged={props.onPlacesChanged}
-      inputPlaceholder="Customized your placeholder"
+      inputPlaceholder="운동한 공간을 검색하세요!"
       inputStyle={INPUT_STYLE}
     />
      {props.directions && <DirectionsRenderer directions={props.directions} />}
     {props.markers.map((marker, index) => {
-       const onClick = () => props.onMarkerClick(marker);
-       const onCloseClick = () => props.onCloseClick(marker);
 
        return (
          <Marker
            key={index}
            position={marker.position}
            title={(index + 1).toString()}
-           onClick={onClick}
            label={marker.label}
          >
-           {marker.showInfo && (
-             <InfoWindow onCloseClick={onCloseClick}>
-               <div>
-                 <strong>{marker.content}</strong>
-                 <br />
-                 <em>The contents of this InfoWindow are actually ReactElements.</em>
-               </div>
-             </InfoWindow>
-           )}
+
          </Marker>
        );
      })}
@@ -92,9 +81,6 @@ class Map extends Component {
       lng: -122.3212725,
     },
     markers: [],
-
-    origin: new google.maps.LatLng(41.8507300, -87.6512600),
-    destination: new google.maps.LatLng(41.8525800, -87.6514100),
     directions: null,
   };
 
@@ -104,9 +90,7 @@ class Map extends Component {
   handleBoundsChanged = this.handleBoundsChanged.bind(this);
   handleSearchBoxMounted = this.handleSearchBoxMounted.bind(this);
   handlePlacesChanged = this.handlePlacesChanged.bind(this);
-  handleMarkerClick = this.handleMarkerClick.bind(this);
-    handleCloseClick = this.handleCloseClick.bind(this);
-    handleMapClick = this.handleMapClick.bind(this);
+  handleMapClick = this.handleMapClick.bind(this);
     handleDeleteMarkers= this.handleDeleteMarkers.bind(this);
 getdistance= this.getdistance.bind(this);
 getduration= this.getduration.bind(this);
@@ -115,16 +99,21 @@ getMarkers= this.getMarkers.bind(this);
 
 componentDidMount(){
   if(this.props.loginStatus===1)
-  this.props.getlocation(this.props.uname, this.props.ubase64)
+  this.props.getlocation(this.props.match.params.username, this.props.ubase64)
 }
 
    componentWillReceiveProps(nextProps){
      if(this.props.loginStatus===0 && nextProps.loginStatus===1)
-     this.props.getlocation(nextProps.uname, nextProps.ubase64)
+     this.props.getlocation(this.props.match.params.username, nextProps.ubase64)
+
+     this.setState({
+       markers: [],
+       directions: null
+     })
    }
 
 getMarkers(){
-  this.props.getlocation(this.props.uname, this.props.ubase64)
+  this.props.getlocation(this.props.match.params.username, this.props.ubase64)
   console.log(this.props.route_list)
 }
 postMarkers(){
@@ -145,14 +134,18 @@ postMarkers(){
     if (this.state.directions!==null){
       let route= {
         duration:0,
-        distance:0
+        distance:0,
+        start_address:"",
+        end_address:""
       }
       route.duration=this.getduration(this.state.directions)
       route.distance=this.getdistance(this.state.directions)
-      this.props.postlocation(this.props.ubase64, location_list,route)
+      route.start_address=this.state.directions.routes[0].legs[0].start_address
+      route.end_address=this.state.directions.routes[0].legs[this.state.directions.routes[0].legs.length-1].end_address
+      this.props.postlocation(this.props.ubase64, location_list,route,this.props.match.params.username)
 
     }else
-  this.props.postlocation(this.props.ubase64, location_list,null)
+  this.props.postlocation(this.props.ubase64, location_list,null,this.props.match.params.username)
 
 }
     handleDeleteMarkers(){
@@ -181,6 +174,7 @@ postMarkers(){
         }
       });
     }
+    /*
     handleMarkerClick(targetMarker) {
       this.setState({
         markers: this.state.markers.map(marker => {
@@ -208,6 +202,7 @@ postMarkers(){
         }),
       });
     }
+    */
   handleMapMounted(map) {
     this._map = map;
   }
@@ -236,10 +231,12 @@ postMarkers(){
     const places = this._searchBox.getPlaces();
 
     // Add a marker for each place returned from search bar
-    const markers = places.map(place => ({
+    const markers = places.map(place => (new google.maps.Marker({
       position: place.geometry.location,
     label:{text:(this.state.markers.length+1+'')}
-  }));
+  })
+)
+);
 
     // Set markers; set map center to first search result
     const mapCenter = markers.length > 0 ? markers[0].position : this.state.center;
@@ -287,18 +284,39 @@ getdistance(directions){
       }else return undefined
     }
   render() {
+    const directioninfo=(<div>
+      <p>{this.state.directions?this.state.directions.routes[0].legs[0].start_address:null}에서<br/>
+      {this.state.directions?this.state.directions.routes[0].legs[this.state.directions.routes[0].legs.length-1].end_address:null}까지<br/>
+      {this.getdistance(this.state.directions)}m를 {(this.getduration(this.state.directions)/60).toFixed(0)}분 동안 조깅하셨네요!
+      </p>
+    </div>)
     return (
       <div>
-      {this.state.markers.map((item)=> (
-        <div>{item.content}</div>
-      ))}
+      <div>
+      <h1>{this.props.match.params.username}님의 운동 지도</h1>
+      <p>운동한 지점을 표시하고, 운동 시간을 계산해보세요!</p>
+      <ul>
+      <li>지도를 클릭하거나 검색하면 마커가 생성되어 방문한 곳을 찍을 수 있어요.</li>
+      <li>자기 지도로 들어가면 자기와 팔로우한 사람의 위치를 모두 볼 수 있어요.</li>
+      <li>친구의 지도로 들어가면 자기와 친구의 위치만 볼 수 있어요.</li>
+      <li>찍은 마커들 순서대로 경유하여 조깅 경로와 시간, 거리를 검색할 수 있어요.</li>
+      <li>구글 맵이 한국의 도보 검색을 지원하지 않아서, 미국의 지도만 경로검색할 수 있어요. ㅠ.ㅠ</li>
+      <li>마커와 경로를 포스트해서 친구들에게 알리세요!</li>
 
-      <div>이동 거리 :{this.getdistance(this.state.directions)}분</div>
-      <div>이동 시간 :{this.getduration(this.state.directions)}초</div>
-      <button onClick={this.handleRouteClick}>경로 계산하기</button>
-      <button onClick={this.handleDeleteMarkers}>지도 초기화하기</button>
-      <button onClick={this.postMarkers}>지도 포스트하기</button>
-      <button onClick={this.getMarkers}>마커 가져오기</button>
+      </ul>
+      </div>
+      <div style={{width:"30%", float:"left"}}>
+      {this.props.route_list.slice(0).reverse().map(function(item){
+        return (
+          <RouteInfo route={item}/>
+  )
+      })}
+      </div>
+      <div>
+      {this.state.directions?directioninfo:null}
+      <button onClick={this.handleRouteClick}>지도에 찍은 기점을 바탕으로 운동 경로를 계산하세요!</button>
+      <button onClick={this.handleDeleteMarkers}>실수하셨으면 이곳을 눌러 초기화하세요!</button>
+      <button onClick={this.postMarkers}>방문하신 경로를 포스트하세요!</button>
       <SearchBoxExampleGoogleMap
         containerElement={
           <div style={{  height: 700, weight:200 }} />
@@ -318,15 +336,25 @@ getdistance(directions){
         onMapClick={this.handleMapClick}
         directions={this.state.directions}
 
-        onMarkerClick={this.handleMarkerClick}
-       onCloseClick={this.handleCloseClick}
 
       />
+      </div>
       </div>
     );
   }
 }
+class RouteInfo extends Component{
 
+  render(){
+    return(
+      <div>
+      <p>{this.props.route.created.getMonth()+1}월  {this.props.route.created.getDate()}일 {this.props.route.created.getHours()}시</p>
+      <p>{this.props.route.author}님이<br/>{this.props.route.start_address}부터<br/>{this.props.route.end_address}까지<br/>{this.props.route.distance}m를 {(this.props.route.duration/60).toFixed(0)}분 운동했어요!</p>
+
+      </div>
+    )
+  }
+}
 let mapStateToProps = (state) => {
   return {
     avatar: state.userlist_reducer.avatar,
@@ -344,7 +372,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     getlocation: (uname, ubase64)=> dispatch(GetLocationRequest(uname,ubase64)),
-    postlocation: (ubase64, location, route)=>dispatch(PostLocationRequest(ubase64, location,route)),
+    postlocation: (ubase64, location, route, uname)=>dispatch(PostLocationRequest(ubase64, location,route, uname)),
   };
 }
 

@@ -28,7 +28,7 @@ class RouteSerializer(serializers.ModelSerializer):
     author= serializers.ReadOnlyField(source='author.username')
     class Meta:
         model= Route
-        fields= ('id','author','created','distance','duration')
+        fields= ('id','author','created','distance','duration', 'start_address', 'end_address')
 
 
 class MusicSerializer(serializers.ModelSerializer):
