@@ -56,7 +56,7 @@ class CommentList extends Component {
                 return (
                   <div>
                     <div>
-                      <Comment author={item.author} article_id={item.article_id} id={item.id} content={item.content} created_time={item.created} updated_time={item.updated} like_list={item.like_list} likes_count={item.likes_count}/>
+                      <Comment author={item.author} avatar={item.avatar} nickname={item.nickname} article_id={item.article_id} id={item.id} content={item.content} created_time={item.created} updated_time={item.updated} like_list={item.like_list} likes_count={item.likes_count}/>
                     </div>
                   </div>
                 )}

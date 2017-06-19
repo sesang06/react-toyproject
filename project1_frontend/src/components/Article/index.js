@@ -87,13 +87,17 @@ class Article extends Component{
       </div>
       <div className="Article-date">
       작성일 <label>{this.props.created_time.getMonth()+1}월 {this.props.created_time.getDate()}일</label>&nbsp;
-      수정일 <label>{this.props.updated_time.getMonth()+1}월 {this.props.updated_time.getDate()}일</label>
+      수정일 <label>{this.props.updated_time.getMonth()+1}월 {this.props.updated_time.getDate()}일</label>&nbsp;
+      id <label>{this.props.id}</label>
+      
       </div>
-
       <div className="Article-content">
       <Editor readOnly={true} onChange={this.handleHtmlChange.bind(this)} defaultValue={this.props.content} />
-
       </div>
+      <div>
+
+      좋아요 <label>{this.props.likes_count}</label>개&nbsp;
+      댓글 <label>{this.props.comments_count}</label>개</div>
       </div>
     )
     return (
@@ -108,11 +112,6 @@ class Article extends Component{
               </div>
 
               {(this.props.author===this.props.uname)?deletebutton:""}
-              <div>
-              좋아요 수: <label>{this.props.likes_count}</label>&nbsp;
-              댓글 수 : <label>{this.props.comments_count}</label>&nbsp;
-              게시글 id: <label>{this.props.id}</label>
-              </div>
 
               <div className="Article-comment">
               <CommentList article_id={this.props.id} comment_list={this.props.comment_list}/>

@@ -16,6 +16,7 @@ from django.db import models
 
 # project 2
 
+
 class LocationSerializer(serializers.ModelSerializer):
     author= serializers.ReadOnlyField(source='author.username')
     class Meta:
@@ -72,6 +73,18 @@ class ArticleSerializer(serializers.ModelSerializer):
   class Meta:
     model = Article
     fields =('id', 'author','created','updated','comments','content', 'comments_count', 'likes', 'likes_count', 'userprofile')
+class CommentSerializer(serializers.ModelSerializer):
+  userprofile= UserProfileSerializer(source='author.userprofile', read_only=True)
+  author= serializers.ReadOnlyField(source='author.username')
+  article= serializers.ReadOnlyField(source='article.id')
+  likes_count=serializers.SerializerMethodField()
+  likes = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+  def get_likes_count(self,obj):
+      count= CommentLike.objects.filter(comment=obj).count()
+      return count
+  class Meta:
+    model= Comment
+    fields =('id','author','created','updated','content', 'article', 'likes', 'likes_count', 'userprofile')
 
 
 
@@ -253,17 +266,6 @@ class UserLoginSerializer(serializers.ModelSerializer):
     model   = User
     fields  = ('username',)
 
-class CommentSerializer(serializers.ModelSerializer):
-  author= serializers.ReadOnlyField(source='author.username')
-  article= serializers.ReadOnlyField(source='article.id')
-  likes_count=serializers.SerializerMethodField()
-  likes = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-  def get_likes_count(self,obj):
-      count= CommentLike.objects.filter(comment=obj).count()
-      return count
-  class Meta:
-    model= Comment
-    fields =('id','author','created','updated','content', 'article', 'likes', 'likes_count')
 
 class ArticleLikeSerializer(serializers.ModelSerializer):
   author= serializers.ReadOnlyField(source='author.username')

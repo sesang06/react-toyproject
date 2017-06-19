@@ -24,9 +24,9 @@ import {SetLocationRequest} from '../actions'
 ////////////////////////////////////////////
 
 
-//const url='http://localhost:8000/'
+const url='http://localhost:8000/'
 //const url='http://13.124.72.170:8000/'
-const url='http://13.124.72.170:8888/'
+//const url='http://13.124.72.170:8888/'
 const user_dup_url = url+'users/duplication/'
 const user_url=url+'users/'
 const user_login_url= url+'users/login/'
@@ -710,7 +710,12 @@ export function* getComment(data){
         updated:new Date(),
         like_list: [],
         likes_count: 0,
+        avatar:null,
+        nickname:null
     }
+    console.log(response)
+
+
       let id = response[index]["id"]
 
       let article_id = response[index]["article"]
@@ -727,8 +732,20 @@ export function* getComment(data){
       comment.updated= new Date(updated)
       comment.created = new Date(created)
       comment.likes_count = likes_count
+      let nickname=null
+      let avatar=null
+      if (response[index]['userprofile']===null){
+        nickname= null
+         avatar=null
+      }else{
+        nickname=response[index]['userprofile']['nickname'] || null
+        avatar=  url.slice(0,-1)+response[index]['userprofile']['avatar'] || null
+    }
+      comment.nickname=nickname
+      comment.avatar=avatar
       commentlist.push(comment)
     }
+
     //console.log(commentlist)
 
     yield put(SetCommentList(commentlist, parseInt(id)))
@@ -1955,7 +1972,7 @@ export function* postDietData(data){
   const weight = data.weight
   const step = data.step
   const calorie = data.calorie
-  
+
 
   const response = yield call(fetch, dietdata_url, {
     //"async": true,

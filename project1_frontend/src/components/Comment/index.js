@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import LikeList from '../LikeList'
 import Editor from '../Editor'
 
+import { Link } from 'react-router-dom';
+
+import defaultprofile from '../../img/defaultprofile.png'
 import {  DeleteCommentRequest, UpdateCommentRequest,  } from '../../actions';
 
 
@@ -68,16 +71,25 @@ const contentform=(
   <div>
 
   <div className="Comment-author">
-  댓글 글쓴이: <label id={this.props.author_id}>{this.props.author}</label>
+  <div style={{display:'inline-block'}}>
+  {(this.props.avatar) ? <div><Link to={'/wall/'+this.props.author}><img src={this.props.avatar} width="100" height="100"/></Link></div>:
+  <div><Link to={'/wall/'+this.props.author}><img src={defaultprofile} width="100" height="100"/></Link></div>}
+  {this.props.nickname?"닉네임 ":"글쓴이 "}<label>{this.props.nickname?this.props.nickname:this.props.author}</label>
   </div>
+ </div>
   <div className="Comment-date">
-  작성일: <label id={this.props.created_time_id}>{this.props.created_time.getMonth()+1}-{this.props.created_time.getDate()}</label>&nbsp;
-  수정일: <label>{this.props.updated_time.getMonth()+1}-{this.props.updated_time.getDate()}</label>
+  작성일 <label id={this.props.created_time_id}>{this.props.created_time.getMonth()+1}월 {this.props.created_time.getDate()}일</label>&nbsp;
+  수정일 <label>{this.props.updated_time.getMonth()+1}월 {this.props.updated_time.getDate()}일</label>&nbsp;
+  id <label>{this.props.id}</label>
   </div>
   <div className="Comment-content">
   <Editor readOnly={true} id={this.props.text_id} onChange={this.handleHtmlChange.bind(this)} defaultValue={this.props.content}/>
 
   </div>
+  <div>
+  좋아요 <label>{this.props.likes_count}</label>개
+  </div>
+
 </div>
 )
 
@@ -86,12 +98,7 @@ const contentform=(
       {(this.state.update)?updateform:contentform}
       {(this.props.author===this.props.uname)?deletebutton:""}
 
-            <div>
-        댓글 백엔드 id: <label>{this.props.id}</label>&nbsp;
-        게시글 백엔드 id: <label>{this.props.article_id}</label>&nbsp;
-        댓글 좋아요 수 : <label>{this.props.likes_count}</label>
-         </div>
-        <div>
+          <div>
         <LikeList article_id={this.props.article_id} comment_id={this.props.id} like_list={this.props.like_list}/>
         </div>
       </div>
