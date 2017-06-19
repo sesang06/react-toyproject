@@ -68,7 +68,8 @@ import { GetUserRequest, } from '../../actions';
             <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
             {(wall_owner!==null)?    <Link to={'/dietgraph/'+wall_owner.username}>DietGraph 보러가기</Link>:null}
-
+            <br></br>
+            {(wall_owner!==null) ? <Link to={'/postdietgraph'}>Diet 정보 포스트하기</Link> : null}
           </div>
         </div>
       )

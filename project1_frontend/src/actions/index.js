@@ -86,6 +86,7 @@ export const DELETE_IMAGE_REQUEST='DELETE_IMAGE_REQUEST'
 ////////////////////////////////////////
 export const SET_DIET_GRAPH_REQUEST= "SET_DIET_GRPAH_REQUEST"
 export const GET_DIET_GRAPH_REQUEST= "GET_DIET_GRAPH_REQUEST"
+export const POST_DIET_GRAPH_REQUEST= "POST_DIET_GRAPH_REQUEST"
 ///////////////////////////////////////
 export const GET_WALL_REQUEST='GET_WALL_REQUEST'
 export const SET_WALL_REQUEST='SET_WALL_REQUEST'
@@ -97,6 +98,41 @@ export const POST_MUSIC_REQUEST='POST_MUSIC_REQUEST';
 export const POST_LOCATION_REQUEST= 'POST_LOCATION_REQUEST';
 export const SET_LOCATION_REQUEST= 'SET_LOCATION_REQUEST';
 export const GET_LOCATION_REQUEST= 'GET_LOCATION_REQUEST';
+
+//////////////////////////////////////
+export const GET_DIET_DATA_REQUEST='GET_DIET_DATA_REQUEST';
+export const SET_DIET_DATA_REQUEST='SET_DIET_DATA_REQUEST';
+export const POST_DIET_DATA_REQUEST='POST_DIET_DATA_REQUEST';
+
+export const PostDietDataRequest=(uname, ubase64, height, weight, step, calorie)=>{
+  return {
+    type: POST_DIET_DATA_REQUEST,
+    uname,
+    ubase64,
+    height,
+  weight,
+  step,
+  calorie
+  }
+}
+
+export const SetDietDataRequest=(uname,dietdatalist)=>{
+  return {
+    type: SET_DIET_DATA_REQUEST,
+  uname,
+    dietdatalist
+  }
+}
+
+export const GetDietDataRequest=(uname, ubase64)=>{
+  return {
+    type: GET_DIET_DATA_REQUEST,
+    uname,
+    ubase64
+  }
+}
+
+//////////////////////////////////////
 
 export const PostLocationRequest= (ubase64, location_list, route, uname)=>{
  return{
