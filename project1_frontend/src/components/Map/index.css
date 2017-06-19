@@ -1,16 +1,3 @@
-.Article-post{
-  resize: none;
-  overflow-y: scroll;
-  font-size: 15px;
-}
-
-.profile {
-  border: 1px solid gray;
-  border-radius: 10px;
-  margin: 30px;
-  padding: 10px;
-  display: none;
-}
 .Button{
     background-color : #343a40;
     border:none;

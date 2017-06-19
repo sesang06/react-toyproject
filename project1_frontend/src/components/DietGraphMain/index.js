@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import './index.css';
+import './index.css';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
@@ -80,8 +80,9 @@ import { GetUserRequest, } from '../../actions';
           <div>
             <Search onClick={this.onClick} list={this.props.usernames} />
             <Button id="get_my_graph" onClick={this.onGet} text="내 프로필 불러오기"/>
-            <Link to={'/dietgraph/'+this.props.uname}>내 DietGraph 보러가기</Link>
-            <Link to={'/postdietgraph'}>Diet 정보 포스트하기</Link>
+            <Link className="Button" to={'/dietgraph/'+this.props.uname}>내 DietGraph 보러가기</Link>
+            <br/>
+            <Link className="Button" to={'/postdietgraph'}>Diet 정보 포스트하기</Link>
           </div>
           <div className="profile">
             <h3>{(wall_owner !== null) ? wall_owner.username + '님의 프로필' : ''}</h3>
@@ -92,8 +93,12 @@ import { GetUserRequest, } from '../../actions';
                  (wall_owner !== null && wall_owner.nickname === null) ? '닉네임: (없음)' : ''}</h4>
             <h4>{(wall_owner !== null && wall_owner.email !== null) ? '이메일: ' + wall_owner.email :
                  (wall_owner !== null && wall_owner.email === null) ? '이메일: (없음)' : ''}</h4>
-            {(wall_owner!==null)?    <Link to={'/dietgraph/'+wall_owner.username}>DietGraph 보러가기</Link>:null}
-            <br></br>
+            {(wall_owner!==null)?    <Link className="Button" to={'/dietgraph/'+wall_owner.username}>그래프 보러가기</Link>:null}
+            <br/>
+            {(wall_owner!==null)?    <Link className="Button" to={'/wall/'+wall_owner.username}>담벼락 보러가기</Link>:null}
+            <br/>
+            {(wall_owner!==null)?    <Link className="Button" to={'/map/'+wall_owner.username}>지도 보러가기</Link>:null}
+            <br/>
           </div>
         </div>
       )
