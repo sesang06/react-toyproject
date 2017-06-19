@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import { connect } from 'react-redux';
+import Editor from '../Editor'
 
 import { GetFollowArticleRequest, PostFollowRequest, DeleteFollowRequest } from '../../actions';
 
@@ -19,7 +20,9 @@ class Follow extends Component {
   onGet() {
     this.props.getFollowArticle(this.props.ubase64, this.follow_id)
   }
+  handleHtmlChange(html){
 
+  }
   check() {
     this.follow_name = ""
     for (var i = 0; i < this.props.follow_list.length; i++) {
@@ -60,7 +63,9 @@ class Follow extends Component {
             let j = len-i-1
             return (
               <div>
-                <h4>{this.props.follow_article_list[j].created_time.getMonth()+1}/{this.props.follow_article_list[j].created_time.getDate()} : {this.props.follow_article_list[j].content}</h4>
+                <h4>{this.props.follow_article_list[j].created_time.getMonth()+1}월 {this.props.follow_article_list[j].created_time.getDate()}일</h4>
+                <Editor readOnly={true} onChange={this.handleHtmlChange.bind(this)} defaultValue={this.props.follow_article_list[j].content} />
+
               </div>
             );
           }, this)}
