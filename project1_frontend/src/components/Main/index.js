@@ -15,7 +15,7 @@ class Main extends Component{
 
       return (
         <div>
-          <h1>Team 8조 - RabbiTur</h1>
+          <h1>Team 7조 - RabbiTur</h1>
           <h2>조원 : 조세상, 손혜원, 오용석, 선민준</h2>
           <h3>RabbiTur란?</h3>
           <h4><div style={{display:'inline-block'}}><div><img src={RabbiTur_Rabbit}  style={{width:'100px'}} /></div><strong>토끼</strong></div>와 <div style={{display:'inline-block'}}><div><img src={RabbiTur_Turtle}  style={{width:'100px'}} /></div><strong>거북이</strong></div>가 힘을 합쳐 만든 운동 SNS 서비스에요!</h4>
