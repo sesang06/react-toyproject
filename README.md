@@ -51,7 +51,7 @@
 -  React-router-dom, https://www.npmjs.com/package/react-router-dom
     - 다양한 주소로 라우팅하고 하이퍼링크를 이용해도 react-state가 저장되게 하기 위해 이용했어요.
 -	Quill, https://quilljs.com/
-    - 타임라인과 담벼락에 쓰이는 rich text editor를 연ㄷ홍했어요.
+    - 타임라인과 담벼락에 쓰이는 rich text editor를 연했어요.
 -	React-image-gallery, https://www.npmjs.com/package/react-image-gallery
     - 이미지 갤러리의 프론트엔드를 꾸밀 때 연동했어요.
 -	Highcharts, https://www.highcharts.com/
